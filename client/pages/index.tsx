@@ -1,22 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-slate-600 h-screen">
-      <header>
-        <div className="bg-slate-800 text-slate-100 text-4xl h-32 flex justify-center items-center">Bear Cards</div>
-      </header>
-      <body>
-        <div className="bg-slate-200 p-10 h-fit ">
-          <h1 className="flex justify-center items-center pb-10  text-2xl">Flashcard List</h1>
-          <div className="bg-slate-400 h-fit p-5 grid ">
-            <div className="bg-slate-500 h-fit m-5 p-5 ">card 1</div>
-            <div className="bg-slate-500 h-fit m-5 p-5 ">card 2</div>
-            <div className="bg-slate-500 h-fit m-5 p-5 ">card 3</div>
-          </div>
+    <div className="bg-slate-600 h-screen">
+      <div className="bg-slate-800 text-slate-100 text-4xl h-32 flex justify-center items-center">Bear Cards</div>
+      <div className="bg-slate-200 p-10 h-fit ">
+        <h1 className="flex justify-center items-center pb-10  text-2xl">Home Page</h1>
+        <div className="bg-slate-400 h-fit p-5 grid ">
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/list"}>
+            Flashcards List
+          </Link>
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/addflashcards"}>
+            Add Flashcards
+          </Link>
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/myflashcards"}>
+            My Flashcards
+          </Link>
+          {/* I need to create a page for the id so i can delet individual cards */}
+          {/* <Link className="bg-blue-200 p-6 text-center m-1" href={"/myflashcards/*"}>
+            My Flashcards
+          </Link> */}
         </div>
-      </body>
-    </main>
+      </div>
+    </div>
   );
 }

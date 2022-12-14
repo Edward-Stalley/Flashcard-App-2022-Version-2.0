@@ -9,6 +9,9 @@ export default function Home() {
       <div className="bg-slate-200 p-10 h-fit ">
         <h1 className="flex justify-center items-center pb-10  text-2xl">Home Page</h1>
         <div className="bg-slate-400 h-fit p-5 grid ">
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/classes"}>
+            Classes
+          </Link>
           <Link className="bg-blue-200 p-6 text-center m-1" href={"/list"}>
             Flashcards List
           </Link>

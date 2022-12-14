@@ -19,7 +19,7 @@ const db = mysql.createConnection({
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");
 });
-
+// THIS IS FOR TEST
 app.get("/list", (req, res) => {
   const q = "SELECT * FROM personal_flashcards";
   db.query(q, (err, data) => {
@@ -29,6 +29,7 @@ app.get("/list", (req, res) => {
   });
 });
 
+// THESE ARE FOR STUDENT MADE DECKS
 app.get("/myflashcards", (req, res) => {
   const q = "SELECT * FROM my_flashcards";
   db.query(q, (err, data) => {
@@ -37,8 +38,6 @@ app.get("/myflashcards", (req, res) => {
     return res.json(data);
   });
 });
-
-// is not taking the data from the inputs and putting it into the database
 
 app.post("/myflashcards", (req, res) => {
   const q = "INSERT INTO my_flashcards (`english`,`japanese`,`example_sentence`) VALUES(?)";
@@ -56,7 +55,19 @@ app.delete("/myflashcards/:id", (req, res) => {
   const q = "DELETE FROM my_flashcards WHERE id = ? ";
   db.query(q, [cardId], (err, data) => {
     if (err) return res.json(err);
+    console.log(data);
     return res.json(data);
+  });
+});
+
+// THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
+
+app.get("/classes/:id", (req, res) => {
+  const classId = req.params.id;
+  const q = `"SELECT * FROM personal_flashcards ${classId}`;
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    else return res.json(data);
   });
 });
 

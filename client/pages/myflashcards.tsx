@@ -45,7 +45,7 @@ export default function myFlashcards() {
     const { english, japanese, example_sentence } = card;
     return (
       <div
-        className="flex flex-col h-fit w-96 p-2 m-2 gap-4 items-center justify-center bg-slate-500 text-slate-200"
+        className="flex relative flex-col h-fit w-96 p-2 m-2 gap-4 items-center justify-center bg-slate-500 text-slate-200"
         key={card.id}
       >
         <h1>
@@ -59,8 +59,11 @@ export default function myFlashcards() {
         <button onClick={handleShow} className="hover:bg-slate-800 p-2 border">
           Show Example Sentence
         </button>
-        <button onClick={() => handleDelete(card.id)} className="hover:bg-rose-800 p-2 border">
-          Delete
+        <button
+          onClick={() => handleDelete(card.id)}
+          className="hover:bg-rose-800 p-2 border h-8 flex items-center rounded top-2 right-2 absolute justify-center w-8"
+        >
+          X
         </button>
 
         {show && (
@@ -76,6 +79,9 @@ export default function myFlashcards() {
   return (
     <div className="bg-slate-200 flex justify-center m-5 flex-col ">
       <h1 className="flex justify-center p-5 text-3xl">My Cards Here</h1>
+      <Link className="bg-pink-400  p-2 w-fit rounded" href="/">
+        Home
+      </Link>
       <div className="bg-slate-900  place-items-center grid grid-h-fit m-2 p-2">{cards}</div>
     </div>
   );

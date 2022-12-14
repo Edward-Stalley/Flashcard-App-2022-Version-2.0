@@ -1,6 +1,11 @@
+// Imported from Dependencies
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+// Imported Components
+
+import Flashcards from "../Flashcards";
 
 export default function classFlashcards() {
   // dynamic routing
@@ -9,28 +14,53 @@ export default function classFlashcards() {
 
   // state
   const [flashcards, setFlashcards] = useState([]);
-
+  console.log(flashcards);
   // effect
 
+  // is Ready ensures it doesnt try to fetch until the classId is set
+
   useEffect(() => {
+    if (!router.isReady) return;
+
     const fetchAllFlashcards = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/${classId}`);
+        const res = await axios.get(`http://localhost:8800/classes/${classId}`);
         setFlashcards(res.data);
       } catch (err) {
-        return console.log(err);
+        console.log(err);
       }
     };
+
     fetchAllFlashcards();
-  }, []);
+  }, [router.isReady]);
+
+  const cards = flashcards.map((card) => {
+    const { id, english, japanese, example_sentence, week, year } = card;
+
+    return (
+      <div key={id + week + year + english}>
+        <Flashcards
+          english={english}
+          japanese={japanese}
+          classPath={`http://localhost:8800/classes/${classId}`}
+          idPath={`http://localhost:8800/classes/${classId}/${id}`}
+        />
+      </div>
+    );
+  });
 
   return (
     <div>
-      <div>
-        {" "}
-        <span className="bg-slate-300"> {classId}</span> flashcards
+      <div className="bg-slate-300 h-32 flex items-center justify-center">
+        <span className="bg-slate-300 m-2 "> {classId}</span> flashcards
       </div>
-      ;
+      <div className="bg-slate-100 grid grid-cols-3 gap-2">{cards};</div>
     </div>
   );
 }
+
+// heart syndrome --uh-oh
+
+// tuesday wednesday friday
+// 8-30 - 12
+// heart specialist

@@ -42,7 +42,6 @@ app.get("/myflashcards", (req, res) => {
 app.post("/myflashcards", (req, res) => {
   const q = "INSERT INTO my_flashcards (`english`,`japanese`,`example_sentence`) VALUES(?)";
   const values = [req.body.english, req.body.japanese, req.body.example_sentence];
-  // const values = ["hoop", "hoop", "hoop"];
 
   db.query(q, [values], (err, data) => {
     if (err) return res.json("failed");
@@ -64,12 +63,46 @@ app.delete("/myflashcards/:id", (req, res) => {
 
 app.get("/classes/:id", (req, res) => {
   const classId = req.params.id;
-  const q = `"SELECT * FROM personal_flashcards ${classId}`;
+  const q = `SELECT * FROM ${classId}`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);
-    else return res.json(data);
+    console.log(data);
+    return res.json(data);
   });
 });
+
+// NEED TO FIX THIS
+// the problem is here for the delete function`lity not working
+// I imagine it is a routing problem - wonrg param in address bar
+// I need to male the address delete - it works with hardcoded values
+
+app.delete("/classes/listening_kiso/:id", (req, res) => {
+  const cardId = req.params.id;
+  // I need to set this to whatever is in the
+  const q = `DELETE FROM listening_kiso WHERE id = ? `;
+  db.query(q, [cardId], (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+    return res.json(data);
+  });
+});
+
+app.delete("/classes/listening_shokyu/:id", (req, res) => {
+  const cardId = req.params.id;
+  // I need to set this to whatever is in the
+  const q = `DELETE FROM listening_shokyu WHERE id = ? `;
+  db.query(q, [cardId], (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+    return res.json(data);
+  });
+});
+
+app.get("/classes/*/:id", (req, res) => {
+  res.json("dynamic table yo");
+});
+
+// -------
 
 app.listen(8800, () => {
   console.log("connected to backend");

@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 
+// I should make the flashcard behaviour to all pages
+// do i #1 use context?
+//  or  #2 move it up to the top  component and pass it down with props?
+
 export default function myFlashcards() {
   const [flashcards, setFlashcards] = useState([]);
   const [show, setShow] = useState(false);
@@ -19,8 +23,9 @@ export default function myFlashcards() {
     fetchAllFlashcards();
   }, []);
 
-  // The problem is here I think...
   // Solution restarted the server & inserted the slash /
+
+  // NEED TO FIX THIS -this confirmation doesnt work right now
   const confirmDelete = () => {
     confirm("Are you sure you wish to delete this card?");
   };
@@ -29,7 +34,7 @@ export default function myFlashcards() {
     try {
       confirmDelete();
       await axios.delete(`http://localhost:8800/myflashcards/${id}`);
-
+      // console.log(id);
       window.location.reload();
     } catch (err) {
       console.log(err.response);

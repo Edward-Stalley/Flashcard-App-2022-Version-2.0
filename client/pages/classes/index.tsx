@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function classes() {
   return (
@@ -16,12 +16,12 @@ export default function classes() {
       >
         Listening Shokyu
       </Link>
-      <Link
+      {/* <Link
         className="bg-pink-300  hover:bg-pink-400 hover:bg-pink-400h-fit w-64 p-5 rounded flex items-center m-2 justify-center"
         href="/classes/skills_chukyu"
       >
         Skills Chukyu
-      </Link>
+      </Link> */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 
-export default function addFlashcards() {
+export default function AddFlashcards() {
   const [card, setCard] = useState({
     english: "",
     japanese: "",

@@ -15,7 +15,7 @@ export default function Home() {
           <Link className="bg-blue-200 p-6 text-center m-1" href={"/list"}>
             Flashcards List
           </Link>
-          <Link className="bg-blue-200 p-6 text-center m-1" href={"/addflashcards"}>
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/Addflashcards"}>
             Add Flashcards
           </Link>
           <Link className="bg-blue-200 p-6 text-center m-1" href={"/myflashcards"}>

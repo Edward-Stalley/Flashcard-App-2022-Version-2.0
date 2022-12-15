@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-export default function list() {
+export default function List() {
   // This is where I need to import data from mysql to make the
   // flashcard list.
 
@@ -11,7 +11,7 @@ export default function list() {
   useEffect(() => {
     const fetchAllFlashcards = async () => {
       try {
-        const res = await axios.get("http://localhost:8800/list");
+        const res = await axios.get("http://localhost:8800/List");
         setFlashcards(res.data);
       } catch (err) {
         console.log(err);

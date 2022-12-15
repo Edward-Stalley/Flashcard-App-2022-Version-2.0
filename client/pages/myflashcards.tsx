@@ -6,7 +6,7 @@ import Link from "next/link";
 // do i #1 use context?
 //  or  #2 move it up to the top  component and pass it down with props?
 
-export default function myFlashcards() {
+export default function MyFlashcards() {
   const [flashcards, setFlashcards] = useState([]);
   const [show, setShow] = useState(false);
 

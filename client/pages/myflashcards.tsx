@@ -30,14 +30,14 @@ export default function MyFlashcards() {
     confirm("Are you sure you wish to delete this card?");
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: never) => {
     try {
       confirmDelete();
       await axios.delete(`http://localhost:8800/myflashcards/${id}`);
       // console.log(id);
       window.location.reload();
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
     }
   };
 

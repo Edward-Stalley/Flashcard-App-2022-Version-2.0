@@ -4,7 +4,7 @@ import Router, { useRouter } from "next/router";
 
 // Need to pass this down to other components that use flashcards
 
-export default function Flashcards(props) {
+export default function Flashcards(props: any) {
   const router = useRouter();
 
   const [flashcards, setFlashcards] = useState([]);

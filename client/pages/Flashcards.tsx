@@ -25,14 +25,14 @@ export default function Flashcards(props: any) {
     fetchAllFlashcards();
   }, [router.isReady, props.classPath]);
 
-  const handleDelete = async (idPath) => {
+  const handleDelete = async (idPath: any) => {
     try {
       await axios.delete(idPath);
       // confirmDelete();
       console.log(idPath);
       window.location.reload();
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
     }
   };
 

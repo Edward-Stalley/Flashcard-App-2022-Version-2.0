@@ -40,9 +40,12 @@ export default function Flashcards(props: any) {
     setShow((prevState) => !prevState);
   };
 
-  const flipCard = (e) => {
+  const flipCard = (e: React.MouseEvent<HTMLInputElement>) => {
     console.log(e.target);
   };
+
+  // onChange?: ChangeEventHandler<T> | undefined;
+  // onClick?: MouseEventHandler<T> | undefined;
 
   // not sure if i can make useEffect a const so torubleshoot later
 

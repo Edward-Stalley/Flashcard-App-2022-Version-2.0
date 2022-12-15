@@ -7,7 +7,7 @@ import axios from "axios";
 
 import Flashcards from "../Flashcards";
 
-export default function classFlashcards() {
+export default function ClassFlashcards() {
   // dynamic routing
   const router = useRouter();
   const classId = router.query.classId;
@@ -24,7 +24,7 @@ export default function classFlashcards() {
 
     const fetchAllFlashcards = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/classes/${classId}`);
+        const res = await axios.get(`http://localhost:8800/Classes/${classId}`);
         setFlashcards(res.data);
       } catch (err) {
         console.log(err);

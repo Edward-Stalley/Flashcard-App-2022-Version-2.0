@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-export default function classes() {
+export default function Classes() {
   return (
     <div>
       {/* need to fetch names based on the database classes - dynamically */}
       <Link
         className="bg-pink-300 hover:bg-pink-400 h-fit w-64 p-5 rounded flex items-center m-2 justify-center"
-        href="/classes/listening_kiso"
+        href="/Classes/listening_kiso"
       >
         Listening Kiso
       </Link>
       <Link
         className="bg-pink-300  hover:bg-pink-400 h-fit w-64 p-5 rounded flex items-center  m-2 justify-center"
-        href="/classes/listening_shokyu"
+        href="/Classes/listening_shokyu"
       >
         Listening Shokyu
       </Link>

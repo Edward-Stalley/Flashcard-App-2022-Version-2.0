@@ -20,7 +20,7 @@ export default function AddFlashcards() {
 
     try {
       await axios.post("http://localhost:8800/myflashcards", card);
-      location.href = "/myflashcards";
+      location.href = "/Myflashcards";
       console.log("added", card);
     } catch (err) {
       console.log(err);

@@ -9,7 +9,7 @@ export default function Home() {
       <div className="bg-slate-200 p-10 h-fit ">
         <h1 className="flex justify-center items-center pb-10  text-2xl">Home Page</h1>
         <div className="bg-slate-400 h-fit p-5 grid ">
-          <Link className="bg-blue-200 p-6 text-center m-1" href={"/classes"}>
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/Classes"}>
             Classes
           </Link>
           <Link className="bg-blue-200 p-6 text-center m-1" href={"/List"}>
@@ -18,7 +18,7 @@ export default function Home() {
           <Link className="bg-blue-200 p-6 text-center m-1" href={"/Addflashcards"}>
             Add Flashcards
           </Link>
-          <Link className="bg-blue-200 p-6 text-center m-1" href={"/myflashcards"}>
+          <Link className="bg-blue-200 p-6 text-center m-1" href={"/Myflashcards"}>
             My Flashcards
           </Link>
           {/* I need to create a page for the id so i can delet individual cards */}

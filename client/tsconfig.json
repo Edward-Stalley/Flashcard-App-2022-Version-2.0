@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/Flashcards.js", "pages/Addflashcards.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/Flashcards.tsx", "pages/Addflashcards.tsx"],
   "exclude": ["node_modules"]
 }

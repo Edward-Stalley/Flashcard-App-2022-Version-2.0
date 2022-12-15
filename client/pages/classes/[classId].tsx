@@ -32,7 +32,7 @@ export default function ClassFlashcards() {
     };
 
     fetchAllFlashcards();
-  }, [router.isReady]);
+  }, [router.isReady, classId]);
 
   const cards = flashcards.map((card) => {
     const { id, english, japanese, example_sentence, week, year } = card;

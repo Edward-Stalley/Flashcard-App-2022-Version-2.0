@@ -9,12 +9,13 @@ export default function Flashcards(props) {
 
   const [flashcards, setFlashcards] = useState([]);
   const [show, setShow] = useState(false);
+  // const path = props.classPath
 
   useEffect(() => {
     if (!router.isReady) return;
     const fetchAllFlashcards = async () => {
       try {
-        const res = await axios.get(`${props.classPath}`);
+        const res = await axios.get(props.classPath);
         setFlashcards(res.data);
       } catch (err) {
         console.log(err);
@@ -22,7 +23,7 @@ export default function Flashcards(props) {
     };
 
     fetchAllFlashcards();
-  }, [router.isReady]);
+  }, [router.isReady, props.classPath]);
 
   const handleDelete = async (idPath) => {
     try {

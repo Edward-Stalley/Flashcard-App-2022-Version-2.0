@@ -16,7 +16,7 @@ export default function AddFlashcardsOld() {
 
   const addFlashcard = async (e: { preventDefault: () => void }) => {
     // const handleClick =  aysnc (e) =>{
-    // e.preventDefault();
+    e.preventDefault();
 
     try {
       await axios.post("http://localhost:8800/myflashcards", card);

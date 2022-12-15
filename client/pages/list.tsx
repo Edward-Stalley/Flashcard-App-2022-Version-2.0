@@ -6,7 +6,7 @@ export default function List() {
   // This is where I need to import data from mysql to make the
   // flashcard list.
 
-  const [flashcards, setFlashcards] = useState(["test", "test-2"]);
+  const [flashcards, setFlashcards] = useState([]);
 
   useEffect(() => {
     const fetchAllFlashcards = async () => {
@@ -20,6 +20,13 @@ export default function List() {
 
     fetchAllFlashcards();
   }, []);
+
+  // not sure what this does - added to try and fix error below
+
+  // interface Flashcards {
+  //   main: string;
+  //   [key: string]: string;
+  // }
 
   console.log(flashcards);
   const cards = flashcards.map((f) => {

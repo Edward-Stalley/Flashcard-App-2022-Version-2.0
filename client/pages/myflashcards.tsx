@@ -47,25 +47,25 @@ export default function MyFlashcards() {
   };
 
   const cards = flashcards.map((card) => {
-    const { english, japanese, example_sentence } = card;
+    const { english, japanese, example_sentence, id } = card;
     return (
       <div
         className="flex relative flex-col h-fit w-96 p-2 m-2 gap-4 items-center justify-center bg-slate-500 text-slate-200"
-        key={card.id}
+        key={id}
       >
         <h1>
           <span className="font-bold mr-2 text-slate-900">English:</span>
-          {card.english}
+          {english}
         </h1>
         <h1>
           <span className="font-bold mr-2 text-slate-900">Japanese:</span>
-          {card.japanese}
+          {japanese}
         </h1>
         <button onClick={handleShow} className="hover:bg-slate-800 p-2 border">
           Show Example Sentence
         </button>
         <button
-          onClick={() => handleDelete(card.id)}
+          onClick={() => handleDelete(id)}
           className="hover:bg-rose-800 p-2 border h-8 flex items-center rounded top-2 right-2 absolute justify-center w-8"
         >
           X
@@ -74,7 +74,7 @@ export default function MyFlashcards() {
         {show && (
           <h1>
             <span className="font-bold mr-2 text-slate-900">Example:</span>
-            {card.example_sentence}
+            {example_sentence}
           </h1>
         )}
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 
-export default function AddFlashcards() {
+export default function AddFlashcardsOld() {
   const [card, setCard] = useState({
     english: "",
     japanese: "",
@@ -14,9 +14,9 @@ export default function AddFlashcards() {
     // console.log(card);
   };
 
-  const addFlashcard = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const addFlashcard = async (e: { preventDefault: () => void }) => {
     // const handleClick =  aysnc (e) =>{
-    event.preventDefault();
+    // e.preventDefault();
 
     try {
       await axios.post("http://localhost:8800/myflashcards", card);
@@ -52,18 +52,19 @@ export default function AddFlashcards() {
           className=" text-slate-700 m-1 w-2/5"
         />
       </div>
-      <div className="bg-slate-800 text-slate-200 h-fit w-3/4 flex items-center   justify-evenly p-5 m-1">
-        <label className=" text-slate-700 text-slate-50  w-2/5">Example Sentence:</label>
-        <textarea
+      <div className="bg-slate-800 text-slate-200 h-1/4 w-3/4 flex items-center   justify-evenly p-5 m-1">
+        <label className="text-slate-700 text-slate-50  w-2/5">Example Sentence:</label>
+        <input
+          className=" text-slate-700 m-1 w-2/5"
           name="example_sentence"
           type="text"
+          // onInput={handleChange}
           onChange={handleChange}
           placeholder="Sentence here..."
-          className=" text-slate-700 m-1 w-2/5"
         />
       </div>
-      <button onClick={addFlashcard} className="bg-slate-200 h-38 p-5 m-2 my-10">
-        Add Flashcard to List
+      <button onClick={addFlashcard} className="bg-slate-700 h-10 m-2 text-slate-50  w-2/5">
+        Add Card
       </button>
     </div>
   );

@@ -14,9 +14,9 @@ export default function AddFlashcards() {
     // console.log(card);
   };
 
-  const addFlashcard = async (e) => {
+  const addFlashcard = async (event: React.ChangeEvent<HTMLInputElement>) => {
     // const handleClick =  aysnc (e) =>{
-    e.preventDefault();
+    event.preventDefault();
 
     try {
       await axios.post("http://localhost:8800/myflashcards", card);

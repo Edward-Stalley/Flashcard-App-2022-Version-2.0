@@ -9,8 +9,8 @@ export default function AddFlashcards() {
     example_sentence: "",
   });
 
-  const handleChange = (e) => {
-    setCard((prevCard) => ({ ...prevCard, [e.target.name]: e.target.value }));
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCard((prevCard) => ({ ...prevCard, [event.target.name]: event.target.value }));
     // console.log(card);
   };
 

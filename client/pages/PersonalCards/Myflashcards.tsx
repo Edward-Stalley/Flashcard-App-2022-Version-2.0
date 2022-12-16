@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
+import HomeButton from "../../Components/HomeButton";
+import ToggleButton from "../../Components/ToggleButton";
 
 // I should make the flashcard behaviour to all pages
 // do i #1 use context?
@@ -84,9 +86,8 @@ export default function MyFlashcards() {
   return (
     <div className="bg-slate-200 flex justify-center m-5  w-auto flex-col ">
       <h1 className="flex justify-center p-5 text-3xl">My Cards Here</h1>
-      <Link className="bg-pink-400  p-2 w-fit rounded" href="/">
-        Home
-      </Link>
+      <ToggleButton />
+      <HomeButton />
       <div
         className="
         pt-10

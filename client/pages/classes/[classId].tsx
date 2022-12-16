@@ -1,13 +1,22 @@
 // Imported from Dependencies
+import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import axios from "axios";
-
+import { useContext } from "react";
+import MyThemeContext from "../../store/myThemeContext";
 // Imported Components
 
 import Flashcards from "../../Components/Flashcards";
+import ToggleButton from "../../Components/ToggleButton";
 
 export default function ClassFlashcards() {
+  // Theme
+
+  const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } = useContext(MyThemeContext);
+
+  function toggleThemeHandler(): void {
+    themeCtx.toggleThemeHandler();
+  }
   // dynamic routing
   const router = useRouter();
   const classId = router.query.classId;
@@ -56,7 +65,7 @@ export default function ClassFlashcards() {
     const { id, english, japanese, example_sentence, week, year } = card;
 
     return (
-      <div key={id + week + year + english}>
+      <div key={id + week + year + english} className="flex items-center justify-center">
         <Flashcards
           english={english}
           japanese={japanese}
@@ -69,17 +78,26 @@ export default function ClassFlashcards() {
 
   return (
     <div>
-      <div className="bg-slate-800 h-32 flex items-center justify-center">
-        <span className="text-slate-300 m-2 text-3xl "> {className}</span>
+      <div className="bg-slate-300 text-slate-800 dark:bg-zinc-600 dark:text-zinc-100  h-32 flex items-center justify-center">
+        <span className="bg-slate-300 text-slate-800 dark:bg-zinc-600 dark:text-zinc-100  m-2 text-3xl ">
+          {" "}
+          {className}
+        </span>
       </div>
+      <ToggleButton />
+
       <div
         className="
-        pt-10
+  
+        dark:bg-bd-1
+
+        p-10
       bg-slate-300 gap-5 flex flex-col items-center justify-center
       sm:items-center sm:justify-center sm:flex sm:flex-col
       md:grid 
       md:grid-cols-3 
-      lg:grid-cols-4"
+      lg:grid-cols-4
+       "
       >
         {cards};
       </div>

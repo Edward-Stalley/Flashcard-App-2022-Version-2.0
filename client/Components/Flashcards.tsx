@@ -1,28 +1,47 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Router, { useRouter } from "next/router";
+import { useContext } from "react";
+import MyThemeContext from "../store/myThemeContext";
 
 // Need to pass this down to other components that use flashcards
 
 export default function Flashcards(props: any) {
-  // styles:
-
-  const styleFlip =
-    "relative h-full w-full rounded-xl shadow-xl transition-all duration-500  [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ";
-  const styleStatic =
-    "relative h-full w-full rounded-xl shadow-xl transition-all duration-500  [transform-style:preserve-3d]";
-
   const router = useRouter();
 
-  const [flashcards, setFlashcards] = useState([]);
-  const [show, setShow] = useState(false);
-  // const path = props.classPath
+  // States
 
+  const [flashcards, setFlashcards] = useState([]);
+  const [show, setShow] = useState(true);
+
+  // Light-Dark Theme
+
+  const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } = useContext(MyThemeContext);
+
+  function toggleThemeHandler(): void {
+    themeCtx.toggleThemeHandler();
+  }
+
+  // Flip Functionality
   const [flip, setFlip] = useState(false);
   const handleToggle = function () {
     setFlip((flip) => !flip);
   };
 
+  // Delete Functionality * ONLY GIVE TO "MY FLASHCARDS"
+
+  const handleDelete = async (idPath: any) => {
+    try {
+      await axios.delete(idPath);
+      // confirmDelete();
+      console.log(idPath);
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // Effects
   useEffect(() => {
     if (!router.isReady) return;
     const fetchAllFlashcards = async () => {
@@ -37,76 +56,32 @@ export default function Flashcards(props: any) {
     fetchAllFlashcards();
   }, [router.isReady, props.classPath]);
 
-  const handleDelete = async (idPath: any) => {
-    try {
-      await axios.delete(idPath);
-      // confirmDelete();
-      console.log(idPath);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleShow = () => {
-    setShow((prevState) => !prevState);
-  };
-
-  const flipCard = (e: React.MouseEvent<HTMLInputElement>) => {
-    console.log(e.target);
-    setShow((prevState) => !prevState);
-
-    // setShow(false);
-  };
-
   // onChange?: ChangeEventHandler<T> | undefined;
   // onClick?: MouseEventHandler<T> | undefined;
 
-  // not sure if i can make useEffect a const so torubleshoot later
-
   return (
-    // <div className=" bg-slate-200 m-10 grid grid-cols-3">
-    <div
-      onClick={flipCard}
-      className="bg-slate-300 m-2 p-2 flex w-fit items-center gap-2 hover:bg-slate-300 flex-col text-slate-200  rounded-xl"
-    >
-      {/* <h2>{props.english}</h2> */}
-      {/* <h2>{props.japanese}</h2> */}
-      {/* {show && <h4>{props.example_sentence}</h4>} */}
-      {/* <div className="flex min-h-screen flex-col justify-center bg-slate-100"> */}
-      <div className="group h-16 w-64 [perspective:1000px]">
-        <div className={show ? styleFlip : styleStatic}>
-          <div className="absolute inset-0">
-            <div className=" text-slate-800 h-full flex justify-center items-center bg-blue-200 rounded-xl ">
-              {props.english}
-            </div>
-          </div>
-
-          <div className="text-slate-200 h-full  flex justify-center items-center bg-slate-800 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] ">
-            {props.japanese}
-          </div>
-        </div>
-      </div>
-
+    <div className="relative">
       <div
-        // style={mode ? styles.lightMode : styles.darkMode}
-        className={`card ${flip ? "flip" : ""}`}
+        className={`card ${
+          flip ? "flip" : ""
+        } h-16 w-64  bg-slate-200 rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700`}
         onClick={handleToggle}
       >
-        <div className="front">{props.english}</div>
+        <div className="front ">{props.english}</div>
         <div className="back">{props.japanese} </div>
       </div>
-      {/* </div> */}
-      {/* <h2>{props.classPath}</h2> */}
-      {/* <h3>{props.idPath}</h3> */}
-      {/* <button
-          onClick={() => {
-            handleDelete(props.idPath);
-          }}
-        >
-          X
-        </button> */}
-      {/* </div> */}
+      {show && (
+        <div className="absolute top-0 right-0 flex items-center justify-center bg-zinc-300 h-5 w-5 m-1 rounded">
+          <button
+            onClick={() => {
+              handleDelete(props.idPath);
+            }}
+            className="relative"
+          >
+            X
+          </button>
+        </div>
+      )}
     </div>
   );
 }

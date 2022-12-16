@@ -2,7 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
+
+// My Componentes & Contexts
 import MyThemeContext from "../store/myThemeContext";
+import Header from "../Components/Header";
+import ToggleButton from "../Components/ToggleButton";
 
 export default function Home() {
   const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } = useContext(MyThemeContext);
@@ -12,20 +16,12 @@ export default function Home() {
   }
   return (
     <div className="bg-slate-600 h-screen ">
-      <div className="bg-slate-300 text-slate-800 dark:bg-zinc-600 dark:text-zinc-100 justify-center text-slate-100 text-3xl  h-32 flex items-center">
-        E.B Flashcards
-      </div>
-      <div className=" bg-slate-200 dark:bg-zinc-800 flex justify-end p-4 ">
-        <button
-          type="button"
-          className=" w-32 h-16 bg-blue-200 text-slate-800 dark:bg-zinc-200 dark:text-black rounded  "
-          onClick={toggleThemeHandler}
-        >
-          Toggle Theme
-        </button>
+      <Header pageHeader="E.B Flashcards" />
+      <div className=" bg-slate-200  dark:bg-bd-1 flex justify-end p-4 ">
+        <ToggleButton />
       </div>
 
-      <div className="bg-slate-200 p-10 h-4/5 flex-col flex justify-center items-center dark:bg-zinc-800">
+      <div className="bg-slate-200 p-10 h-4/5 flex-col flex justify-center items-center dark:bg-bd-1">
         {/* <h1 className="flex justify-center items-center pb-10   text-2xl">Home Page</h1> */}
         <div className="bg-slate-400 h-fit w-96 p-5 grid dark:bg-zinc-600 ">
           <Link

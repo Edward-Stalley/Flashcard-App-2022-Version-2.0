@@ -6,10 +6,35 @@ module.exports = {
     extend: {},
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        // Need to add custom colors here to make changing the color scheme easier
+        //    LIGHT SCHEME
+        "bl-1": "var(--primary-bg-light)",
+        //    DARK SCHEME
+
+        "bd-1": "var(--primary-bg-dark)",
+      },
+    },
     fontFamily: {
       raleway: ["Raleway", "sans-serif"],
     },
   },
   plugins: [],
 };
+
+// /* slate 300 */
+// --primary-bg-light: #cbd5e1;
+// /* slate 800*/
+// --primary-text-light: #1e293b;
+
+// /* light mode */
+
+// /* slate 800 */
+// --primary-bg-dark: #1e293b;
+
+// /* slate 600 */
+// --third-bg-dark: #475569;
+// /* slate 200 */
+// --secondary-bg-dark: #e2e8f0;
+// /* slate 100 */

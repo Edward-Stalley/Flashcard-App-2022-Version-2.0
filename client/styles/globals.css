@@ -2,20 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Variables for COLORS */
+
+:root {
+  /* dark mode */
+
+  /* slate 300 */
+  --primary-bg-light: #cbd5e1;
+  /* slate 800*/
+  --primary-text-light: #1e293b;
+
+  /* light mode */
+
+  /* zinc 800 */
+  --primary-bg-dark: #27272a;
+
+  /* slate 600 */
+  --third-bg-dark: #475569;
+  /* slate 200 */
+  --secondary-bg-dark: #e2e8f0;
+  /* slate 100 */
+  --primary-text-dark: #f1f5f9;
+}
+
 /* Card Flipping Functionality */
 
 .card {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
-  color: #282c34;
-  background-color: #fff;
-  height: 50px;
-  width: auto;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* position: relative; */
+  /* border-radius: 0.5rem; */
+  /* border: 1px solid black; */
+  /* box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3); */
+  /* color: #282c34; */
+  /* background-color: #fff; */
+  /* height: 5rem; */
+  /* width: 20rem; */
   /* flipping */
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0px));
@@ -39,10 +63,12 @@
 }
 
 .card .back {
+  /* background-color: aqua; */
   transform: rotateY(180deg);
 }
 
 .card .front {
+  /* background-color: green; */
 }
 
 /* End of Card Flipping */

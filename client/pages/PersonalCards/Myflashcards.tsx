@@ -82,12 +82,22 @@ export default function MyFlashcards() {
   });
 
   return (
-    <div className="bg-slate-200 flex justify-center m-5 flex-col ">
+    <div className="bg-slate-200 flex justify-center m-5  w-auto flex-col ">
       <h1 className="flex justify-center p-5 text-3xl">My Cards Here</h1>
       <Link className="bg-pink-400  p-2 w-fit rounded" href="/">
         Home
       </Link>
-      <div className="bg-slate-900  place-items-center grid grid-h-fit m-2 p-2">{cards}</div>
+      <div
+        className="
+        pt-10
+      bg-slate-300 gap-5 flex flex-col items-center justify-center
+      sm:items-center sm:justify-center sm:flex sm:flex-col
+      md:grid 
+      md:grid-cols-2 
+      lg:grid-cols-3"
+      >
+        {cards}
+      </div>
     </div>
   );
 }

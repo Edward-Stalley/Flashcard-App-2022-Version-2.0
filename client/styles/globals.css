@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Card Flipping Functionality */
+
+.card {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  color: #282c34;
+  background-color: #fff;
+  height: 50px;
+  width: auto;
+  /* flipping */
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0px));
+  transition: 200ms;
+}
+
+.card:hover {
+  --translate-y: -2px;
+  /* transform: scale(102%); */
+}
+
+.card.flip {
+  --rotate-y: 180deg;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.card .back {
+  transform: rotateY(180deg);
+}
+
+.card .front {
+}
+
+/* End of Card Flipping */

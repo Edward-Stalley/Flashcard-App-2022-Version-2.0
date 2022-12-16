@@ -5,18 +5,36 @@ import axios from "axios";
 
 // Imported Components
 
-import Flashcards from "../Flashcards";
+import Flashcards from "../../Components/Flashcards";
 
 export default function ClassFlashcards() {
   // dynamic routing
   const router = useRouter();
   const classId = router.query.classId;
+  const [className, setClassname] = useState("");
+
+  // Format the class Title
+
+  useEffect(() => {
+    const dbName = classId;
+
+    if (typeof dbName === "string") {
+      const nameArr = dbName.split("_");
+      const wordOne = nameArr[0];
+      const wordTwo = nameArr[1];
+      const finalName = `${wordOne[0].toUpperCase() + wordOne.slice(1)} ${wordTwo[0].toUpperCase() + wordTwo.slice(1)}`;
+
+      setClassname(finalName);
+      console.log(className);
+    } else console.log("no");
+  }, [!router.isReady]);
+  // ------------------------
 
   // state
   const [flashcards, setFlashcards] = useState([]);
   console.log(flashcards);
-  // effect
 
+  // effect
   // is Ready ensures it doesnt try to fetch until the classId is set
 
   useEffect(() => {
@@ -51,10 +69,20 @@ export default function ClassFlashcards() {
 
   return (
     <div>
-      <div className="bg-slate-300 h-32 flex items-center justify-center">
-        <span className="bg-slate-300 m-2 "> {classId}</span> flashcards
+      <div className="bg-slate-800 h-32 flex items-center justify-center">
+        <span className="text-slate-300 m-2 text-3xl "> {className}</span>
       </div>
-      <div className="bg-slate-100 grid grid-cols-3 gap-2">{cards};</div>
+      <div
+        className="
+        pt-10
+      bg-slate-300 gap-5 flex flex-col items-center justify-center
+      sm:items-center sm:justify-center sm:flex sm:flex-col
+      md:grid 
+      md:grid-cols-3 
+      lg:grid-cols-4"
+      >
+        {cards};
+      </div>
     </div>
   );
 }

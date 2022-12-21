@@ -25,7 +25,7 @@ export default function Home() {
         {/* <h1 className="flex justify-center items-center pb-10   text-2xl">Home Page</h1> */}
         <div className="bg-slate-400 h-fit w-96 p-5 grid dark:bg-zinc-600 ">
           <Link
-            className="hover:bg-blue-100 bg-blue-200 p-6 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
+            className="hover:bg-blue-100 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
             href={"/Classes"}
           >
             Classes
@@ -35,7 +35,7 @@ export default function Home() {
           </Link> */}
           <Link
             className="hover:bg-blue-100 bg-blue-200 p-6 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100  dark:hover:bg-zinc-700"
-            href={"./PersonalCards/AddflashcardsOld"}
+            href={"./PersonalCards/Addflashcards"}
           >
             Add Flashcards
           </Link>

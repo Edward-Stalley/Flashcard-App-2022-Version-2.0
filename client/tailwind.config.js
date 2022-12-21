@@ -3,17 +3,18 @@ module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
-    extend: {},
-  },
-  theme: {
     extend: {
       colors: {
         // Need to add custom colors here to make changing the color scheme easier
         //    LIGHT SCHEME
         "bl-1": "var(--primary-bg-light)",
         //    DARK SCHEME
-
+        // background
         "bd-1": "var(--primary-bg-dark)",
+        "bd-2": "var(--secondary-bg-dark)",
+        //    text
+        "td-1": "var(  --primary-text-dark)",
+        "td-2": "var(  --secondary-text-dark)",
       },
     },
     fontFamily: {

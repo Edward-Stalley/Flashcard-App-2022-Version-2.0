@@ -20,7 +20,7 @@
     "**/*.ts",
     "**/*.tsx",
     "Components/Flashcards.tsx",
-    "pages/PersonalCards/AddflashcardsOld.tsx"
+    "pages/PersonalCards/Addflashcards.tsx"
   ],
   "exclude": ["node_modules"]
 }

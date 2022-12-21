@@ -16,11 +16,11 @@
 
   /* zinc 800 */
   --primary-bg-dark: #27272a;
+  /* zinc 600 */
+  --secondary-bg-dark: #52525b;
 
-  /* slate 600 */
-  --third-bg-dark: #475569;
   /* slate 200 */
-  --secondary-bg-dark: #e2e8f0;
+  --secondary-text-dark: #e2e8f0;
   /* slate 100 */
   --primary-text-dark: #f1f5f9;
 }
@@ -29,18 +29,6 @@
 
 .card {
   cursor: pointer;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* position: relative; */
-  /* border-radius: 0.5rem; */
-  /* border: 1px solid black; */
-  /* box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3); */
-  /* color: #282c34; */
-  /* background-color: #fff; */
-  /* height: 5rem; */
-  /* width: 20rem; */
-  /* flipping */
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0px));
   transition: 200ms;
@@ -72,3 +60,29 @@
 }
 
 /* End of Card Flipping */
+
+/* Dialog Box */
+
+.dialog_box {
+  position: fixed;
+  top: "0";
+  bottom: "0";
+  left: "0";
+  right: "0";
+  height: 100px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  background-color: lightblue;
+}
+
+.dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

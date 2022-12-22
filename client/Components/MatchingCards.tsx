@@ -55,7 +55,7 @@ export default function MatchingCards(props: any) {
 
   const handleClick = function (e: { target: { dataset: { keyMatch: any } } }) {
     props.handleChoice(props.card);
-
+    console.log(props.card);
     // console.log(e.target.dataset.keyMatch);
     // choiceOne != null ? setChoiceTwo(e.target.dataset.keyMatch) : setChoiceOne(e.target.dataset.keyMatch);
     // console.log(`this is 1st choice - ${choiceOne}`);
@@ -113,12 +113,13 @@ export default function MatchingCards(props: any) {
       {/* need to make a click register for either div - not doubling the key-match  */}
       <div className="relative">
         <div
+          onClick={handleClick}
           data-key-match={props.matchId}
           data-matched={props.matched}
           className={`
           ${props.color && "bg-green-200 dark:bg-green-200 dark:text-zinc-800"}
           card  h-16 w-64          
-          bg-blue-200 rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700`}
+          bg-blue-200 rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 `}
         >
           <div
             onClick={handleClick}

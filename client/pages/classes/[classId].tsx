@@ -1,10 +1,8 @@
 // Imported from Dependencies
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { useContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 import MyThemeContext from "../../store/myThemeContext";
-import Link from "next/link";
 // Imported Components
 
 import Flashcards from "../../Components/Flashcards";
@@ -13,8 +11,10 @@ import Header from "../../Components/Header";
 import HomeButton from "../../Components/HomeButton";
 import MatchingGameButton from "../../Components/MatchingGameButton";
 import MatchingCards from "../../Components/MatchingCards";
-import ShuffleButton from "../../Components/ShuffleButton";
+import ShuffleButton from "../../Components/Button";
+
 import { parse } from "path";
+import MatchingGame from "../MatchingGame";
 
 export default function ClassFlashcards() {
   // Theme
@@ -89,6 +89,7 @@ export default function ClassFlashcards() {
 
   // States
   const [doubledDeck, setDoubledDeck] = useState([]);
+
   const [shuffledDeck, setShuffledDeck] = useState([]);
 
   const [matchingGameActive, setMatchingGameActive] = useState(false);
@@ -246,18 +247,17 @@ export default function ClassFlashcards() {
       {/* <ToggleButton /> */}
       <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
         <HomeButton />
-        <Link href="/MatchingGame">game page</Link>
         {/* <button onClick={handleMatchingGameClick}>start game</button> */}
         {/* <ShuffleButton onClick={shuffle(doubledDeck)} /> */}
         <MatchingGameButton
-          content={matchingGameActive ? "Back to Regular Deck" : "Go to Matching Game"}
+          content={matchingGameActive ? "Regular Deck" : "Matching Game"}
           onClick={handleMatchingGameClick}
         />
         <ToggleButton />
       </div>
-
-      <div
-        className="
+      {!matchingGameActive ? (
+        <div
+          className="
         dark:bg-bd-1
         p-10
       bg-slate-200 gap-5 flex flex-col items-center justify-center
@@ -268,9 +268,14 @@ export default function ClassFlashcards() {
       md:grid-cols-3 
       lg:grid-cols-4
        "
-      >
-        {matchingGameActive ? finalDeck : cards};
-      </div>
+        >
+          {cards}
+        </div>
+      ) : (
+        <div>
+           <MatchingGame deck={doubledDeck} />}
+        </div>
+      )}
     </div>
   );
 }

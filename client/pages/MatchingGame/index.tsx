@@ -1,169 +1,16 @@
 import Head from "next/head";
 import MatchingCards from "../../Components/MatchingCards";
 import { useEffect, useState } from "react";
+import Button from "../../Components/Button";
 import Header from "../../Components/Header";
 import HomeButton from "../../Components/HomeButton";
 import ToggleButton from "../../Components/ToggleButton";
+import MatchingGameButton from "../../Components/MatchingGameButton";
 
-export default function MatchingGame() {
-  const deck = [
-    {
-      word: "crispy",
-      matchId: 11,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "tender",
-      matchId: 12,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "can I try (something)?",
-      matchId: 13,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "go ahead",
-      matchId: 14,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "sip",
-      matchId: 15,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "eat as much as one likes",
-      matchId: 16,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "full",
-      matchId: 17,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "big eater",
-      matchId: 18,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "once a month",
-      matchId: 19,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "have a great time [doing]",
-      matchId: 20,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "chatting",
-      matchId: 21,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "mojito",
-      matchId: 22,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "creamy",
-      matchId: 24,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "パリパリした",
-      matchId: 11,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "柔らかい",
-      matchId: 12,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "〜食べてもいい？",
-      matchId: 13,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "どうぞ・いいよ",
-      matchId: 14,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "（飲み物の）一口",
-      matchId: 15,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "好きなだけ食べる",
-      matchId: 16,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "お腹いっぱい",
-      matchId: 17,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "大食の人・小食の人",
-      matchId: 18,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "１ヶ月に一回",
-      matchId: 19,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "〜にして楽しむ",
-      matchId: 20,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "お喋りする",
-      matchId: 21,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "モヒート",
-      matchId: 22,
-      matched: false,
-      color: false,
-    },
-    {
-      word: "クリーミー",
-      matchId: 24,
-      matched: false,
-      color: false,
-    },
-  ];
+export default function MatchingGame(props) {
+  const [deck, setDeck] = useState(props.deck);
+
+  // functionaility ------
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [wordOne, setWordOne] = useState("");
@@ -246,15 +93,16 @@ export default function MatchingGame() {
   console.log(choiceOne, choiceTwo, turns, wordOne, wordTwo);
   return (
     <div>
-      <Header pageHeader="Matching Game" />
-      <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
-        <HomeButton />
-        {/* <button onClick={handleMatchingGameClick}>start game</button> */}
-        {/* <ShuffleButton onClick={shuffle(doubledDeck)} /> */}
+      {/* <Header pageHeader="Matching Game" /> */}
+      {/* <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 "> */}
+      {/* <HomeButton /> */}
+      {/* <MatchingGameButton /> */}
+      {/* <button onClick={handleMatchingGameClick}>start game</button> */}
+      {/* <ShuffleButton onClick={shuffle(doubledDeck)} /> */}
 
-        <ToggleButton />
-      </div>
-      <button onClick={shuffleCards}>New Game</button>
+      {/* <ToggleButton /> */}
+      {/* </div> */}
+      <Button content="New Game" onClick={shuffleCards} />
 
       <div
         className="
@@ -283,7 +131,7 @@ export default function MatchingGame() {
               // card.matched
             }
           />
-        ))}
+        ))}{" "}
       </div>
     </div>
   );

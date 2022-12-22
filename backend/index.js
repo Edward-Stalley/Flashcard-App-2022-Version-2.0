@@ -99,7 +99,7 @@ app.delete("/classes/listening_shokyu/:id", (req, res) => {
 });
 
 app.get("/classes/*/:id", (req, res) => {
-  res.json("dynamic table yo");
+  res.json("dynamic class");
 });
 
 // -------

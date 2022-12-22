@@ -273,7 +273,7 @@ export default function ClassFlashcards() {
         </div>
       ) : (
         <div>
-           <MatchingGame deck={doubledDeck} />}
+          <MatchingGame deck={doubledDeck} />
         </div>
       )}
     </div>

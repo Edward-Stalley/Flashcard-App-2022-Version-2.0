@@ -20,6 +20,8 @@ export default function MatchingGame(props) {
   const [choiceOne, setChoiceOne] = useState<number>();
   const [choiceTwo, setChoiceTwo] = useState<number>();
 
+  const [gameStarted, setGameStarted] = useState(false);
+
   const shuffleCards = () => {
     const shuffledCards = deck
       .sort(() => Math.random() - 0.5)
@@ -29,6 +31,11 @@ export default function MatchingGame(props) {
 
     setCards(shuffledCards);
     setTurns(0);
+  };
+
+  const startGame = () => {
+    setGameStarted(true);
+    shuffleCards();
   };
 
   const handleChoice = (card: any) => {
@@ -90,19 +97,9 @@ export default function MatchingGame(props) {
     setWordTwo("");
   };
 
-  console.log(choiceOne, choiceTwo, turns, wordOne, wordTwo);
   return (
     <div>
-      {/* <Header pageHeader="Matching Game" /> */}
-      {/* <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 "> */}
-      {/* <HomeButton /> */}
-      {/* <MatchingGameButton /> */}
-      {/* <button onClick={handleMatchingGameClick}>start game</button> */}
-      {/* <ShuffleButton onClick={shuffle(doubledDeck)} /> */}
-
-      {/* <ToggleButton /> */}
-      {/* </div> */}
-      <Button content="New Game" onClick={shuffleCards} />
+      <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
 
       <div
         className="

@@ -59,6 +59,24 @@ app.delete("/myflashcards/:id", (req, res) => {
   });
 });
 
+// Dynamic get request from database based on dynamic year/week/class
+
+app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+  const yearId = req.params.yearId;
+  const weekId = req.params.weekId;
+  const classId = req.params.classId;
+
+  console.log(classId);
+
+  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+
+    res.json(data);
+  });
+});
+
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 
 app.get("/classes/:id", (req, res) => {
@@ -71,14 +89,8 @@ app.get("/classes/:id", (req, res) => {
   });
 });
 
-// NEED TO FIX THIS
-// the problem is here for the delete function`lity not working
-// I imagine it is a routing problem - wonrg param in address bar
-// I need to male the address delete - it works with hardcoded values
-
 app.delete("/classes/listening_kiso/:id", (req, res) => {
   const cardId = req.params.id;
-  // I need to set this to whatever is in the
   const q = `DELETE FROM listening_kiso WHERE id = ? `;
   db.query(q, [cardId], (err, data) => {
     if (err) return res.json(err);
@@ -89,7 +101,6 @@ app.delete("/classes/listening_kiso/:id", (req, res) => {
 
 app.delete("/classes/listening_shokyu/:id", (req, res) => {
   const cardId = req.params.id;
-  // I need to set this to whatever is in the
   const q = `DELETE FROM listening_shokyu WHERE id = ? `;
   db.query(q, [cardId], (err, data) => {
     if (err) return res.json(err);

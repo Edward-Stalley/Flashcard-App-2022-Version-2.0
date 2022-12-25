@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "Components/Flashcards.tsx",
-    "pages/PersonalCards/Addflashcards.tsx"
+    "pages/PersonalCards/Addflashcards.tsx",
+    "pages/Route/[YearId]"
   ],
   "exclude": ["node_modules"]
 }

@@ -154,7 +154,7 @@ export default function ClassFlashcards() {
   };
 
   // choice functionality
-  const handleChoice = (e) => {
+  const handleChoice = (e: any) => {
     // console.log(e.target.dataset.matched);
     const parsed = parseInt(e.target.dataset.keyMatch);
 

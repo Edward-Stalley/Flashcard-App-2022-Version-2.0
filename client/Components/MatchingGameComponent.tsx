@@ -73,7 +73,8 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
   };
 
   // choice functionality
-  const handleChoice = (e: { target: React.SetStateAction<undefined> }) => {
+  const handleChoice = (e: any) => {
+    if (!e) return;
     // console.log(e.target.dataset.matched);
     const parsed = parseInt(e.target.dataset.keyMatch);
 

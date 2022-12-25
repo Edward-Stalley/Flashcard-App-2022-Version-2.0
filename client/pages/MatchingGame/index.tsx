@@ -85,7 +85,7 @@ export default function MatchingGame(props) {
 
       resetTurn();
     }
-  }, [choiceOne, choiceTwo]);
+  }, [choiceOne, choiceTwo, wordOne, wordTwo]);
 
   console.log(cards);
 

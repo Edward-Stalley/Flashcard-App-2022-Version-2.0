@@ -5,6 +5,7 @@ import ToggleButton from "../../Components/ToggleButton";
 import Header from "../../Components/Header";
 import DialogBox from "../../Components/DialogBox";
 import HomeButton from "../../Components/HomeButton";
+import React from "react";
 
 export default function Classes() {
   return (

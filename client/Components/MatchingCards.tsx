@@ -4,6 +4,7 @@ import Router, { useRouter } from "next/router";
 import { useContext } from "react";
 import MyThemeContext from "../store/myThemeContext";
 import DialogBox from "./DialogBox";
+import React from "react";
 // Need to pass this down to other components that use flashcards
 
 export default function MatchingCards(props: any) {

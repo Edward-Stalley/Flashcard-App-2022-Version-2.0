@@ -15,6 +15,7 @@ import ShuffleButton from "../../Components/Button";
 
 import { parse } from "path";
 import MatchingGame from "../MatchingGame";
+import React from "react";
 
 export default function ClassFlashcards() {
   // Theme

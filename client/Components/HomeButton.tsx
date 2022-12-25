@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 export default function HomeButton() {
   return (
     <div className="   dark:bg-bd-1  justify-start  p-4 ">

@@ -7,6 +7,9 @@ import HomeButton from "../../../../../Components/HomeButton";
 import ToggleButton from "../../../../../Components/ToggleButton";
 import Header from "../../../../../Components/Header";
 import Flashcards from "../../../../../Components/Flashcards";
+import React from "react";
+import MatchingGameComponent from "../../../../../Components/MatchingGameComponent";
+import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 
 // Function Component
 
@@ -86,6 +89,10 @@ function Class() {
         <Header pageHeader="Select Your Class" />
         <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
           <HomeButton />
+          {/* <MatchingGameButton
+            content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+            onClick={handleMatchingGameClick}
+          /> */}
           <ToggleButton />
         </div>
         <div className="bg-slate-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  ">
@@ -103,7 +110,9 @@ function Class() {
        "
           >
             {cards}
-          </div>{" "}
+
+            <MatchingGameComponent flashcards={flashcards} />
+          </div>
         </div>
       </div>
     </div>

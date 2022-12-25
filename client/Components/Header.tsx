@@ -1,3 +1,4 @@
+import React from "react";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 
 export default function Header(props: {

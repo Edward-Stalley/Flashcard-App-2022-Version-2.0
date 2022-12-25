@@ -4,6 +4,7 @@ import WeekComponent from "../../../Components/WeekComponent";
 import HomeButton from "../../../Components/HomeButton";
 import ToggleButton from "../../../Components/ToggleButton";
 import Header from "../../../Components/Header";
+import React from "react";
 
 function ProductDetail() {
   const router = useRouter();
@@ -27,8 +28,21 @@ function ProductDetail() {
           <HomeButton />
           <ToggleButton />
         </div>
-        <div className="bg-slate-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  ">
-          <div className="bg-slate-400 dark:bg-bd-2   p-5 grid items-center justify-center ">{weekList}</div>
+        <div
+          className="
+        dark:bg-bd-1
+        p-20
+      bg-slate-200 gap-5 flex flex-col items-center justify-center 
+      sm:items-center sm:justify-center
+      sm:grid
+      sm:grid-cols-2
+      md:grid 
+      md:grid-cols-3 
+      lg:grid-cols-4
+       "
+        >
+          {weekList}
+          {/* <div className="flex items-center justify-center "></div> */}
         </div>
       </div>
     </div>

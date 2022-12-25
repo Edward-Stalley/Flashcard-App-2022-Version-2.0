@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MatchingCards from "./MatchingCards";
 
-export default function MatchingGameNew(props) {
+export default function MatchingGameNew(props: { flashcards: any[] }) {
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
 
@@ -27,15 +27,17 @@ export default function MatchingGameNew(props) {
   // const firstSelected = "bg-green";
   // const secondSelected = "bg-green";
 
-  const cardsForMatchingGame = props.flashcards.map((card) => {
-    const { id, english, japanese, week, year } = card;
-    return (
-      <div key={week + "match" + id} className="flex items-center justify-center">
-        <MatchingCards word={english} matchId={id} matched={matched} color={false} />
-        <MatchingCards word={japanese} matchId={id} matched={matched} color={false} />
-      </div>
-    );
-  });
+  const cardsForMatchingGame = props.flashcards.map(
+    (card: { id: any; english: any; japanese: any; week: any; year: any }) => {
+      const { id, english, japanese, week, year } = card;
+      return (
+        <div key={week + "match" + id} className="flex items-center justify-center">
+          <MatchingCards word={english} matchId={id} matched={matched} color={false} />
+          <MatchingCards word={japanese} matchId={id} matched={matched} color={false} />
+        </div>
+      );
+    }
+  );
 
   console.log(doubledDeck);
   // Take the original double sided deck - split it - and combine into big deck for game
@@ -71,7 +73,7 @@ export default function MatchingGameNew(props) {
   };
 
   // choice functionality
-  const handleChoice = (e) => {
+  const handleChoice = (e: { target: React.SetStateAction<undefined> }) => {
     // console.log(e.target.dataset.matched);
     const parsed = parseInt(e.target.dataset.keyMatch);
 

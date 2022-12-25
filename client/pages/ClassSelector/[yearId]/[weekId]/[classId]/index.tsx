@@ -41,10 +41,10 @@ function Class() {
           wordTwo[0].toLowerCase() + wordTwo.slice(1)
         }`;
         setClassname(finalName);
-        console.log(className);
+        // console.log(className);
       }
     }
-  }, [!router.isReady, classId, className]);
+  }, [!router.isReady, classId]);
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 

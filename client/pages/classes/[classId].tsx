@@ -45,7 +45,7 @@ export default function ClassFlashcards() {
 
       setClassname(finalName);
     } else console.log("no");
-  }, [router.isReady, classId]);
+  }, [classId]);
   // ------------------------
 
   // state

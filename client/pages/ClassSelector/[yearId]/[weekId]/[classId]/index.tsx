@@ -16,6 +16,7 @@ import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 function Class() {
   // router parameters
   const router = useRouter();
+  // const ready = router.isReady
   const { params = [] } = router.query;
   const yearId = router.query.yearId;
   const weekId = router.query.weekId;
@@ -44,7 +45,7 @@ function Class() {
         // console.log(className);
       }
     }
-  }, [!router.isReady, classId]);
+  }, [router.isReady, classId]);
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 

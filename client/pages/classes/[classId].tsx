@@ -114,8 +114,28 @@ export default function ClassFlashcards() {
     const { id, english, japanese, week, year } = card;
     return (
       <div key={className + week + "match" + id} className="flex items-center justify-center">
-        <MatchingCards word={english} matchId={id} matched={matched} color={false} />
-        <MatchingCards word={japanese} matchId={id} matched={matched} color={false} />
+        <MatchingCards
+          word={english}
+          matchId={id}
+          matched={matched}
+          color={false}
+          handleChoice={function (arg0: any): void {
+            throw new Error("Function not implemented.");
+          }}
+          card={undefined}
+          id={undefined}
+        />
+        <MatchingCards
+          word={japanese}
+          matchId={id}
+          matched={matched}
+          color={false}
+          handleChoice={function (arg0: any): void {
+            throw new Error("Function not implemented.");
+          }}
+          card={undefined}
+          id={undefined}
+        />
       </div>
     );
   });
@@ -213,8 +233,8 @@ export default function ClassFlashcards() {
 
   // create JSX elements------
 
-  const finalDeck = shuffledDeck.map((card: { matchId: any; word: string; matched: boolean }) => {
-    const { matchId, word } = card;
+  const finalDeck = shuffledDeck.map((card: { matchId: any; word: string; matched: boolean; id: number | string }) => {
+    const { matchId, word, id } = card;
     return (
       <MatchingCards
         key={matchId + word[0]}
@@ -224,6 +244,9 @@ export default function ClassFlashcards() {
         // firstSelected={firstSelected}
         // secondSelected={secondSelected}
         matched={matched}
+        card={card}
+        id={id}
+        color={false}
       ></MatchingCards>
     );
   });

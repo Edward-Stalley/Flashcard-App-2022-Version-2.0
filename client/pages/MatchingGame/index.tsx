@@ -1,17 +1,18 @@
 import Head from "next/head";
 import MatchingCards from "../../Components/MatchingCards";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import Header from "../../Components/Header";
 import HomeButton from "../../Components/HomeButton";
 import ToggleButton from "../../Components/ToggleButton";
 import MatchingGameButton from "../../Components/MatchingGameButton";
 
-export default function MatchingGame(props) {
+export default function MatchingGame(props: { deck: any }) {
   const [deck, setDeck] = useState(props.deck);
 
+  console.log(deck);
   // functionaility ------
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([] as any[]);
   const [turns, setTurns] = useState(0);
   const [wordOne, setWordOne] = useState("");
   const [wordTwo, setWordTwo] = useState("");
@@ -25,7 +26,7 @@ export default function MatchingGame(props) {
   const shuffleCards = () => {
     const shuffledCards = deck
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({
+      .map((card: any) => ({
         ...card,
       }));
 
@@ -60,7 +61,7 @@ export default function MatchingGame(props) {
       if (choiceOne === choiceTwo && wordOne !== wordTwo) {
         console.log("match");
         setCards((prevCards) => {
-          return prevCards.map((c) => {
+          return prevCards.map((c: { matchId: number }) => {
             if (c.matchId === choiceOne) {
               return { ...c, matched: true, color: true };
             } else {
@@ -71,7 +72,7 @@ export default function MatchingGame(props) {
         resetTurn();
       } else {
         setCards((prevCards) => {
-          return prevCards.map((c) => {
+          return prevCards.map((c: { matchId: number }) => {
             if (c.matchId !== choiceOne) {
               return { ...c, matched: false, color: false };
             } else {
@@ -97,6 +98,10 @@ export default function MatchingGame(props) {
     setWordTwo("");
   };
 
+  function card(value: never, index: number, array: never[]): ReactNode {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div>
       <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
@@ -120,6 +125,7 @@ export default function MatchingGame(props) {
             matchId={card.matchId}
             word={card.word}
             card={card}
+            matched={false}
             handleChoice={handleChoice}
             color={
               card.color === true
@@ -127,8 +133,9 @@ export default function MatchingGame(props) {
               // (card.matchId === choiceTwo && card.word === wordTwo && wordOne !== wordTwo) ||
               // card.matched
             }
+            id={undefined} // id={undefined}
           />
-        ))}{" "}
+        ))}
       </div>
     </div>
   );

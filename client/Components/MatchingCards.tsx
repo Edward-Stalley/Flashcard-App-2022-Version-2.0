@@ -7,7 +7,23 @@ import DialogBox from "./DialogBox";
 import React from "react";
 // Need to pass this down to other components that use flashcards
 
-export default function MatchingCards(props: any) {
+export default function MatchingCards(props: {
+  handleChoice: (arg0: any) => void;
+  card: any;
+  id: React.Key | null | undefined | string | number;
+  matchId: any;
+  matched: boolean;
+  color: boolean;
+  word:
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
+}) {
   const router = useRouter();
 
   // States
@@ -54,7 +70,7 @@ export default function MatchingCards(props: any) {
   //   console.log(firstSelected);
   // }, [firstSelected, secondSelected]);
 
-  const handleClick = function (e: any) {
+  const handleClick = function () {
     props.handleChoice(props.card);
     console.log(props.card);
     // console.log(e.target.dataset.keyMatch);

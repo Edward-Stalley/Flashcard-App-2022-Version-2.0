@@ -32,8 +32,28 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
       const { id, english, japanese, week, year } = card;
       return (
         <div key={week + "match" + id} className="flex items-center justify-center">
-          <MatchingCards word={english} matchId={id} matched={matched} color={false} />
-          <MatchingCards word={japanese} matchId={id} matched={matched} color={false} />
+          <MatchingCards
+            word={english}
+            matchId={id}
+            matched={matched}
+            color={false}
+            handleChoice={function (arg0: any): void {
+              throw new Error("Function not implemented.");
+            }}
+            card={undefined}
+            id={undefined}
+          />
+          <MatchingCards
+            word={japanese}
+            matchId={id}
+            matched={matched}
+            color={false}
+            handleChoice={function (arg0: any): void {
+              throw new Error("Function not implemented.");
+            }}
+            card={undefined}
+            id={undefined}
+          />
         </div>
       );
     }
@@ -133,7 +153,7 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
 
   // create JSX elements------
 
-  const finalDeck = shuffledDeck.map((card: { matchId: any; word: string; matched: boolean }) => {
+  const finalDeck = shuffledDeck.map((card: { matchId: any; word: string; matched: boolean; color: boolean }) => {
     const { matchId, word } = card;
     return (
       <MatchingCards
@@ -144,6 +164,9 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
         // firstSelected={firstSelected}
         // secondSelected={secondSelected}
         matched={matched}
+        card={undefined}
+        id={undefined}
+        color={false}
       ></MatchingCards>
     );
   });

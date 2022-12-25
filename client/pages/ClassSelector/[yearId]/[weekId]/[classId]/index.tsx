@@ -64,7 +64,7 @@ function Class() {
       //   console.log("check", classId, className, flashcards);
       fetchAllFlashcards();
     }
-  }, [router.isReady, className, weekId, yearId]);
+  }, [router.isReady, className, weekId, yearId, classId]);
 
   console.log(flashcards);
 

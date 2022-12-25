@@ -54,7 +54,7 @@ export default function MatchingCards(props: any) {
   //   console.log(firstSelected);
   // }, [firstSelected, secondSelected]);
 
-  const handleClick = function (e: { target: { dataset: { keyMatch: any } } }) {
+  const handleClick = function (e: any) {
     props.handleChoice(props.card);
     console.log(props.card);
     // console.log(e.target.dataset.keyMatch);

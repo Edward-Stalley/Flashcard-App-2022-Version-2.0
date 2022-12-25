@@ -41,7 +41,7 @@ function Class() {
         console.log(className);
       }
     }
-  }, [!router.isReady, classId]);
+  }, [!router.isReady, classId, className]);
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
@@ -58,10 +58,10 @@ function Class() {
         }
       };
 
-      console.log("check", classId, className, flashcards);
+      //   console.log("check", classId, className, flashcards);
       fetchAllFlashcards();
     }
-  }, [router.isReady, className]);
+  }, [router.isReady, className, weekId, yearId]);
 
   console.log(flashcards);
 

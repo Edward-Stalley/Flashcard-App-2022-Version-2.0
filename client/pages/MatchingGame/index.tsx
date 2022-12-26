@@ -1,11 +1,11 @@
 import Head from "next/head";
-import MatchingCards from "../../components/MatchingCards";
+import MatchingCards from "../../Components/MatchingCards";
 import { ReactNode, useEffect, useState } from "react";
-import Button from "../../components/Button";
-import Header from "../../components/Header";
-import HomeButton from "../../components/HomeButton";
-import ToggleButton from "../../components/ToggleButton";
-import MatchingGameButton from "../../components/MatchingGameButton";
+import Button from "../../Components/Button";
+import Header from "../../Components/Header";
+import HomeButton from "../../Components/HomeButton";
+import ToggleButton from "../../Components/ToggleButton";
+import MatchingGameButton from "../../Components/MatchingGameButton";
 
 export default function MatchingGame(props: { deck: any }) {
   const [deck, setDeck] = useState(props.deck);

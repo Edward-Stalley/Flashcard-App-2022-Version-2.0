@@ -20,12 +20,12 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Flashcards.tsx",
+    "Components/Flashcards.tsx",
     "pages/PersonalCards/Addflashcards.tsx",
     "pages/Route/[YearId]"
   ],
-  "exclude": ["node_modules"],
-  "paths": {
-    "components": ["/components"]
-  }
+  "exclude": ["node_modules"]
+  // "paths": {
+  //   "components": ["/components"]
+  // }
 }

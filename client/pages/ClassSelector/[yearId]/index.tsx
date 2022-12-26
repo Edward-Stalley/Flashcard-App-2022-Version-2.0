@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import WeekComponent from "../../../components/WeekComponent";
-import HomeButton from "../../../components/HomeButton";
-import ToggleButton from "../../../components/ToggleButton";
-import Header from "../../../components/Header";
+import WeekComponent from "../../../Components/WeekComponent";
+import HomeButton from "../../../Components/HomeButton";
+import ToggleButton from "../../../Components/ToggleButton";
+import Header from "../../../Components/Header";
 import React from "react";
 
 function ProductDetail() {

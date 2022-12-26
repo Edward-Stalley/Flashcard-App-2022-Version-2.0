@@ -22,7 +22,8 @@
     "**/*.tsx",
     "Components/Flashcards.tsx",
     "pages/PersonalCards/Addflashcards.tsx",
-    "pages/Route/[YearId]"
+    "pages/Route/[YearId]",
+    "Components/Lightbulb.tsx"
   ],
   "exclude": ["node_modules"]
   // "paths": {

@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 // Components
+import Header from "../../../../../components/Header";
 import ToggleButton from "../../../../../components/ToggleButton";
 import HomeButton from "../../../../../components/HomeButton";
-import Header from "../../../../../components/Header";
 import Flashcards from "../../../../../components/Flashcards";
 import React from "react";
 import MatchingGameComponent from "../../../../../components/MatchingGameComponent";

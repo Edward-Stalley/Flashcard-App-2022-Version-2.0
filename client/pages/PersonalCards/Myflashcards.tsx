@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import HomeButton from "../../components/HomeButton";
-import ToggleButton from "../../components/ToggleButton";
-import Flashcards from "../../components/Flashcards";
-import Header from "../../components/Header";
+import HomeButton from "../../Components/HomeButton";
+import ToggleButton from "../../Components/ToggleButton";
+import Flashcards from "../../Components/Flashcards";
+import Header from "../../Components/Header";
 // I should make the flashcard behaviour to all pages
 // do i #1 use context?
 //  or  #2 move it up to the top  component and pass it down with props?

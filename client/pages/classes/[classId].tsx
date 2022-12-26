@@ -5,13 +5,13 @@ import { useState, useEffect, useContext, createContext } from "react";
 import MyThemeContext from "../../store/myThemeContext";
 // Imported Components
 
-import Flashcards from "../../components/Flashcards";
-import ToggleButton from "../../components/ToggleButton";
-import Header from "../../components/Header";
-import HomeButton from "../../components/HomeButton";
-import MatchingGameButton from "../../components/MatchingGameButton";
-import MatchingCards from "../../components/MatchingCards";
-import ShuffleButton from "../../components/Button";
+import Flashcards from "../../Components/Flashcards";
+import ToggleButton from "../../Components/ToggleButton";
+import Header from "../../Components/Header";
+import HomeButton from "../../Components/HomeButton";
+import MatchingGameButton from "../../Components/MatchingGameButton";
+import MatchingCards from "../../Components/MatchingCards";
+import ShuffleButton from "../../Components/Button";
 
 import { parse } from "path";
 import MatchingGame from "../MatchingGame";

@@ -13,7 +13,7 @@ export default function ToggleButton() {
     setDarkOn((prevDarkOn) => !prevDarkOn);
   }
   return (
-    <div className="bg-slate-200 dark:bg-bd-1 flex justify-end p-4 ">
+    <div className="flex justify-end p-4 ">
       <Lightbulb onClick={toggleThemeHandler} darkOn={darkOn} />
       {/* <button
         type="button"

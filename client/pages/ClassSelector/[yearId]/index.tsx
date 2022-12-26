@@ -26,7 +26,7 @@ function ProductDetail() {
         <Header pageHeader="Select Your Class" />
         <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
           <HomeButton />
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </div>
         <div
           className="

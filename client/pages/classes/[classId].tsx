@@ -277,7 +277,7 @@ export default function ClassFlashcards() {
           content={matchingGameActive ? "Regular Deck" : "Matching Game"}
           onClick={handleMatchingGameClick}
         />
-        <ToggleButton />
+        {/* <ToggleButton /> */}
       </div>
       {!matchingGameActive ? (
         <div

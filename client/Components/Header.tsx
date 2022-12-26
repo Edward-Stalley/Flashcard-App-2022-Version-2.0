@@ -23,10 +23,10 @@ export default function Header(props: {
   }
 
   return (
-    <div className=" bg-slate-300 text-slate-800 dark:bg-zinc-800 dark:text-zinc-100 font-bold text-4xl justify-center h-32 flex relative items-center">
+    <div className=" bg-blue-200 text-slate-800 dark:bg-zinc-800 dark:text-zinc-100 font-bold text-4xl justify-center  h-32 flex relative items-center dark:border-b-2  dark:border-zinc-700 border-b-2 border-blue-100">
       <div>{props.pageHeader}</div>
 
-      <div className="absolute right-0 bg-zinc-800  ">
+      <div className="absolute right-0  ">
         <ToggleButton />
       </div>
     </div>

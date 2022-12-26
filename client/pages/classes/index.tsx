@@ -13,7 +13,7 @@ export default function Classes() {
       <Header pageHeader="Select Your Class" />
       <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
         <HomeButton />
-        <ToggleButton />
+        {/* <ToggleButton /> */}
       </div>
       <div className="bg-slate-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  ">
         <div className="bg-slate-400 dark:bg-bd-2   p-5 grid items-center justify-center ">

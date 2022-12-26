@@ -94,7 +94,7 @@ function Class() {
             content={matchingGameActive ? "Regular Deck" : "Matching Game"}
             onClick={handleMatchingGameClick}
           /> */}
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </div>
         <div className="bg-slate-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  ">
           <div

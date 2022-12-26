@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import WeekComponent from "../../../../Components/WeekComponent";
-import HomeButton from "../../../../Components/HomeButton";
-import ToggleButton from "../../../../Components/ToggleButton";
-import Header from "../../../../Components/Header";
-import ClassComponent from "../../../../Components/ClassComponent";
+import WeekComponent from "../../../../components/WeekComponent";
+import HomeButton from "../../../../components/HomeButton";
+import ToggleButton from "../../../../components/ToggleButton";
+import Header from "../../../../components/Header";
+import ClassComponent from "../../../../components/ClassComponent";
 
 function ProductDetail() {
   const router = useRouter();

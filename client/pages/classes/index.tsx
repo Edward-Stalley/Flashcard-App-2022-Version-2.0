@@ -1,10 +1,10 @@
 import Link from "next/link";
-import ToggleButton from "../../Components/ToggleButton";
+import ToggleButton from "../../components/ToggleButton";
 
 // My Components
-import Header from "../../Components/Header";
-import DialogBox from "../../Components/DialogBox";
-import HomeButton from "../../Components/HomeButton";
+import Header from "../../components/Header";
+import DialogBox from "../../components/DialogBox";
+import HomeButton from "../../components/HomeButton";
 import React from "react";
 
 export default function Classes() {

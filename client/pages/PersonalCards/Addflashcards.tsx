@@ -3,9 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 
 // My Components
-import ToggleButton from "../../Components/ToggleButton";
-import HomeButton from "../../Components/HomeButton";
-import Header from "../../Components/Header";
+import ToggleButton from "../../components/ToggleButton";
+import HomeButton from "../../components/HomeButton";
+import Header from "../../components/Header";
 
 export default function AddFlashcardsOld() {
   const [card, setCard] = useState({

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import YearComponent from "../../Components/YearComponent";
-import HomeButton from "../../Components/HomeButton";
-import ToggleButton from "../../Components/ToggleButton";
-import Header from "../../Components/Header";
+import YearComponent from "../../components/YearComponent";
+import HomeButton from "../../components/HomeButton";
+import ToggleButton from "../../components/ToggleButton";
+import Header from "../../components/Header";
 
 export default function Product() {
   const yearArray = ["2022", "2023"];

@@ -6,7 +6,6 @@ import HomeButton from "../../../Components/HomeButton";
 export default function WeekSelection() {
   return (
     <div>
-      <p>return correct year (so weeks will actually go in here)</p>
       <div>
         <Header pageHeader="Select Your Class" />
         <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">

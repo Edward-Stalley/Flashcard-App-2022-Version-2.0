@@ -26,7 +26,7 @@ export default function Home() {
         <div className="bg-slate-400 h-fit w-96 p-5 grid dark:bg-zinc-600 ">
           <Link
             className="hover:bg-blue-100 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
-            href={"/Classes"}
+            href={"./Classes"}
           >
             Classes
           </Link>

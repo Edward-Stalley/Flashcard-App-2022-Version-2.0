@@ -1,6 +1,6 @@
 import Link from "next/link";
-import YearComponent from "../../components/YearComponent";
 import HomeButton from "../../components/HomeButton";
+import YearComponent from "../../components/YearComponent";
 import ToggleButton from "../../components/ToggleButton";
 import Header from "../../components/Header";
 

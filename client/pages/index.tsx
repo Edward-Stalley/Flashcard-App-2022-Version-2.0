@@ -30,6 +30,12 @@ export default function Home() {
           >
             Classes
           </Link>
+          <Link
+            className="hover:bg-blue-100 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
+            href={"./ClassSelector"}
+          >
+            Class Selector
+          </Link>
           {/* <Link className="bg-blue-200 p-6 text-center m-1" href={"/List"}>
             Flashcards List
           </Link> */}

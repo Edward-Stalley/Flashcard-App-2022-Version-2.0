@@ -3,13 +3,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 // Components
-import HomeButton from "../../../../../Components/HomeButton";
-import ToggleButton from "../../../../../Components/ToggleButton";
-import Header from "../../../../../Components/Header";
-import Flashcards from "../../../../../Components/Flashcards";
+import HomeButton from "../../../../../components/HomeButton";
+import ToggleButton from "../../../../../components/ToggleButton";
+import Header from "../../../../../components/Header";
+import Flashcards from "../../../../../components/Flashcards";
 import React from "react";
-import MatchingGameComponent from "../../../../../Components/MatchingGameComponent";
-import MatchingGameButton from "../../../../../Components/MatchingGameButton";
+import MatchingGameComponent from "../../../../../components/MatchingGameComponent";
+import MatchingGameButton from "../../../../../components/MatchingGameButton";
 
 // Function Component
 

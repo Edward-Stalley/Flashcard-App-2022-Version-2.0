@@ -20,7 +20,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "Components/Flashcards.tsx",
+    "components/Flashcards.tsx",
     "pages/PersonalCards/Addflashcards.tsx",
     "pages/Route/[YearId]"
   ],

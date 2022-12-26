@@ -5,8 +5,8 @@ import { useContext } from "react";
 
 // My Componentes & Contexts
 import MyThemeContext from "../store/myThemeContext";
-import Header from "../Components/Header";
-import ToggleButton from "../Components/ToggleButton";
+import Header from "../components/Header";
+import ToggleButton from "../components/ToggleButton";
 
 export default function Home() {
   const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } = useContext(MyThemeContext);

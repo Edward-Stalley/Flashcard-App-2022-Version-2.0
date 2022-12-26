@@ -17,9 +17,7 @@ export default function Home() {
   return (
     <div className="bg-slate-600 h-screen ">
       <Header pageHeader="E.B Flashcards" />
-      <div className=" bg-slate-200  dark:bg-bd-1 flex justify-end p-4 ">
-        <ToggleButton />
-      </div>
+      <div className=" bg-slate-200  dark:bg-bd-1 flex justify-end p-4 ">{/* <ToggleButton /> */}</div>
 
       <div className="bg-slate-200 p-10 h-4/5 flex-col flex justify-center items-center dark:bg-bd-1">
         {/* <h1 className="flex justify-center items-center pb-10   text-2xl">Home Page</h1> */}

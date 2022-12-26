@@ -8,7 +8,7 @@ export default function Lightbulb(props: { onClick: MouseEventHandler<SVGSVGElem
       <svg
         onClick={props.onClick}
         version="1.1"
-        className="dark:fill-yellow-100 dark:fill-white-200 fill-black-300 cursor-pointer"
+        className="dark:fill-yellow-100 dark:fill-white-200 fill-black-300 cursor-pointer stroke-none bg-slate-300 text-slate-800 dark:bg-zinc-800 dark:text-zinc-100"
         // put ternary function here
         // fill="white"
         id="Layer_1"

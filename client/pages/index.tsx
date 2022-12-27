@@ -24,9 +24,15 @@ export default function Home() {
       <div className="bg-blue-200 p-10 h-full flex-col flex items-center dark:bg-bd-1">
         {/* <h1 className="flex justify-center items-center pb-10   text-2xl">Home Page</h1> */}
         <div className="bg-blue-100 w-96 p-5 grid dark:bg-zinc-600 rounded-md mobile:w-64">
-          <Link
+          {/* <Link
             className="hover:bg-blue-300 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
             href={"/Classes"}
+          >
+            Classes
+          </Link> */}
+          <Link
+            className="hover:bg-blue-300 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
+            href={"./Classes"}
           >
             Classes
           </Link>

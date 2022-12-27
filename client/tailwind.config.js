@@ -5,6 +5,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        mobile: { min: "200px", max: "400px" },
+      },
       colors: {
         // Need to add custom colors here to make changing the color scheme easier
         //    LIGHT SCHEME

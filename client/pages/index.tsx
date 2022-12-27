@@ -17,13 +17,13 @@ export default function Home() {
   return (
     <div className="bg-slate-600 h-screen ">
       <Header pageHeader="E.B. Flashcards" />
-      {/* <div className=" bg-slate-200  dark:bg-bd-1 flex justify-end p-4 ">
+      <div className="   dark:bg-bd-1 flex justify-end bg-blue-200  ">
         <ToggleButton />
-      </div> */}
+      </div>
 
-      <div className="bg-blue-200 p-10 h-4/5 flex-col flex justify-center items-center dark:bg-bd-1">
+      <div className="bg-blue-200 p-10 h-full flex-col flex justify-center items-center dark:bg-bd-1">
         {/* <h1 className="flex justify-center items-center pb-10   text-2xl">Home Page</h1> */}
-        <div className="bg-blue-100 h-fit w-96 p-5 grid dark:bg-zinc-600 rounded-md ">
+        <div className="bg-blue-100 h-fit w-96 p-5 grid dark:bg-zinc-600 rounded-md mobile:w-64">
           <Link
             className="hover:bg-blue-300 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
             href={"./Classes"}

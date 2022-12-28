@@ -241,7 +241,7 @@ function Class() {
       <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
       <div
         className="flex items-center   
- justify-between bg-blue-200 dark:bg-bd-1 p-4 mobile:p-0 h-screen"
+ justify-between bg-blue-200 dark:bg-bd-1 p-4 mobile:p-0 "
       >
         <HomeButton />
         <MatchingGameButton
@@ -253,6 +253,7 @@ function Class() {
         {!matchingGameActive ? (
           <div
             className="
+            h-screen
         dark:bg-bd-1
         p-20
       bg-blue-200 gap-5  flex flex-col items-center justify-center

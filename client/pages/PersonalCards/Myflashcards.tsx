@@ -98,7 +98,7 @@ export default function MyFlashcards() {
 
   return (
     <div>
-      <Header pageHeader="My Flashcards" />
+      <Header pageHeader="My Flashcards" subHeader={""} />
       <div className="flex items-center justify-between dark:bg-bd-1 bg-slate-200">
         <ToggleButton />
         <HomeButton />

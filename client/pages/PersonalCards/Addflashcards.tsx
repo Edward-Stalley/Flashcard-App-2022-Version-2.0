@@ -34,7 +34,7 @@ export default function AddFlashcardsOld() {
 
   return (
     <div className="dark:bg-bd-1 h-screen ">
-      <Header pageHeader="Add Flashcards To Your Decks" />
+      <Header pageHeader="Add Flashcards To Your Decks" subHeader={""} />
       <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-5 ">
         <HomeButton />
         <ToggleButton />

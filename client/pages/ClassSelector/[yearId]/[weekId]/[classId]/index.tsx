@@ -96,6 +96,8 @@ function Class() {
   const [choiceOne, setChoiceOne] = useState<number>();
   const [choiceTwo, setChoiceTwo] = useState<number>();
 
+  const [turns, setTurns] = useState<number>(0);
+
   const [matched, setmatched] = useState(false);
 
   const cardsForMatchingGame = flashcards.map((card) => {
@@ -236,7 +238,7 @@ function Class() {
 
   return (
     <div>
-      <Header pageHeader="Select Your Class" />
+      <Header pageHeader={`${classId} : week ${weekId}`} />
       <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 p-4 ">
         <HomeButton />
         <MatchingGameButton

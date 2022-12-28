@@ -107,6 +107,7 @@ export default function MatchingGame(props: { deck: any }) {
           resetTurn();
         } else if (choiceOne === choiceTwo && wordOne === wordTwo) {
           setCards((prevCards) => {
+            setTurns(0);
             return prevCards.map((c: { matchId: number }) => {
               if (c.matchId === choiceOne) {
                 console.log("same card");

@@ -239,16 +239,22 @@ function Class() {
   return (
     <div>
       <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
-      <div
-        className="flex items-center   
- justify-between bg-blue-200 dark:bg-bd-1 p-4 mobile:p-0 "
-      >
+      <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1  ">
         <HomeButton />
+        <ToggleButton />
+
+        {/* <ToggleButton /> */}
+      </div>
+      <div>
         <MatchingGameButton
           content={matchingGameActive ? "Regular Deck" : "Matching Game"}
           onClick={handleMatchingGameClick}
         />
       </div>
+      {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">
+        <HomeButton />
+     
+      </div> */}
       <div>
         {!matchingGameActive ? (
           <div

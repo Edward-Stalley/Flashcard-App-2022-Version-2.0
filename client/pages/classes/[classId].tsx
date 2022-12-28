@@ -251,7 +251,7 @@ export default function ClassFlashcards() {
   return (
     <div>
       <div>
-        <Header pageHeader={className} />
+        <Header pageHeader={className} subHeader={""} />
       </div>
       {/* <ToggleButton /> */}
       <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">

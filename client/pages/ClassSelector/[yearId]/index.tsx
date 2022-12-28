@@ -24,15 +24,16 @@ function ProductDetail() {
     <div>
       <div>
         <Header pageHeader="Select Your Class" />
-        <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
+        <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 ">
           <HomeButton />
-          {/* <ToggleButton /> */}
+          <ToggleButton />
         </div>
         <div
           className="
         dark:bg-bd-1
+        bg-blue-200
         p-20
-      bg-slate-200 gap-5 flex flex-col items-center justify-center 
+      gap-5 flex flex-col items-center justify-center 
       sm:items-center sm:justify-center
       sm:grid
       sm:grid-cols-2
@@ -42,7 +43,9 @@ function ProductDetail() {
        "
         >
           {weekList}
-          {/* <div className="flex items-center justify-center "></div> */}
+          {/* <div className="bg-blue-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  "> */}
+          {/* <div className="bg-blue-100 dark:bg-bd-2   p-5 grid items-center justify-center rounded "> </div> */}
+          {/* </div> */}
         </div>
       </div>
     </div>

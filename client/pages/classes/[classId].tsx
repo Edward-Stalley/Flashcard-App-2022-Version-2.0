@@ -156,11 +156,6 @@ export default function ClassFlashcards() {
     setDoubledDeck(joinedDeck);
   };
 
-  // doubledDeck is what I need to modify
-
-  const testDeck = doubledDeck;
-  console.log(testDeck);
-
   // shuffle deck -----
 
   const shuffle = (deck: any[]) => {
@@ -212,16 +207,6 @@ export default function ClassFlashcards() {
       // console.log(choiceOne, choiceTwo);
     }
   }, [choiceOne, choiceTwo]);
-
-  // useEffect(() => {
-  //   console.log(cardOne, cardTwo);
-  //   if (firstSelected) {
-  //     cardOne.style.backgroundColor = "green";
-  //   }
-  //   if (secondSelected) {
-  //     cardTwo.style.backgroundColor = "green";
-  //   }
-  // }, [firstSelected, secondSelected]);
 
   const resetTurns = () => {
     setTurns(0);

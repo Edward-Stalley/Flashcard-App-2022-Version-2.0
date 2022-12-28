@@ -8,7 +8,7 @@ export default function Week(props: any) {
   return (
     // <div className="hover:bg-blue-100 bg-blue-200 dark:bg-bd-2 dark:text-td-1  h-fit w-64 p-5 rounded flex items-center m-1 justify-center dark:hover:bg-zinc-400">
     <Link
-      className="hover:bg-blue-100 bg-blue-200 dark:bg-bd-2 dark:text-td-1  h-fit w-64 p-5 rounded flex items-center m-1 justify-center dark:hover:bg-zinc-400"
+      className="hover:bg-blue-300/75 bg-blue-100 dark:bg-bd-2 dark:text-td-1  h-fit w-64 p-5 rounded flex items-center m-1 justify-center dark:hover:bg-zinc-400"
       href={`/ClassSelector/${props.year}/${week}`}
     >
       Week {props.week}{" "}

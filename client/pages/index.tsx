@@ -30,14 +30,9 @@ export default function Home() {
           >
             Classes
           </Link> */}
+
           <Link
-            className="hover:bg-blue-300 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
-            href={"./Classes"}
-          >
-            Classes
-          </Link>
-          <Link
-            className="hover:bg-blue-300 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
+            className="hover:bg-blue-300/75 bg-blue-200 p-5 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 "
             href={"./ClassSelector"}
           >
             Class Selector
@@ -45,18 +40,18 @@ export default function Home() {
           {/* <Link className="bg-blue-200 p-6 text-center m-1" href={"/List"}>
             Flashcards List
           </Link> */}
-          <Link
+          {/* <Link
             className="hover:bg-blue-300 bg-blue-200 p-6 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100  dark:hover:bg-zinc-700"
             href={"./PersonalCards/Addflashcards"}
           >
             Add Flashcards
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             className="hover:bg-blue-300 bg-blue-200 p-6 text-center m-1 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
             href={"./PersonalCards/Myflashcards"}
           >
             My Flashcards
-          </Link>
+          </Link> */}
 
           {/* <Link className="bg-blue-200 p-6 text-center m-1" href={"/myflashcards/*"}>
             My Flashcards

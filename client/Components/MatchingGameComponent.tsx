@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MatchingCards from "./MatchingCards";
+import MatchingGame from "../pages/MatchingGame";
 
 export default function MatchingGameNew(props: { flashcards: any[] }) {
   // -----------------Matching Card Game Functionality --------------------
@@ -23,10 +24,6 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
   const [secondSelected, setSecondSelected] = useState(false);
 
   const [matched, setmatched] = useState(false);
-  //
-  // const firstSelected = "bg-green";
-  // const secondSelected = "bg-green";
-
   const cardsForMatchingGame = props.flashcards.map(
     (card: { id: any; english: any; japanese: any; week: any; year: any }) => {
       const { id, english, japanese, week, year } = card;
@@ -59,9 +56,7 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
     }
   );
 
-  console.log(doubledDeck);
   // Take the original double sided deck - split it - and combine into big deck for game
-
   const doubleTheDeck = (deck: any) => {
     const FlashcardsEnglish = deck.map((card: { props: { children: { props: any }[] } }) => {
       return card.props.children[0].props;
@@ -75,10 +70,7 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
     setDoubledDeck(joinedDeck);
   };
 
-  // doubledDeck is what I need to modify
-
-  const testDeck = doubledDeck;
-  console.log(testDeck);
+  console.log("matchinggame", cardsForMatchingGame);
 
   // shuffle deck -----
 
@@ -183,5 +175,10 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
     setMatchingGameActive((prevState) => !prevState);
   };
 
-  return <div>{finalDeck}</div>;
+  return (
+    <div>
+      {/* {finalDeck} */}
+      <MatchingGame deck={cardsForMatchingGame} />
+    </div>
+  );
 }

@@ -81,7 +81,7 @@ export default function Flashcards(props: any) {
         <div
           className={`card ${
             flip ? "flip" : ""
-          } h-16 w-64  bg-blue-200 rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700`}
+          } h-16 w-64 hover:bg-blue-300/75 bg-blue-100 rounded-xl shadow-md flex  justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700`}
           onClick={handleToggle}
         >
           <div className="front ">{props.english}</div>

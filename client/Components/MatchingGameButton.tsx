@@ -7,7 +7,7 @@ export default function MatchingGameButton(props: {
 }) {
   return (
     <div className="   dark:bg-bd-1 flex items-center justify-center p-4 ">
-      <button onClick={props.onClick} className="dark:bg-zinc-200 bg-blue-200 p-5 m-5  rounded">
+      <button onClick={props.onClick} className="hover:bg-blue-300/75 dark:bg-zinc-200 bg-blue-100 p-5 m-5  rounded">
         {/* <Link className="dark:bg-zinc-200 bg-blue-200  p-5 m-5  rounded" href="/MatchingGame"> */}
         {props.content}
         {/* </Link> */}

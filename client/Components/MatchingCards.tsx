@@ -128,14 +128,14 @@ export default function MatchingCards(props: {
     <div key={props.id}>
       {/* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */}
       {/* need to make a click register for either div - not doubling the key-match  */}
-      <div className="relative">
+      <div className="relative flex justify-center items-center">
         <div
           onClick={handleClick}
           data-key-match={props.matchId}
           data-matched={props.matched}
           className={`
           ${props.color && "bg-green-200 dark:bg-green-200 dark:text-zinc-800"}
-          card  h-16 w-64          
+          card  h-16 w-64     
           bg-blue-200 rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 `}
         >
           <div

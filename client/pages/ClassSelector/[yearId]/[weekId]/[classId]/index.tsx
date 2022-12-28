@@ -239,7 +239,10 @@ function Class() {
   return (
     <div>
       <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
-      <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 p-4 ">
+      <div
+        className="flex items-center   
+ justify-between bg-blue-200 dark:bg-bd-1 p-4 mobile:p-0 "
+      >
         <HomeButton />
         <MatchingGameButton
           content={matchingGameActive ? "Regular Deck" : "Matching Game"}
@@ -251,7 +254,7 @@ function Class() {
           <div
             className="
         dark:bg-bd-1
-        p-20
+        // p-20
       bg-blue-200 gap-5  flex flex-col items-center justify-center
       sm:items-center sm:justify-center
       sm:grid

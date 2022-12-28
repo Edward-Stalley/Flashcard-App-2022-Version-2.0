@@ -31,7 +31,7 @@ function ProductDetail() {
           <ToggleButton />
         </div>
         <div className="bg-blue-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1  ">
-          <div className=" bg-blue-100 dark:bg-bd-2   p-5 grid items-center justify-center ">{classList}</div>
+          <div className=" bg-blue-200 dark:bg-bd-2   p-5 grid items-center justify-center ">{classList}</div>
         </div>
       </div>
     </div>

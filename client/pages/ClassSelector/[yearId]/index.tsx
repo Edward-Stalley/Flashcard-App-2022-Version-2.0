@@ -23,7 +23,7 @@ function ProductDetail() {
   return (
     <div>
       <div>
-        <Header pageHeader="Select Your Class" subHeader={""} />
+        <Header pageHeader="Select The Week" subHeader={""} />
         <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 ">
           <HomeButton />
           <ToggleButton />

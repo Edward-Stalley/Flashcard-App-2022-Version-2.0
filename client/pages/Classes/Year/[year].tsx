@@ -7,7 +7,7 @@ export default function WeekSelection() {
   return (
     <div>
       <div>
-        <Header pageHeader="Select Your Class" />
+        <Header pageHeader="Select Your Class" subHeader={""} />
         <div className="flex items-center  justify-between bg-slate-200 dark:bg-bd-1 p-4 ">
           <HomeButton />
           <ToggleButton />

@@ -16,7 +16,7 @@ export default function Home() {
   }
   return (
     <div className="bg-slate-600 h-screen ">
-      <Header pageHeader="E.B. Flashcards" />
+      <Header pageHeader="E.B. Flashcards" subHeader={""} />
       <div className="   dark:bg-bd-1 flex justify-end bg-blue-200  ">
         <ToggleButton />
       </div>

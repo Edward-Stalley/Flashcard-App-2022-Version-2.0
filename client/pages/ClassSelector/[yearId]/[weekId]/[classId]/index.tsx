@@ -238,7 +238,7 @@ function Class() {
 
   return (
     <div>
-      <Header pageHeader={`${classId} : week ${weekId}`} />
+      <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
       <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 p-4 ">
         <HomeButton />
         <MatchingGameButton

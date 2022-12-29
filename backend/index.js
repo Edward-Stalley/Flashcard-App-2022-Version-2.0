@@ -73,7 +73,7 @@ app.delete("/myflashcards/:id", (req, res) => {
 
 // Dynamic get request from database based on dynamic year/week/class
 
-app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const yearId = req.params.yearId;
   const weekId = req.params.weekId;
   const classId = req.params.classId;

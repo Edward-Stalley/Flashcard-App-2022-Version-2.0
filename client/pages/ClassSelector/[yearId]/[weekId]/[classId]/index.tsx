@@ -59,6 +59,7 @@ function Class() {
         try {
           const res = await axios.get(
             `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+            // `https://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`
           );
           setFlashcards(res.data);
         } catch (err) {
@@ -70,20 +71,20 @@ function Class() {
     }
   }, [router.isReady, className, weekId, yearId, classId]);
 
-  // const cards = flashcards.map((card) => {
-  //   const { id, english, japanese, example_sentence, week, year } = card;
-  //   return (
-  //     <div key={id + week + year + english} className="flex items-center justify-center">
-  //       <Flashcards
-  //         english={english}
-  //         japanese={japanese}
-  //         classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-  //         //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
-  //         showDeleteButton={false}
-  //       />
-  //     </div>
-  //   );
-  // });
+  const cards = flashcards.map((card) => {
+    const { id, english, japanese, example_sentence, week, year } = card;
+    return (
+      <div key={id + week + year + english} className="flex items-center justify-center">
+        <Flashcards
+          english={english}
+          japanese={japanese}
+          classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+          //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
+          showDeleteButton={false}
+        />
+      </div>
+    );
+  });
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------

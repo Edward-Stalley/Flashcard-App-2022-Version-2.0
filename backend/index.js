@@ -10,22 +10,22 @@ app.use(cors());
 // app.cors();
 
 // DO NOT DELETE - Works for local host
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "flashcards_2.0",
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
 
 // const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
 
 // Railway - DB hosting website
-// const db = mysql.createConnection({
-//   host: "containers-us-west-19.railway.app",
-//   user: "root",
-//   password: "nkEDYn2avYUNrKTiEsmf",
-//   database: "railway",
-// });
+const db = mysql.createConnection({
+  host: "containers-us-west-19.railway.app",
+  user: "root",
+  password: "nkEDYn2avYUNrKTiEsmf",
+  database: "railway",
+});
 
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");

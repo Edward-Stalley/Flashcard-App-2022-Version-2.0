@@ -9,11 +9,20 @@ app.use(express.json());
 app.use(cors());
 // app.cors();
 
+// DO NOT DELETE - Works for local host
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
+
+// Railway - DB hosting website
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "containers-us-west-19.railway.app",
   user: "root",
-  password: "password",
-  database: "flashcards_2.0",
+  password: "nkEDYn2avYUNrKTiEsmf",
+  database: "railway",
 });
 
 app.get("/", (req, res) => {
@@ -66,8 +75,6 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const weekId = req.params.weekId;
   const classId = req.params.classId;
 
-  console.log(classId);
-
   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);
@@ -76,6 +83,32 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
     res.json(data);
   });
 });
+
+// test new server database railway
+
+app.get("/test", function (req, res) {
+  const q = `SELECT * FROM listening_kiso`;
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+
+    res.json(data);
+  });
+});
+
+// app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+//   const yearId = req.params.yearId;
+//   const weekId = req.params.weekId;
+//   const classId = req.params.classId;
+
+//   const q = `SELECT * FROM listening_kiso`;
+//   db.query(q, (err, data) => {
+//     if (err) return res.json(err);
+//     console.log(data);
+
+//     res.json(data);
+//   });
+// });
 
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 

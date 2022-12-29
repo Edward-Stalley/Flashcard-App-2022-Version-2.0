@@ -1,12 +1,12 @@
 import express from "express";
 import mysql from "mysql";
-// import cors from "cors";
+import cors from "cors";
 
 // THESE ARE ALL SUPER FUCKING IMPORTANT!!!
 const app = express();
 // NEED THIS SO I CAN POST !!
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 // app.cors();
 
 // DO NOT DELETE - Works for local host

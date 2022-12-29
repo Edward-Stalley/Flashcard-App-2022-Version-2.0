@@ -17,6 +17,8 @@ app.use(cors());
 //   database: "flashcards_2.0",
 // });
 
+const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
+
 // Railway - DB hosting website
 const db = mysql.createConnection({
   host: "containers-us-west-19.railway.app",
@@ -28,6 +30,7 @@ const db = mysql.createConnection({
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");
 });
+
 // THIS IS FOR TEST
 app.get("/list", (req, res) => {
   const q = "SELECT * FROM personal_flashcards";
@@ -70,7 +73,7 @@ app.delete("/myflashcards/:id", (req, res) => {
 
 // Dynamic get request from database based on dynamic year/week/class
 
-app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const yearId = req.params.yearId;
   const weekId = req.params.weekId;
   const classId = req.params.classId;

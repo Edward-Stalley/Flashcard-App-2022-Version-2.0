@@ -57,7 +57,9 @@ function Class() {
     if (router.isReady) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
+          const res = await axios.get(
+            `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+          );
           setFlashcards(res.data);
         } catch (err) {
           console.log(err);
@@ -75,7 +77,7 @@ function Class() {
         <Flashcards
           english={english}
           japanese={japanese}
-          classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
+          classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
           //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
           showDeleteButton={false}
         />

@@ -115,7 +115,7 @@ app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId
   const classId = req.params.classId;
 
   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
-  railWaydb.query(q, (err, data) => {
+  db.query(q, (err, data) => {
     if (err) return res.json(err);
     console.log(data);
 

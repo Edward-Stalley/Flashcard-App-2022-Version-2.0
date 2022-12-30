@@ -17,15 +17,24 @@ app.use(cors());
 //   database: "flashcards_2.0",
 // });
 
+// 000webhost test
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "id20077970_root",
+  password: "g)3Lyc>e^xm!iE@&",
+  database: "id20077970_eb_flashcards",
+});
+
 // const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
 
 // Railway - DB hosting website
-const railWaydb = mysql.createConnection({
-  host: "containers-us-west-19.railway.app",
-  user: "root",
-  password: "nkEDYn2avYUNrKTiEsmf",
-  database: "railway",
-});
+// const railWaydb = mysql.createConnection({
+//   host: "containers-us-west-19.railway.app",
+//   user: "root",
+//   password: "nkEDYn2avYUNrKTiEsmf",
+//   database: "railway",
+// });
 
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");
@@ -153,5 +162,6 @@ app.get("/classes/*/:id", (req, res) => {
 // -------
 
 app.listen(8800, () => {
+  l;
   console.log("connected to backend");
 });

@@ -1,15 +1,21 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+
 // import Mysqli from "mysqli";
 
 // THESE ARE ALL SUPER FUCKING IMPORTANT!!!
 const app = express();
+app.use(express.json());
+app.use(
+  cors({
+    origin: "https://eb-flashcards.vercel.app",
+  })
+);
 
 // const mysqli = require("mysqli");
 // NEED THIS SO I CAN POST !!
-app.use(express.json());
-app.use(cors((x) => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+// (x) => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader())
 // app.cors();
 
 // let db = new Mysqli({
@@ -102,6 +108,8 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   db.query(q, (err, data) => {
     if (err) return res.json(err);
     console.log(data);
+    res.set("Access-Control-Allow-Origin", "*");
+    // res.send({ msg: "This has CORS enabled 🎈" });
 
     res.json(data);
   });
@@ -120,9 +128,8 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
 // });
 
 // RAILWAY URL
-app.get("http://localhost:8800/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-  // app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-
+// app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const yearId = req.params.yearId;
   const weekId = req.params.weekId;
   const classId = req.params.classId;

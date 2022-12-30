@@ -97,7 +97,7 @@ function Class() {
   // ******************************************
 
   useEffect(() => {
-    if (!router.isReady || !className || !flashcards) return;
+    if (!router.isReady) return;
 
     if (router.isReady && flashcards) {
       const deck = flashcards.map((card) => {
@@ -138,6 +138,7 @@ function Class() {
   const [matched, setmatched] = useState(false);
 
   useEffect(() => {
+    if (!flashcards) return;
     const cardsForMatchingGame = flashcards.map((card) => {
       const { id, english, japanese, week, year } = card;
       return (
@@ -168,7 +169,7 @@ function Class() {
       );
     });
     setMatchingCards(cardsForMatchingGame);
-  });
+  }, [router.isReady]);
 
   // Take the original double sided deck - split it - and combine into big deck for game
 

@@ -52,25 +52,25 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
-  useEffect(() => {
-    if (!router.isReady) return;
+  // useEffect(() => {
+  //   if (!router.isReady) return;
 
-    if (router.isReady && className) {
-      const fetchAllFlashcards = async () => {
-        try {
-          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
+  //   if (router.isReady && className) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
 
-          if (res.data) {
-            setFlashcards(res.data);
-          }
-        } catch (err) {
-          console.log(err);
-        }
-      };
+  //         if (res.data) {
+  //           setFlashcards(res.data);
+  //         }
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
 
-      fetchAllFlashcards();
-    }
-  }, [router.isReady, className, weekId, yearId, classId]);
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
 
   // RAILWAY ******************************************
   useEffect(() => {

@@ -53,39 +53,17 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
-  // useEffect(() => {
-  //   if (!router.isReady) return;
-
-  //   if (router.isReady && className) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
-
-  //         if (res.data) {
-  //           setFlashcards(res.data);
-  //         }
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
-
-  // RAILWAY ******************************************
   useEffect(() => {
-    if (!router.isReady && !className) {
-      console.log("no");
-      return;
-    }
+    if (!router.isReady) return;
+
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(
-            `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
-          );
-          setFlashcards(res.data);
+          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
+
+          if (res.data) {
+            setFlashcards(res.data);
+          }
         } catch (err) {
           console.log(err);
         }
@@ -94,12 +72,34 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
+
+  // RAILWAY ******************************************
+  // useEffect(() => {
+  //   if (!router.isReady && !className) {
+  //     console.log("no");
+  //     return;
+  //   }
+  //   if (router.isReady && className) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(
+  //           `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+  //         );
+  //         setFlashcards(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
   useEffect(() => {
     if (!router.isReady || flashcards?.length === 0) return;
 
-    if (router.isReady && flashcards.length !== 0) {
+    if (router.isReady && flashcards?.length !== 0) {
       const deck = flashcards.map((card) => {
         const { id, english, japanese, example_sentence, week, year } = card;
         return (

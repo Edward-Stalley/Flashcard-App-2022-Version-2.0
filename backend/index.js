@@ -1,21 +1,31 @@
 import express from "express";
 import mysql from "mysql";
 import cors from "cors";
+// import Mysqli from "mysqli";
 
 // THESE ARE ALL SUPER FUCKING IMPORTANT!!!
 const app = express();
+
+// const mysqli = require("mysqli");
 // NEED THIS SO I CAN POST !!
 app.use(express.json());
-app.use(cors());
+app.use(cors((x) => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 // app.cors();
 
+// let db = new Mysqli({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
+
 // DO NOT DELETE - Works for local host
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "flashcards_2.0",
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
 
 // 000webhost test
 
@@ -29,12 +39,13 @@ const db = mysql.createConnection({
 // const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
 
 // Railway - DB hosting website
-// const railWaydb = mysql.createConnection({
-//   host: "containers-us-west-19.railway.app",
-//   user: "root",
-//   password: "nkEDYn2avYUNrKTiEsmf",
-//   database: "railway",
-// });
+const db = mysql.createConnection({
+  host: "containers-us-west-19.railway.app",
+  user: "root",
+  password: "nkEDYn2avYUNrKTiEsmf",
+  database: "railway",
+  // port: "6177",
+});
 
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");
@@ -82,7 +93,7 @@ app.delete("/myflashcards/:id", (req, res) => {
 
 // Dynamic get request from database based on dynamic year/week/class
 
-app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const yearId = req.params.yearId;
   const weekId = req.params.weekId;
   const classId = req.params.classId;
@@ -98,23 +109,8 @@ app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId
 
 // test new server database railway
 
-app.get("/https://eb-flashcards.vercel.app/test", function (req, res) {
-  const q = `SELECT * FROM listening_kiso`;
-  railWaydb.query(q, (err, data) => {
-    if (err) return res.json(err);
-    console.log(data);
-
-    res.json(data);
-  });
-});
-
-// RAILWAY URL
-// app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-//   const yearId = req.params.yearId;
-//   const weekId = req.params.weekId;
-//   const classId = req.params.classId;
-
-//   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+// app.get("/https://eb-flashcards.vercel.app/test", function (req, res) {
+//   const q = `SELECT * FROM listening_kiso`;
 //   railWaydb.query(q, (err, data) => {
 //     if (err) return res.json(err);
 //     console.log(data);
@@ -122,6 +118,23 @@ app.get("/https://eb-flashcards.vercel.app/test", function (req, res) {
 //     res.json(data);
 //   });
 // });
+
+// RAILWAY URL
+app.get("http://localhost:8800/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+  // app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+
+  const yearId = req.params.yearId;
+  const weekId = req.params.weekId;
+  const classId = req.params.classId;
+
+  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
+
+    res.json(data);
+  });
+});
 
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 
@@ -162,6 +175,5 @@ app.get("/classes/*/:id", (req, res) => {
 // -------
 
 app.listen(8800, () => {
-  l;
   console.log("connected to backend");
 });

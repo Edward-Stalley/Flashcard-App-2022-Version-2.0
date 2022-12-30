@@ -13,7 +13,7 @@ function ProductDetail() {
   const weekId = router.query.weekId;
 
   // const reviewId = router.query.reviewId;
-  console.log(yearId, weekId);
+  // console.log(yearId, weekId);
 
   const classArray = ["Listening Kiso", "Listening Shokyu"];
   const classList = classArray.map((week, i) => {

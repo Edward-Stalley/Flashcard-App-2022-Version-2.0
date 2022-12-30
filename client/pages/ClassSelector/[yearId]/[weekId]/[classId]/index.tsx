@@ -28,6 +28,7 @@ function Class() {
   const [className, setClassname] = useState("");
   const [cards, setCards] = useState<React.ReactElement[]>();
   const [flashcards, setFlashcards] = useState([]);
+  const [matchingcards, setMatchingCards] = useState<React.ReactElement[]>();
 
   //   Fix the formatting to match the database formatting
 
@@ -95,33 +96,29 @@ function Class() {
   }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
-  // useEffect(() => {
-  //   if (!router.isReady && !className) return;
+  useEffect(() => {
+    if (!router.isReady || !className || !flashcards) return;
 
-  //   if (router.isReady && flashcards) {
-  //     const deck = flashcards.map((card) => {
-  //       const { id, english, japanese, example_sentence, week, year } = card;
-  //       return (
-  //         <div key={id + week + year + english} className="flex items-center justify-center">
-  //           <Flashcards
-  //             english={english}
-  //             japanese={japanese}
-  //             classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-  //             // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
-  //             //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
-  //             showDeleteButton={false}
-  //           />
-  //         </div>
-  //       );
-  //     });
+    if (router.isReady && flashcards) {
+      const deck = flashcards.map((card) => {
+        const { id, english, japanese, example_sentence, week, year } = card;
+        return (
+          <div key={id + week + year + english} className="flex items-center justify-center">
+            <Flashcards
+              english={english}
+              japanese={japanese}
+              classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+              // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
+              //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
+              showDeleteButton={false}
+            />
+          </div>
+        );
+      });
 
-  //     setCards(deck);
-  //   }
-
-  //   if (!flashcards) {
-  //     console.log("could not get cards");
-  //   }
-  // }, [flashcards]);
+      setCards(deck);
+    }
+  }, [flashcards]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -140,34 +137,37 @@ function Class() {
 
   const [matched, setmatched] = useState(false);
 
-  const cardsForMatchingGame = flashcards.map((card) => {
-    const { id, english, japanese, week, year } = card;
-    return (
-      <div key={className + week + "match" + id} className="flex items-center justify-center">
-        <MatchingCards
-          word={english}
-          matchId={id}
-          matched={matched}
-          color={false}
-          handleChoice={function (arg0: any): void {
-            throw new Error("Function not implemented.");
-          }}
-          card={undefined}
-          id={undefined}
-        />
-        <MatchingCards
-          word={japanese}
-          matchId={id}
-          matched={matched}
-          color={false}
-          handleChoice={function (arg0: any): void {
-            throw new Error("Function not implemented.");
-          }}
-          card={undefined}
-          id={undefined}
-        />
-      </div>
-    );
+  useEffect(() => {
+    const cardsForMatchingGame = flashcards.map((card) => {
+      const { id, english, japanese, week, year } = card;
+      return (
+        <div key={className + week + "match" + id} className="flex items-center justify-center">
+          <MatchingCards
+            word={english}
+            matchId={id}
+            matched={matched}
+            color={false}
+            handleChoice={function (arg0: any): void {
+              throw new Error("Function not implemented.");
+            }}
+            card={undefined}
+            id={undefined}
+          />
+          <MatchingCards
+            word={japanese}
+            matchId={id}
+            matched={matched}
+            color={false}
+            handleChoice={function (arg0: any): void {
+              throw new Error("Function not implemented.");
+            }}
+            card={undefined}
+            id={undefined}
+          />
+        </div>
+      );
+    });
+    setMatchingCards(cardsForMatchingGame);
   });
 
   // Take the original double sided deck - split it - and combine into big deck for game
@@ -268,7 +268,7 @@ function Class() {
 
   const handleMatchingGameClick = () => {
     // take flahscards and double split them into two - doubling size
-    doubleTheDeck(cardsForMatchingGame);
+    doubleTheDeck(matchingcards);
 
     //  shuffle the deck & sets the shuffledCards
     shuffle(doubledDeck);
@@ -309,7 +309,7 @@ function Class() {
       xl:grid-cols-4
        "
           >
-            {/* {cards} */}
+            {cards}
           </div>
         ) : (
           <div>

@@ -95,33 +95,33 @@ function Class() {
   }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
-  useEffect(() => {
-    if (!router.isReady && !className) return;
+  // useEffect(() => {
+  //   if (!router.isReady && !className) return;
 
-    if (router.isReady && flashcards) {
-      const deck = flashcards.map((card) => {
-        const { id, english, japanese, example_sentence, week, year } = card;
-        return (
-          <div key={id + week + year + english} className="flex items-center justify-center">
-            <Flashcards
-              english={english}
-              japanese={japanese}
-              classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-              // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
-              //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
-              showDeleteButton={false}
-            />
-          </div>
-        );
-      });
+  //   if (router.isReady && flashcards) {
+  //     const deck = flashcards.map((card) => {
+  //       const { id, english, japanese, example_sentence, week, year } = card;
+  //       return (
+  //         <div key={id + week + year + english} className="flex items-center justify-center">
+  //           <Flashcards
+  //             english={english}
+  //             japanese={japanese}
+  //             classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+  //             // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
+  //             //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
+  //             showDeleteButton={false}
+  //           />
+  //         </div>
+  //       );
+  //     });
 
-      setCards(deck);
-    }
+  //     setCards(deck);
+  //   }
 
-    if (!flashcards) {
-      console.log("could not get cards");
-    }
-  }, [flashcards]);
+  //   if (!flashcards) {
+  //     console.log("could not get cards");
+  //   }
+  // }, [flashcards]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -309,7 +309,7 @@ function Class() {
       xl:grid-cols-4
        "
           >
-            {cards}
+            {/* {cards} */}
           </div>
         ) : (
           <div>

@@ -53,39 +53,19 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
-  // useEffect(() => {
-  //   if (!router.isReady) return;
-
-  //   if (router.isReady && className) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
-  //           // mode: "cors",
-  //         });
-
-  //         if (res.data) {
-  //           setFlashcards(res.data);
-  //         }
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
-
-  // RAILWAY ******************************************
   useEffect(() => {
-    if (!router.isReady && !className) {
-      console.log("no");
-      return;
-    }
+    if (!router.isReady) return;
+
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(`/ClassSelector/${yearId}/${weekId}/${className}`);
-          setFlashcards(res.data);
+          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
+            // mode: "cors",
+          });
+
+          if (res.data) {
+            setFlashcards(res.data);
+          }
         } catch (err) {
           console.log(err);
         }
@@ -94,6 +74,26 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
+
+  // RAILWAY ******************************************
+  // useEffect(() => {
+  //   if (!router.isReady && !className) {
+  //     console.log("no");
+  //     return;
+  //   }
+  //   if (router.isReady && className) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(`/ClassSelector/${yearId}/${weekId}/${className}`);
+  //         setFlashcards(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
   useEffect(() => {

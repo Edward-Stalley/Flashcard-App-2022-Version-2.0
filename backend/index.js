@@ -99,19 +99,20 @@ app.get("/test", function (req, res) {
   });
 });
 
-// app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-//   const yearId = req.params.yearId;
-//   const weekId = req.params.weekId;
-//   const classId = req.params.classId;
+// RAILWAY URL
+app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+  const yearId = req.params.yearId;
+  const weekId = req.params.weekId;
+  const classId = req.params.classId;
 
-//   const q = `SELECT * FROM listening_kiso`;
-//   db.query(q, (err, data) => {
-//     if (err) return res.json(err);
-//     console.log(data);
+  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
 
-//     res.json(data);
-//   });
-// });
+    res.json(data);
+  });
+});
 
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 

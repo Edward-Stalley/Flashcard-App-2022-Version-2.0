@@ -51,6 +51,24 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
+  // useEffect(() => {
+  //   if (!router.isReady) return;
+
+  //   if (router.isReady) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
+  //         setFlashcards(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
+
+  // RAILWAY ******************************************
   useEffect(() => {
     if (!router.isReady) return;
 
@@ -59,7 +77,6 @@ function Class() {
         try {
           const res = await axios.get(
             `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
-            // `https://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`
           );
           setFlashcards(res.data);
         } catch (err) {
@@ -70,6 +87,7 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
+  // ******************************************
 
   const cards = flashcards.map((card) => {
     const { id, english, japanese, example_sentence, week, year } = card;

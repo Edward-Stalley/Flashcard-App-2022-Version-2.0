@@ -73,24 +73,24 @@ function Class() {
   }, [router.isReady, className, weekId, yearId, classId]);
 
   // RAILWAY ******************************************
-  // useEffect(() => {
-  //   if (!router.isReady) return;
+  useEffect(() => {
+    if (!router.isReady) return;
 
-  //   if (router.isReady) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(
-  //           `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
-  //         );
-  //         setFlashcards(res.data);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
+    if (router.isReady && className) {
+      const fetchAllFlashcards = async () => {
+        try {
+          const res = await axios.get(
+            `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+          );
+          setFlashcards(res.data);
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
+      fetchAllFlashcards();
+    }
+  }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
   useEffect(() => {
@@ -101,8 +101,8 @@ function Class() {
           <Flashcards
             english={english}
             japanese={japanese}
-            // classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-            classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
+            classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+            // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
             //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
             showDeleteButton={false}
           />

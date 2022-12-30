@@ -75,8 +75,8 @@ function Class() {
 
   // RAILWAY ******************************************
   useEffect(() => {
-    if (!router.isReady && !className) {
-      console.log("no");
+    if (!router.isReady) {
+      console.log("router not ready");
       return;
     }
     if (router.isReady && className) {
@@ -118,7 +118,7 @@ function Class() {
 
       setCards(deck);
     }
-  }, [flashcards]);
+  }, [className, router.isReady]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -286,8 +286,6 @@ function Class() {
           onClick={handleMatchingGameClick}
         />
         <ToggleButton />
-
-        {/* <ToggleButton /> */}
       </div>
       <div></div>
       {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">

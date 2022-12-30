@@ -113,7 +113,7 @@ function Class() {
     });
 
     setCards(deck);
-  }, [flashcards]);
+  }, [cards]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------

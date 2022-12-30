@@ -10,22 +10,22 @@ app.use(cors());
 // app.cors();
 
 // DO NOT DELETE - Works for local host
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "flashcards_2.0",
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
 
 // const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
 
 // Railway - DB hosting website
-// const db = mysql.createConnection({
-//   host: "containers-us-west-19.railway.app",
-//   user: "root",
-//   password: "nkEDYn2avYUNrKTiEsmf",
-//   database: "railway",
-// });
+const railWaydb = mysql.createConnection({
+  host: "containers-us-west-19.railway.app",
+  user: "root",
+  password: "nkEDYn2avYUNrKTiEsmf",
+  database: "railway",
+});
 
 app.get("/", (req, res) => {
   res.json("hello sir this is the backend");
@@ -73,19 +73,19 @@ app.delete("/myflashcards/:id", (req, res) => {
 
 // Dynamic get request from database based on dynamic year/week/class
 
-app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-  const yearId = req.params.yearId;
-  const weekId = req.params.weekId;
-  const classId = req.params.classId;
+// app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+//   const yearId = req.params.yearId;
+//   const weekId = req.params.weekId;
+//   const classId = req.params.classId;
 
-  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    console.log(data);
+//   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+//   db.query(q, (err, data) => {
+//     if (err) return res.json(err);
+//     console.log(data);
 
-    res.json(data);
-  });
-});
+//     res.json(data);
+//   });
+// });
 
 // test new server database railway
 
@@ -100,19 +100,19 @@ app.get("/test", function (req, res) {
 });
 
 // RAILWAY URL
-// app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-//   const yearId = req.params.yearId;
-//   const weekId = req.params.weekId;
-//   const classId = req.params.classId;
+app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+  const yearId = req.params.yearId;
+  const weekId = req.params.weekId;
+  const classId = req.params.classId;
 
-//   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
-//   db.query(q, (err, data) => {
-//     if (err) return res.json(err);
-//     console.log(data);
+  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+  railWaydb.query(q, (err, data) => {
+    if (err) return res.json(err);
+    console.log(data);
 
-//     res.json(data);
-//   });
-// });
+    res.json(data);
+  });
+});
 
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 

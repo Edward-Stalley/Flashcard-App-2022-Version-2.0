@@ -74,8 +74,10 @@ function Class() {
 
   // RAILWAY ******************************************
   useEffect(() => {
-    if (!router.isReady) return;
-
+    if (!router.isReady && !className) {
+      console.log("no");
+      return;
+    }
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {

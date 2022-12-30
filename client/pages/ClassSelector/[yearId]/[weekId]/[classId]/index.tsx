@@ -27,8 +27,8 @@ function Class() {
   // States
   const [className, setClassname] = useState("");
   const [cards, setCards] = useState<React.ReactElement[]>();
+  const [cardsForMatchingGame, setCardsForMatchingGame] = useState<React.ReactElement[]>();
   const [flashcards, setFlashcards] = useState([]);
-  const [matchingcards, setMatchingCards] = useState<React.ReactElement[]>();
 
   //   Fix the formatting to match the database formatting
 
@@ -53,39 +53,17 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
-  // useEffect(() => {
-  //   if (!router.isReady) return;
-
-  //   if (router.isReady && className) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
-
-  //         if (res.data) {
-  //           setFlashcards(res.data);
-  //         }
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
-
-  // RAILWAY ******************************************
   useEffect(() => {
-    if (!router.isReady) {
-      console.log("router not ready");
-      return;
-    }
+    if (!router.isReady) return;
+
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(
-            `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
-          );
-          setFlashcards(res.data);
+          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
+
+          if (res.data) {
+            setFlashcards(res.data);
+          }
         } catch (err) {
           console.log(err);
         }
@@ -94,12 +72,34 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
+
+  // RAILWAY ******************************************
+  // useEffect(() => {
+  //   if (!router.isReady && !className) {
+  //     console.log("no");
+  //     return;
+  //   }
+  //   if (router.isReady && className) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(
+  //           `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+  //         );
+  //         setFlashcards(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!router.isReady || flashcards.length === 0) return;
 
-    if (router.isReady && flashcards) {
+    if (router.isReady && flashcards.length > 0) {
       const deck = flashcards.map((card) => {
         const { id, english, japanese, example_sentence, week, year } = card;
         return (
@@ -118,7 +118,7 @@ function Class() {
 
       setCards(deck);
     }
-  }, [className, router.isReady]);
+  }, [router.isReady, flashcards]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -138,52 +138,56 @@ function Class() {
   const [matched, setmatched] = useState(false);
 
   useEffect(() => {
-    if (!flashcards) return;
-    const cardsForMatchingGame = flashcards.map((card) => {
-      const { id, english, japanese, week, year } = card;
-      return (
-        <div key={className + week + "match" + id} className="flex items-center justify-center">
-          <MatchingCards
-            word={english}
-            matchId={id}
-            matched={matched}
-            color={false}
-            handleChoice={function (arg0: any): void {
-              throw new Error("Function not implemented.");
-            }}
-            card={undefined}
-            id={undefined}
-          />
-          <MatchingCards
-            word={japanese}
-            matchId={id}
-            matched={matched}
-            color={false}
-            handleChoice={function (arg0: any): void {
-              throw new Error("Function not implemented.");
-            }}
-            card={undefined}
-            id={undefined}
-          />
-        </div>
-      );
-    });
-    setMatchingCards(cardsForMatchingGame);
-  }, [router.isReady]);
+    if (router.isReady && flashcards.length > 0) {
+      const deck = flashcards.map((card) => {
+        const { id, english, japanese, week, year } = card;
+        return (
+          <div key={className + week + "match" + id} className="flex items-center justify-center">
+            <MatchingCards
+              word={english}
+              matchId={id}
+              matched={matched}
+              color={false}
+              handleChoice={function (arg0: any): void {
+                throw new Error("Function not implemented.");
+              }}
+              card={undefined}
+              id={undefined}
+            />
+            <MatchingCards
+              word={japanese}
+              matchId={id}
+              matched={matched}
+              color={false}
+              handleChoice={function (arg0: any): void {
+                throw new Error("Function not implemented.");
+              }}
+              card={undefined}
+              id={undefined}
+            />
+          </div>
+        );
+      });
+      setCardsForMatchingGame(deck);
+    }
+  }, [router.isReady, flashcards]);
 
   // Take the original double sided deck - split it - and combine into big deck for game
 
   const doubleTheDeck = (deck: any) => {
-    const FlashcardsEnglish = deck.map((card: { props: { children: { props: any }[] } }) => {
-      return card.props.children[0].props;
-    });
-    const FlashcardsJapanese = deck.map((card: { props: { children: { props: any }[] } }) => {
-      return card.props.children[1].props;
-    });
+    if (deck?.length === 0) return;
+    else if (deck?.length > 0) {
+      const FlashcardsEnglish = deck.map((card: { props: { children: { props: any }[] } }) => {
+        return card.props.children[0].props;
+      });
+      const FlashcardsJapanese = deck.map((card: { props: { children: { props: any }[] } }) => {
+        return card.props.children[1].props;
+      });
 
-    const joinedDeck = FlashcardsEnglish.concat(FlashcardsJapanese);
+      const joinedDeck = FlashcardsEnglish.concat(FlashcardsJapanese);
 
-    setDoubledDeck(joinedDeck);
+      setDoubledDeck(joinedDeck);
+    }
   };
 
   // shuffle deck -----
@@ -269,11 +273,10 @@ function Class() {
 
   const handleMatchingGameClick = () => {
     // take flahscards and double split them into two - doubling size
-    doubleTheDeck(matchingcards);
+    doubleTheDeck(cardsForMatchingGame);
 
     //  shuffle the deck & sets the shuffledCards
     shuffle(doubledDeck);
-
     setMatchingGameActive((prevState) => !prevState);
   };
 
@@ -287,6 +290,8 @@ function Class() {
           onClick={handleMatchingGameClick}
         />
         <ToggleButton />
+
+        {/* <ToggleButton /> */}
       </div>
       <div></div>
       {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">

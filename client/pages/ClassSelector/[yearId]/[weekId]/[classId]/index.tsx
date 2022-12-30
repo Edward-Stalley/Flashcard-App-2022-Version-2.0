@@ -51,33 +51,13 @@ function Class() {
 
   //   FETCH THE DATABASE ROWS BASED ON THE INFO BELOW!
 
-  // useEffect(() => {
-  //   if (!router.isReady) return;
-
-  //   if (router.isReady) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
-  //         setFlashcards(res.data);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
-
-  // RAILWAY ******************************************
   useEffect(() => {
     if (!router.isReady) return;
 
     if (router.isReady) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(
-            `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
-          );
+          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`);
           setFlashcards(res.data);
         } catch (err) {
           console.log(err);
@@ -87,6 +67,26 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
+
+  // RAILWAY ******************************************
+  // useEffect(() => {
+  //   if (!router.isReady) return;
+
+  //   if (router.isReady) {
+  //     const fetchAllFlashcards = async () => {
+  //       try {
+  //         const res = await axios.get(
+  //           `https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`
+  //         );
+  //         setFlashcards(res.data);
+  //       } catch (err) {
+  //         console.log(err);
+  //       }
+  //     };
+
+  //     fetchAllFlashcards();
+  //   }
+  // }, [router.isReady, className, weekId, yearId, classId]);
   // ******************************************
 
   const cards = flashcards.map((card) => {

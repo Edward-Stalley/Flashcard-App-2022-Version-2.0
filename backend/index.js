@@ -26,12 +26,12 @@ app.use(
 // });
 
 // DO NOT DELETE - Works for local host
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "flashcards_2.0",
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "flashcards_2.0",
+// });
 
 // 000webhost test
 
@@ -41,6 +41,14 @@ const db = mysql.createConnection({
 //   password: "g)3Lyc>e^xm!iE@&",
 //   database: "id20077970_eb_flashcards",
 // });
+
+// phpMYADMIN
+const db = mysql.createConnection({
+  host: "sql6.freemysqlhosting.net",
+  user: "sql6587358",
+  password: "beh4prkep6",
+  database: "sql6587358",
+});
 
 // const MYSQL_URL = "mysql://root:nkEDYn2avYUNrKTiEsmf@containers-us-west-19.railway.app:6177/railway";
 

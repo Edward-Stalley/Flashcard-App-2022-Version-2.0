@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "sql6.freemysqlhosting.net",
+    origin: "https://eb-flashcards.vercel.app",
   })
 );
 

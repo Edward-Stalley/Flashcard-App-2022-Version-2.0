@@ -6,6 +6,7 @@ import cors from "cors";
 
 // THESE ARE ALL SUPER FUCKING IMPORTANT!!!
 const app = express();
+const port = process.env.PORT || 8800;
 app.use(express.json());
 app.use(
   cors({
@@ -114,10 +115,8 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);
-    console.log(data);
     res.set("Access-Control-Allow-Origin", "*");
     // res.send({ msg: "This has CORS enabled 🎈" });
-
     res.json(data);
   });
 });
@@ -136,19 +135,19 @@ app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
 
 // RAILWAY URL
 // app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
-  const yearId = req.params.yearId;
-  const weekId = req.params.weekId;
-  const classId = req.params.classId;
+// app.get("https://eb-flashcards.vercel.app/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+//   const yearId = req.params.yearId;
+//   const weekId = req.params.weekId;
+//   const classId = req.params.classId;
 
-  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    console.log(data);
+//   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+//   db.query(q, (err, data) => {
+//     if (err) return res.json(err);
+//     console.log(data);
 
-    res.json(data);
-  });
-});
+//     res.json(data);
+//   });
+// });
 
 // THESE ARE FOR THE SCHOOL CLASSES - DECKS MADE BY TEACHERS FOR EACH CLASS
 
@@ -188,6 +187,6 @@ app.get("/classes/*/:id", (req, res) => {
 
 // -------
 
-app.listen(8800, () => {
-  console.log("connected to backend");
+app.listen(port, () => {
+  console.log(`connected to backend port ${port}`);
 });

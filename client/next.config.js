@@ -6,13 +6,13 @@ const nextConfig = {
   swcMinify: true,
 };
 
-// module.exports = nextConfig;
+module.exports = nextConfig;
 
-export async function rewrites() {
-  return [
-    {
-      source: "sql6.freemysqlhosting.net",
-      destination: "http://localhost:8800/:path*",
-    },
-  ];
-}
+// export async function rewrites() {
+//   return [
+//     {
+//       source: "sql6.freemysqlhosting.net",
+//       destination: "http://localhost:8800/:path*",
+//     },
+//   ];
+// }

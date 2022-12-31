@@ -8,13 +8,13 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-// module.exports={
-//   async rewrites(){
-//     return[
-//       {
-//         source:'/'
-//         destination:'http://localhost:8800/'
-//       }
-//     ]
-//   }
-// }
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: "sql6.freemysqlhosting.net",
+        destination: "http://localhost:8800/",
+      },
+    ];
+  },
+};

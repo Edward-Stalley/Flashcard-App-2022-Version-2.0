@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   database: "sql6587358",
 });
 
-export default function getClass(req: NextApiRequest, res: NextApiResponse) {
+export default async function getClass(req: NextApiRequest, res: NextApiResponse) {
   const yearId = req.query.yearId;
   const weekId = req.query.weekId;
   const classId = req.query.classId;

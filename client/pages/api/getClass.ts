@@ -15,6 +15,9 @@ const db = mysql.createConnection({
 });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method !== "GET") {
+    res.status(500).json({ message: "sorry we only accept GET requests" });
+  }
   const q = `SELECT * FROM listening_kiso`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);

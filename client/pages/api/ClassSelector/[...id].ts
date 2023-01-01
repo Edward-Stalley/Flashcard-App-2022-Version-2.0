@@ -20,7 +20,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   // const parsedJson = JSON.parse(req.query);
 
   res.status(200).json({
-    params: params.id,
+    params: typeof params.id,
     year: yearId ? yearId : "noYear",
     week: weekId ? weekId : "noWeek",
     classId: classId ? classId : "no class",

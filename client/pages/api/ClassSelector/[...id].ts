@@ -10,9 +10,9 @@ import { NextApiRequest, NextApiResponse } from "next";
 // });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
-  const yearId = req.query.a;
-  const weekId = req.query.b;
-  const classId = req.query.c;
+  const yearId = req.query[0];
+  const weekId = req.query[1];
+  const classId = req.query[2];
   const params = req.query;
   // const type = typeof params;
   const test = req.query;
@@ -20,7 +20,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   // const parsedJson = JSON.parse(req.query);
 
   res.status(200).json({
-    params: params,
+    params: params.id,
     year: yearId ? yearId : "noYear",
     week: weekId ? weekId : "noWeek",
     classId: classId ? classId : "no class",

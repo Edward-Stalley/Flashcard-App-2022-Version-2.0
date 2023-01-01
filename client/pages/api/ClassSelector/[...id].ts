@@ -12,7 +12,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const yearId = req.query[0];
   const weekId = req.query[1];
-  const classId = req.query[2];
+  // const classId = req.query[2];
   const params = req.query;
   const type = typeof params;
   const test = req.query;

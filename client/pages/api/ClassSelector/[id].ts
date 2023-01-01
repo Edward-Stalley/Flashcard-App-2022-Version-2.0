@@ -1,15 +1,15 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import mysql from "mysql";
+// import mysql from "mysql";
 
-const db = mysql.createConnection({
-  host: "sql6.freemysqlhosting.net",
-  user: "sql6587358",
-  password: "beh4prkep6",
-  database: "sql6587358",
-});
+// const db = mysql.createConnection({
+//   host: "sql6.freemysqlhosting.net",
+//   user: "sql6587358",
+//   password: "beh4prkep6",
+//   database: "sql6587358",
+// });
 
-export default async function getClass(req: NextApiRequest, res: NextApiResponse) {
+export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const yearId = req.query.yearId;
   const weekId = req.query.weekId;
   const classId = req.query.classId;

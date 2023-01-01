@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { type } from "os";
 
 // import mysql from "mysql";
 
@@ -15,7 +14,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const weekId = req.query[1];
   const classId = req.query[2];
   const params = req.query;
-  const type = typeof params;
+  // const type = typeof params;
   const test = req.query;
 
   const parsedJson = JSON.parse(req.query);

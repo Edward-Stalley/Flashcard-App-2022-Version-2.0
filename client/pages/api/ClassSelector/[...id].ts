@@ -21,7 +21,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const parsedJson = JSON.parse(req.query);
 
   res.status(200).json(
-    parsedJson
+    "hello"
 
     // {
 

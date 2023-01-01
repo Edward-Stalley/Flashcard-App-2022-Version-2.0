@@ -23,7 +23,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
     params: typeof params.id,
     year: yearId ? yearId : "noYear",
     week: weekId ? weekId : "noWeek",
-    classId: classId ? classId : "no class",
+    // classId: classId ? classId : "no class",
   });
 }
 

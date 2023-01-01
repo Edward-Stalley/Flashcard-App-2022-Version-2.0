@@ -14,12 +14,15 @@ export default async function getClass(req: NextApiRequest, res: NextApiResponse
   const weekId = req.query.weekId;
   const classId = req.query.classId;
 
-  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    res.json(data);
-  });
+  res.status(200).json({ year: yearId, week: weekId, class: classId });
 }
+
+//   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+//   db.query(q, (err, data) => {
+//     if (err) return res.json(err);
+//     res.json(data);
+//   });
+// }
 
 // app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
 

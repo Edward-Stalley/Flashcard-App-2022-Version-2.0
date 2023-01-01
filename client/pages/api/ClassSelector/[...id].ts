@@ -27,6 +27,8 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   });
 }
 
+// WHY NOT WORKING
+
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
 //   db.query(q, (err, data) => {
 //     if (err) return res.json(err);

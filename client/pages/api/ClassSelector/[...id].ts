@@ -14,7 +14,13 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const weekId = req.query[1];
   const classId = req.query[2];
 
-  res.status(200).json({ year: yearId, week: weekId, classId: classId });
+  res
+    .status(200)
+    .json({
+      year: yearId ? yearId : "noYear",
+      week: weekId ? weekId : "noWeek",
+      classId: classId ? classId : "no class",
+    });
 }
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;

@@ -9,13 +9,13 @@ const db = mysql.createConnection({
 });
 
 export default function getAllWeeks(req: NextApiRequest, res: NextApiResponse) {
-  const week = req.query.weekId;
+  const week = req.query.id;
 
-  const q = `SELECT * FROM listening_kiso WHERE week = ${week}`;
-  db.query(q, (err, data) => {
-    if (err) return res.json(err);
-    res.json(data);
-  });
-  // res.json({ byID: req.query.weekId, message: "get class by id" });
+  // const q = `SELECT * FROM listening_kiso WHERE week = ${week}`;
+  // db.query(q, (err, data) => {
+  //   if (err) return res.json(err);
+  //   res.json(data);
+  // });
+  res.json({ byID: req.query.id, message: "get class by id" });
   // res.json({ week: "all weeks" });
 }

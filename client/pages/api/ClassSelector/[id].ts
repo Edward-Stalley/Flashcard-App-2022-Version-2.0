@@ -10,11 +10,11 @@ import { NextApiRequest, NextApiResponse } from "next";
 // });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
-  const yearId = req.query;
+  const href = req.query;
   // const weekId = req.query.weekId;
   // const classId = req.query.classId;
 
-  res.status(200).json({ year: yearId });
+  res.status(200).json({ params: href });
 }
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;

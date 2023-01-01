@@ -14,7 +14,7 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const weekId = req.query[1];
   const classId = req.query[2];
   const params = req.query;
-  // const type = typeof params;
+  const type = typeof params;
   const test = req.query;
 
   // const parsedJson = JSON.parse(req.query);
@@ -26,8 +26,6 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
     // classId: classId ? classId : "no class",
   });
 }
-
-// WHY NOT WORKING
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
 //   db.query(q, (err, data) => {

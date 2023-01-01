@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { type } from "os";
 
 // import mysql from "mysql";
 
@@ -13,14 +14,16 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const yearId = req.query[0];
   const weekId = req.query[1];
   const classId = req.query[2];
+  const params = req.query;
+  const type = typeof params;
 
-  res
-    .status(200)
-    .json({
-      year: yearId ? yearId : "noYear",
-      week: weekId ? weekId : "noWeek",
-      classId: classId ? classId : "no class",
-    });
+  res.status(200).json({
+    params: params,
+    type: type,
+    year: yearId ? yearId : "noYear",
+    week: weekId ? weekId : "noWeek",
+    classId: classId ? classId : "no class",
+  });
 }
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;

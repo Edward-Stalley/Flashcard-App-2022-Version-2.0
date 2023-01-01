@@ -59,7 +59,10 @@ function Class() {
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // NEXT API
+          const res = await axios.get(`./api/class/${yearId}/${weekId}/${className}`, {
+            // BACKEND (NOT USING ANYMORE)
+            // const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
             // mode: "cors",
           });
 

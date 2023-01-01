@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 import mysql from "mysql";
 
 const db = mysql.createConnection({
@@ -10,18 +9,24 @@ const db = mysql.createConnection({
 });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
-  const yearId = req.query.yearId;
-  const weekId = req.query.weekId;
-  const classId = req.query.classId;
-
-  const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
+  const q = `SELECT * FROM listening_kiso WHERE week = ${req.query.id}`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);
     res.json(data);
   });
 }
+// export default function getWeekById(req: NextApiRequest, res: NextApiResponse) {
+//   //   if (req.method !== "GET") {
+//   //     res.status(500).json({ message: "sorry only GET requests are accepted" });
+//   //   }
+
+//   res.json({ byID: req.query.id, message: "get week by id" });
+// }
 
 // app.get("/ClassSelector/:yearId/:weekId/:classId", function (req, res) {
+//   const yearId = req.params.yearId;
+//   const weekId = req.params.weekId;
+//   const classId = req.params.classId;
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
 //   db.query(q, (err, data) => {

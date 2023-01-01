@@ -18,8 +18,10 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const type = typeof params;
   const test = req.query;
 
+  const parsedJson = JSON.parse(req.query);
+
   res.status(200).json(
-    req.query
+    parsedJson
 
     // {
 

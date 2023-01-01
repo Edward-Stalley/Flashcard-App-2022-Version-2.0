@@ -16,14 +16,20 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const classId = req.query[2];
   const params = req.query;
   const type = typeof params;
+  const test = req.query;
 
-  res.status(200).json({
-    params: params,
-    type: type,
-    year: yearId ? yearId : "noYear",
-    week: weekId ? weekId : "noWeek",
-    classId: classId ? classId : "no class",
-  });
+  res.status(200).json(
+    req.query
+
+    // {
+
+    // params: params,
+    // type: type,
+    // year: yearId ? yearId : "noYear",
+    // week: weekId ? weekId : "noWeek",
+    // classId: classId ? classId : "no class",
+    // }
+  );
 }
 
 //   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;

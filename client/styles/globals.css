@@ -25,6 +25,19 @@
   --primary-text-dark: #f1f5f9;
 }
 
+/* :LANDING PAGE */
+
+.navbar {
+  background-color: rgb(254 252 23);
+}
+.navlink:hover {
+  /* background-color: #1e293b; */
+}
+
+.landing_button {
+  background-color: #ec925d;
+}
+
 /* Card Flipping Functionality */
 
 .card {

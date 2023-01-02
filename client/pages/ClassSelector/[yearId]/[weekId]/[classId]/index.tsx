@@ -60,9 +60,9 @@ function Class() {
       const fetchAllFlashcards = async () => {
         try {
           // NEXT API
-          const res = await axios.get(`./api/ClassSelector/${yearId}/${weekId}/${className}`, {
-            // BACKEND (NOT USING ANYMORE)
-            // const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // const res = await axios.get(`./api/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // BACKEND (NOT USING ANYMORE)
+          const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`, {
             // mode: "cors",
           });
 

@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql";
 
+// Hosted Online
 const db = mysql.createConnection({
   host: "sql6.freemysqlhosting.net",
   user: "sql6587358",

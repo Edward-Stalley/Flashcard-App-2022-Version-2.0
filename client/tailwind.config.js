@@ -23,6 +23,7 @@ module.exports = {
     },
     fontFamily: {
       raleway: ["Raleway", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
   },
   plugins: [],

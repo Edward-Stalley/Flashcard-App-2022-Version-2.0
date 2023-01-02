@@ -34,7 +34,11 @@ export default function Header(props: {
   return (
     <div className=" font-roboto bg-bl-1  text-slate-800  dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   ">
       <div>{props.pageHeader}</div>
-      {props.subHeader && <div>{props.subHeader}</div>}
+      {props.subHeader && (
+        <div className="">
+          <div>{props.subHeader}</div>
+        </div>
+      )}
 
       <div className="absolute right-0  ">{/* <ToggleButton /> */}</div>
     </div>

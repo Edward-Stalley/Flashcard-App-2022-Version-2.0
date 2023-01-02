@@ -17,6 +17,11 @@ module.exports = {
         "bd-1": "var(--primary-bg-dark)",
         "bd-2": "var(--secondary-bg-dark)",
 
+        "bd-3": "var(--tertiary-bg-dark)",
+
+        // matching cards
+        "mc-g": "var(--matched-card-green)",
+
         //    text
         "td-1": "var(--primary-text-dark)",
         "td-2": "var(--secondary-text-dark)",

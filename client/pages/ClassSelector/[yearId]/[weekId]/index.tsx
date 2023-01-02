@@ -24,16 +24,20 @@ function ProductDetail() {
   });
 
   return (
-    <div>
+    <div
+      className="    h-screen bg-bl-1 
+    dark:bg-bd-1 "
+    >
       <div>
         <Navbar />
         <Header pageHeader="Select Class" subHeader={""} />
-        <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 ">
+        <div className="flex items-center  justify-between dark:bg-bd-1 ">
           {/* <HomeButton /> */}
           {/* <ToggleButton /> */}
         </div>
-        <div className="bg-bl-1  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1   ">
-          <div className=" bg-bl-1 dark:bg-bd-1 p-5 grid items-center justify-center rounded ">{classList}</div>
+        <div className="bg-bl-1  gap-4  items-center p-5 flex-col flex dark:bg-bd-1   ">
+          {classList}
+          {/* <div className=" bg-bl-1 dark:bg-bd-1 p-5 grid items-center justify-center rounded "></div> */}
         </div>
       </div>
     </div>

@@ -81,7 +81,7 @@ export default function Flashcards(props: any) {
         <div
           className={`card ${
             flip ? "flip" : ""
-          } h-16 w-64 hover:bg-blue-300/75 bg-blue-50 rounded-xl shadow-md flex  justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-700`}
+          } h-16 w-64  bg-bd-1 rounded-xl shadow-md flex  justify-center items-center dark:bg-bd-3 dark:text-zinc-100 `}
           onClick={handleToggle}
         >
           <div className="front ">{props.english}</div>
@@ -89,7 +89,7 @@ export default function Flashcards(props: any) {
         </div>
         {props.showDeleteButton && (
           // Need to import an x icon
-          <div className="absolute top-0 right-0 flex items-center justify-center hover:text-rose-400 dark:text-slate-200 h-5 w-5 m-1 ">
+          <div className="absolute top-0 right-0 flex items-center justify-center dark:text-slate-200 h-5 w-5 m-1 ">
             <button
               onClick={() => {
                 handleDelete(props.idPath);

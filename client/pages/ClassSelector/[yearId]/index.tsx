@@ -23,7 +23,7 @@ function ProductDetail() {
 
   return (
     <div
-      className="h-screen      bg-bl-1 
+      className="h-screen bg-bl-1 
     dark:bg-bd-1 "
     >
       <div>
@@ -34,9 +34,9 @@ function ProductDetail() {
         <div className="flex items-center  justify-between dark:bg-bd-1 "></div>
         <div
           className="
+          
           bg-bl-1 
         dark:bg-bd-1
-        bg--200
         p-20
       gap-5 flex flex-col items-center justify-center 
       sm:items-center sm:justify-center

@@ -13,6 +13,7 @@ import MatchingGameComponent from "../../../../../Components/MatchingGameCompone
 import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 import MatchingGame from "../../../../MatchingGame";
 import { match } from "assert";
+import Navbar from "../../../../../Components/Navbar";
 
 // Function Component
 
@@ -285,8 +286,12 @@ function Class() {
   };
 
   return (
-    <div className="h-screen bg-blue-200 dark:bg-bd-1">
-      <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
+    <div
+      className="    h-screen bg-bl-1 
+    dark:bg-bd-1 "
+    >
+      <Navbar />
+      <Header pageHeader={`${classId} - `} subHeader={`- Week ${weekId} `} />
       <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1  ">
         {/* <HomeButton /> */}
         <MatchingGameButton

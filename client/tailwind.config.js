@@ -16,9 +16,23 @@ module.exports = {
         // background
         "bd-1": "var(--primary-bg-dark)",
         "bd-2": "var(--secondary-bg-dark)",
+
         //    text
-        "td-1": "var(  --primary-text-dark)",
-        "td-2": "var(  --secondary-text-dark)",
+        "td-1": "var(--primary-text-dark)",
+        "td-2": "var(--secondary-text-dark)",
+
+        "tl-1": "var(--primary-text-light)",
+        // Hover
+        "hov-l": "var(--hover-light)",
+        "hov-d": "var(--hover-dark)",
+        // Header
+        "head-bg-d": "var(--header-bg-dark)",
+
+        // Buttons
+
+        "but-d": "var(--button-bg-dark)",
+
+        // Flashcards
       },
     },
     fontFamily: {

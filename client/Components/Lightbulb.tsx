@@ -8,15 +8,15 @@ export default function Lightbulb(props: { onClick: MouseEventHandler<SVGSVGElem
       <svg
         onClick={props.onClick}
         version="1.1"
-        className="dark:fill-yellow-100 fill-black-300 cursor-pointer stroke-none bg-transparent text-slate-800  "
+        className="dark:fill-bd-1   fill-bl-1   hover:fill-hov-l dark:hover:fill-hov-d  cursor-pointer stroke-none bg-transparent text-slate-800  "
         // put ternary function here
         // fill="white"
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="20px"
-        height={80}
-        width={80}
+        height="100%"
+        width="100%"
         y="20px"
         viewBox="0 0 1059.39 1657.448"
         enableBackground="new 0 0 1059.39 1657.448"

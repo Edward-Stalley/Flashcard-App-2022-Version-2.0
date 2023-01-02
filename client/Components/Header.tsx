@@ -32,7 +32,7 @@ export default function Header(props: {
   }
 
   return (
-    <div className=" bg-blue-200 text-slate-800  dark:bg-zinc-800 dark:text-zinc-100 font-bold text-4xl justify-center  mobile:flex-col h-32 flex relative items-center dark:border-b-2  dark:border-zinc-700 border-b-2 border-blue-100 ">
+    <div className=" -roboto bg-bl-1  text-slate-800  dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center   ">
       <div>{props.pageHeader}</div>
       {props.subHeader && <div>{props.subHeader}</div>}
 
@@ -40,3 +40,5 @@ export default function Header(props: {
     </div>
   );
 }
+
+// dark:border-bl-1 border-bd-2 border-b-2

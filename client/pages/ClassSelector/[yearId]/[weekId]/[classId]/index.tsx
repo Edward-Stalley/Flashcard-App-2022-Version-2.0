@@ -307,8 +307,9 @@ function Class() {
           <div
             className="
         dark:bg-bd-1
+        bg-bl-1
         p-20
-      bg-blue-200 gap-5  flex flex-col items-center justify-center
+       gap-5  flex flex-col items-center justify-center
       sm:items-center sm:justify-center
       sm:grid
       sm:grid-cols-2

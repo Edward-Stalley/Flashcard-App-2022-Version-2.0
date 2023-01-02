@@ -30,7 +30,7 @@ function ProductDetail() {
         <Navbar />
       </div>
       <div>
-        <Header pageHeader="Select The Week" subHeader={""} />
+        <Header pageHeader="Select Week" subHeader={""} />
         <div className="flex items-center  justify-between dark:bg-bd-1 "></div>
         <div
           className="

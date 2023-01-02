@@ -27,7 +27,7 @@ function ProductDetail() {
     <div>
       <div>
         <Navbar />
-        <Header pageHeader="Select Your Class" subHeader={""} />
+        <Header pageHeader="Select Class" subHeader={""} />
         <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 ">
           {/* <HomeButton /> */}
           {/* <ToggleButton /> */}

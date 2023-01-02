@@ -11,9 +11,9 @@ function ProductDetail() {
   const { params = [] } = router.query;
   const yearId = router.query.yearId;
 
-  const array = Array(44).fill("");
+  const array = Array(1).fill("");
   const weekList = array.map((week, i) => {
-    return <WeekComponent key={"week" + { yearId } + (i + 1)} year={yearId} week={i + 1} />;
+    return <WeekComponent key={"week" + { yearId } + (i + 1)} year={yearId} week={i + 37} />;
   });
 
   // console.log(weekList);

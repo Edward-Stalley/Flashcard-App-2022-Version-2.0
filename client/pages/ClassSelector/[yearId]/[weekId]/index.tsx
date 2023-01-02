@@ -4,6 +4,7 @@ import HomeButton from "../../../../Components/HomeButton";
 import ToggleButton from "../../../../Components/ToggleButton";
 import Header from "../../../../Components/Header";
 import ClassComponent from "../../../../Components/ClassComponent";
+import Navbar from "../../../../Components/Navbar";
 
 function ProductDetail() {
   const router = useRouter();
@@ -25,13 +26,14 @@ function ProductDetail() {
   return (
     <div>
       <div>
+        <Navbar />
         <Header pageHeader="Select Your Class" subHeader={""} />
-        <div className="flex items-center   justify-between bg-blue-200 dark:bg-bd-1 ">
-          <HomeButton />
-          <ToggleButton />
+        <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1 ">
+          {/* <HomeButton /> */}
+          {/* <ToggleButton /> */}
         </div>
-        <div className="bg-blue-200  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1   ">
-          <div className=" bg-blue-100 dark:bg-bd-2 p-5 grid items-center justify-center rounded ">{classList}</div>
+        <div className="bg-bl-1  min-h-screen  items-center p-5 flex-col flex dark:bg-bd-1   ">
+          <div className=" bg-bl-1 dark:bg-bd-1 p-5 grid items-center justify-center rounded ">{classList}</div>
         </div>
       </div>
     </div>

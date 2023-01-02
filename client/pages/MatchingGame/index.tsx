@@ -159,7 +159,7 @@ export default function MatchingGame(props: { deck: any }) {
   }
 
   return (
-    <div className="h-screen dark:bg-bd-1 bg-blue-200 ">
+    <div className=" h-screen dark:bg-bd-1 bg-blue-200 ">
       <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
 
       <div

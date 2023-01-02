@@ -12,6 +12,7 @@ import MatchingCards from "../../../../../Components/MatchingCards";
 import MatchingGameComponent from "../../../../../Components/MatchingGameComponent";
 import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 import MatchingGame from "../../../../MatchingGame";
+import { match } from "assert";
 
 // Function Component
 
@@ -59,7 +60,10 @@ function Class() {
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         try {
-          const res = await axios.get(`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // NEXT API
+          // const res = await axios.get(`./api/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // BACKEND (NOT USING ANYMORE)
+          const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`, {
             // mode: "cors",
           });
 
@@ -118,7 +122,7 @@ function Class() {
 
       setCards(deck);
     }
-  }, [router.isReady, flashcards]);
+  }, [router.isReady, flashcards, className, yearId, weekId]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -170,7 +174,7 @@ function Class() {
       });
       setCardsForMatchingGame(deck);
     }
-  }, [router.isReady, flashcards]);
+  }, [router.isReady, flashcards, matched, className]);
 
   // Take the original double sided deck - split it - and combine into big deck for game
 
@@ -283,17 +287,15 @@ function Class() {
   return (
     <div className="h-screen bg-blue-200 dark:bg-bd-1">
       <Header pageHeader={`${classId}: `} subHeader={`week ${weekId}`} />
-      <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1  ">
-        <HomeButton />
+      <div className="flex items-center justify-center bg-blue-200 dark:bg-bd-1  ">
+        {/* <HomeButton /> */}
         <MatchingGameButton
           content={matchingGameActive ? "Regular Deck" : "Matching Game"}
           onClick={handleMatchingGameClick}
         />
-        <ToggleButton />
 
-        {/* <ToggleButton /> */}
+        <div>{/* <ToggleButton /> */}</div>
       </div>
-      <div></div>
       {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">
         <HomeButton />
      
@@ -303,8 +305,9 @@ function Class() {
           <div
             className="
         dark:bg-bd-1
+        bg-bl-1
         p-20
-      bg-blue-200 gap-5  flex flex-col items-center justify-center
+       gap-5  flex flex-col items-center justify-center
       sm:items-center sm:justify-center
       sm:grid
       sm:grid-cols-2

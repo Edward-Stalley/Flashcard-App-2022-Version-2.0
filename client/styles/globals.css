@@ -5,17 +5,38 @@
 /* Custom Variables for COLORS */
 
 :root {
-  /* dark mode */
+  /***** dark mode *****/
+
+  /* Header */
+  --header-bg-dark: #1f2937;
+
+  /* Hover */
+  --hover-dark: #ec925d;
+  --hover-light: #ec925d;
+
+  /* General */
+
+  --primary-bg-light: #f4f1e5;
+
+  --primary-text-dark: #f4f1e5;
+
+  --primary-text-light: #1f2937;
+
+  /* Button */
+
+  --button-bg-dark: #ec925d;
+
+  /* OLD */
 
   /* slate 300 */
-  --primary-bg-light: #cbd5e1;
   /* slate 800*/
   --primary-text-light: #1e293b;
 
   /* light mode */
 
   /* zinc 800 */
-  --primary-bg-dark: #27272a;
+  --primary-bg-dark: #1f2937;
+  /*  */
   /* zinc 600 */
   --secondary-bg-dark: #52525b;
 
@@ -23,6 +44,28 @@
   --secondary-text-dark: #e2e8f0;
   /* slate 100 */
   --primary-text-dark: #f1f5f9;
+}
+
+/* :LANDING PAGE */
+
+.navbar {
+  background-color: rgb(254 252 23);
+}
+.navlink:hover {
+  /* background-color: #1e293b; */
+}
+
+.landing_button {
+  background-color: #ec925d;
+}
+
+.nav_button {
+  transition-duration: 400ms;
+}
+
+.nav_button:hover {
+  transform: scale(1.04);
+  /* transition: ease-in-out; */
 }
 
 /* Card Flipping Functionality */

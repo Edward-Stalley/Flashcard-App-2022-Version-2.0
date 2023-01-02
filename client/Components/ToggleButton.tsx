@@ -13,15 +13,23 @@ export default function ToggleButton() {
     setDarkOn((prevDarkOn) => !prevDarkOn);
   }
   return (
-    <div className="flex justify-end p-4 ">
-      <Lightbulb onClick={toggleThemeHandler} darkOn={darkOn} />
-      {/* <button
+    <>
+      <div className="flex  justify-center items-center h-20 w-20">
+        <Lightbulb onClick={toggleThemeHandler} darkOn={darkOn} />
+      </div>
+    </>
+  );
+}
+
+// <div className="flex justify-end p-4 ">
+{
+  /* <button
         type="button"
         className=" w-32 h-16 bg-blue-200 text-slate-800 dark:bg-zinc-200 dark:text-black rounded   "
         onClick={toggleThemeHandler}
       >
         Toggle Theme
-      </button> */}
-    </div>
-  );
+      </button> */
 }
+// </div>
+// );

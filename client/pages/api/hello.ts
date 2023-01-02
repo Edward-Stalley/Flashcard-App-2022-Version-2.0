@@ -6,5 +6,5 @@ type Data = {
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ name: "boo boo" });
+  res.status(200).json({ name: "This is the updated branch" });
 }

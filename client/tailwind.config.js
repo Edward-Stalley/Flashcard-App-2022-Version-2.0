@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        mobile: { min: "200px", max: "400px" },
+        mobile: { min: "200px", max: "640px" },
       },
       colors: {
         // Need to add custom colors here to make changing the color scheme easier
@@ -16,13 +16,28 @@ module.exports = {
         // background
         "bd-1": "var(--primary-bg-dark)",
         "bd-2": "var(--secondary-bg-dark)",
+
         //    text
-        "td-1": "var(  --primary-text-dark)",
-        "td-2": "var(  --secondary-text-dark)",
+        "td-1": "var(--primary-text-dark)",
+        "td-2": "var(--secondary-text-dark)",
+
+        "tl-1": "var(--primary-text-light)",
+        // Hover
+        "hov-l": "var(--hover-light)",
+        "hov-d": "var(--hover-dark)",
+        // Header
+        "head-bg-d": "var(--header-bg-dark)",
+
+        // Buttons
+
+        "but-d": "var(--button-bg-dark)",
+
+        // Flashcards
       },
     },
     fontFamily: {
       raleway: ["Raleway", "sans-serif"],
+      roboto: ["Roboto", "sans-serif"],
     },
   },
   plugins: [],

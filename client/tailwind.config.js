@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        mobile: { min: "200px", max: "400px" },
+        mobile: { min: "200px", max: "640px" },
       },
       colors: {
         // Need to add custom colors here to make changing the color scheme easier

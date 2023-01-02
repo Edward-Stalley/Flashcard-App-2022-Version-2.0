@@ -29,7 +29,7 @@ export default function landingPage() {
         <div className=" grid xl:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 h-fit mt-16 mx-32  items-center justify-center ">
           <div className="flex flex-col gap-8 ">
             <h1 className="font-roboto w-fit sm:text-5xl md:text-7xl xl:text-8xl font-bold  ">
-              Let's Study English Buffet Vocabulary!
+              Let&apos;s Study English Buffet Vocabulary!
             </h1>
             <h4 className="mb-8 ">A Quick & Easy Way to Review and Pre-learn Words from your classes!</h4>
             <Link href={"/ClassSelector/2023"}>

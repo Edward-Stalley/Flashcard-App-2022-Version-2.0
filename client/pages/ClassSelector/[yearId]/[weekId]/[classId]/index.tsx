@@ -12,6 +12,7 @@ import MatchingCards from "../../../../../Components/MatchingCards";
 import MatchingGameComponent from "../../../../../Components/MatchingGameComponent";
 import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 import MatchingGame from "../../../../MatchingGame";
+import { match } from "assert";
 
 // Function Component
 
@@ -121,7 +122,7 @@ function Class() {
 
       setCards(deck);
     }
-  }, [router.isReady, flashcards]);
+  }, [router.isReady, flashcards, className, yearId, weekId]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -173,7 +174,7 @@ function Class() {
       });
       setCardsForMatchingGame(deck);
     }
-  }, [router.isReady, flashcards]);
+  }, [router.isReady, flashcards, matched, className]);
 
   // Take the original double sided deck - split it - and combine into big deck for game
 

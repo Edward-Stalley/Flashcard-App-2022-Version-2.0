@@ -287,8 +287,8 @@ function Class() {
 
   return (
     <div
-      className="  h-fit w-fit   bg-bl-1 
-    dark:bg-bd-1 pb-20  "
+      className="    h-screen bg-bl-1 
+    dark:bg-bd-1 "
     >
       <Navbar />
       <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />

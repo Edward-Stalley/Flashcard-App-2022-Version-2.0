@@ -8,9 +8,7 @@ export default function landingPage() {
   return (
     <>
       <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1 w-fit h-full relative grid    ">
-        <div>
-          <Navbar />
-        </div>
+        <Navbar />
         {/* <div className="   dark:bg-bd-1  bg-bl-1 flex justify-end bg-blue-200  "> */}
         {/* </div> */}
         <div className=" grid mobile:grid-cols-1 sm:grid-cols-1  xl:grid-cols-2 md:grid-cols-2 p-16 px-32 items-center justify-center dark:bg-bd-1 bg-bl-1 w-fit mobile:p-10 mobile:pt-16  ">
@@ -31,7 +29,7 @@ export default function landingPage() {
             </div>
           </div>
           <div className="flex justify-end items-center">
-            <div className="w-full h-full">
+            <div className="w-full min-w-32 min-h-32 h-full">
               <ManOnBooks />
             </div>
           </div>

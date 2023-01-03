@@ -22,32 +22,28 @@ function ProductDetail() {
   console.log(yearId);
 
   return (
-    <div
-      className="h-screen w-fit bg-bl-1 
-    dark:bg-bd-1 "
-    >
-      <div>
+    <div className="h-screen bg-bl-1  ">
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid    ">
         <Navbar />
-      </div>
-      <div>
-        <Header pageHeader="Select Week" subHeader={""} />
-        <div className="flex items-center  justify-between dark:bg-bd-1 "></div>
-        <div
-          className="
-          
-          bg-bl-1 
-        dark:bg-bd-1
-        p-20
-      gap-5 flex flex-col items-center justify-center 
-      sm:items-center sm:justify-center
-      sm:grid
-      sm:grid-cols-2
-      md:grid 
-      md:grid-cols-3 
-      lg:grid-cols-4
-       "
-        >
-          {weekList}
+
+        <div className="">
+          <Header pageHeader="Select Week" subHeader={""} />
+          <div
+            className="
+  bg-bl-1 
+dark:bg-bd-1
+p-20
+gap-5 flex flex-col items-center justify-start
+sm:items-center sm:justify-center mobile:justify-start
+sm:grid
+sm:grid-cols-2
+md:grid 
+md:grid-cols-3 
+lg:grid-cols-4
+"
+          >
+            {weekList}
+          </div>
         </div>
       </div>
     </div>
@@ -55,3 +51,6 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
+
+{
+}

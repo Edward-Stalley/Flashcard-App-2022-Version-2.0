@@ -290,7 +290,7 @@ function Class() {
       <Navbar />
 
       <div
-        className="   w-fit   h-screen bg-bl-1 
+        className="    h-screen bg-bl-1 
     dark:bg-bd-1 "
       >
         <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />

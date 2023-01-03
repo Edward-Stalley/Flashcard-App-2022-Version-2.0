@@ -325,7 +325,7 @@ function Class() {
             {cards}
           </div>
         ) : (
-          <div>
+          <div className="">
             <MatchingGame deck={doubledDeck} />
           </div>
         )}

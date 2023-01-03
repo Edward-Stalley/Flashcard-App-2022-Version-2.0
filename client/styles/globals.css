@@ -57,7 +57,12 @@
   --primary-text-dark: #f1f5f9;
 }
 
-/* :LANDING PAGE */
+/* Remove Div Blue Color on MOobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* :Components*/
 
 .navbar {
   background-color: rgb(254 252 23);

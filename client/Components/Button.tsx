@@ -4,7 +4,7 @@ export default function ShuffleButton(props: {
   onClick: MouseEventHandler<HTMLButtonElement> | undefined;
 }) {
   return (
-    <div className="   dark:bg-bd-1 flex items-center  justify-center p-5 ">
+    <div className="   ">
       <button
         onClick={props.onClick}
         className="nav_button p-5 rounded-full border-2 hover:bg-but-d   w-56 h-16 border-but-d   dark:text-bl-1 dark:bg-bd-1 "

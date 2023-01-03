@@ -134,9 +134,9 @@ export default function MatchingCards(props: {
           data-key-match={props.matchId}
           data-matched={props.matched}
           className={`
-          ${props.color && " bg-mc-g dark:bg-emerald-200 dark:text-zinc-800 "}
+          ${props.color && " bg-mc-g dark:bg-mc-g dark:text-zinc-800 "}
           card  h-16 w-64     
-          rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-zinc-100 `}
+          rounded-xl shadow-md flex justify-center items-center dark:bg-zinc-700 dark:text-bl-1 `}
         >
           <div
             onClick={handleClick}

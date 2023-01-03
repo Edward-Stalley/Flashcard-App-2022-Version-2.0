@@ -3,6 +3,7 @@ import ToggleButton from "../Components/ToggleButton";
 import ManOnBooks from "../Components/ManOnBooks";
 import Link from "next/link";
 import Navbar from "../Components/Navbar";
+import Button from "../Components/Button";
 export default function landingPage() {
   return (
     <>
@@ -18,11 +19,16 @@ export default function landingPage() {
               Let&apos;s Study English Buffet Vocabulary!
             </h1>
             <h4 className=" ">A Quick & Easy Way to Review + Pre-learn Words From Your Classes!</h4>
-            <Link href={"/ClassSelector/2023"}>
-              <button className="active:outline-none nav_button bg-but-d hover:bg-but-d hover:text-bd-1  w-56 h-16 rounded-full  text-bd-1">
-                Get Started
-              </button>
-            </Link>
+            <div className="flex gap-4 mobile:flex-col">
+              <Link href={"/ClassSelector/2023"}>
+                <button className=" focus:border-none nav_button bg-but-d hover:bg-but-d hover:text-bd-1  w-56 h-16 rounded-full  text-bd-1">
+                  Get Started
+                </button>
+              </Link>
+              <Link href={"/About"}>
+                <Button content="How To Use" onClick={undefined} />
+              </Link>
+            </div>
           </div>
           <div className="flex justify-end items-center">
             <div className="w-full h-full">

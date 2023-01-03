@@ -159,14 +159,17 @@ export default function MatchingGame(props: { deck: any }) {
   }
 
   return (
-    <div className=" h-screen dark:bg-bd-1 bg-bl-1   ">
-      <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
+    <div className=" h-screen dark:bg-bd-1 bg-bl-1    ">
+      <div className="flex justify-center pt-4">
+        <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
+      </div>
 
       <div
         className="
+        justify-center
         pt-10 pb-10
         dark:bg-bd-1
-        bg-bl-1 gap-5  flex flex-col items-center justify-center
+        bg-bl-1 gap-5  flex flex-col items-center
       sm:items-center sm:justify-center
       sm:grid
       sm:grid-cols-2

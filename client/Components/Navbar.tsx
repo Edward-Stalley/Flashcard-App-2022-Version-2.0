@@ -11,7 +11,6 @@ export default function Navbar() {
             >
               Home
             </Link> */}
-
         <Link
           className="navlink font-roboto   dark:text-bd-1 dark:hover:text-hov-d  hover:text-hov-l text-md "
           href="/"

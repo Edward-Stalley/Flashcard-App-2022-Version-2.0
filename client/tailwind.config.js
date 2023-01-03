@@ -12,6 +12,7 @@ module.exports = {
         // Need to add custom colors here to make changing the color scheme easier
         //    LIGHT SCHEME
         "bl-1": "var(--primary-bg-light)",
+        "bl-2": "var(--secondary-bg-light)",
         //    DARK SCHEME
         // background
         "bd-1": "var(--primary-bg-dark)",
@@ -21,6 +22,7 @@ module.exports = {
 
         // matching cards
         "mc-g": "var(--matched-card-green)",
+        "mc-b": "var(--matched-card-blue)",
 
         //    text
         "td-1": "var(--primary-text-dark)",

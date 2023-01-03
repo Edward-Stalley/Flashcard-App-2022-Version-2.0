@@ -17,9 +17,9 @@ export default function landingPage() {
             <h1 className="font-roboto w-fit  text-5xl sm:text-3xl md:text-7xl xl:text-7xl font-bold  mobile:text-4xl  ">
               Let&apos;s Study English Buffet Vocabulary!
             </h1>
-            <h4 className=" ">A Quick & Easy Way to Review and Pre-learn Words From Your Classes!</h4>
+            <h4 className=" ">A Quick & Easy Way to Review + Pre-learn Words From Your Classes!</h4>
             <Link href={"/ClassSelector/2023"}>
-              <button className="nav_button bg-but-d hover:bg-but-d hover:text-bd-1  w-56 h-16 rounded-full  text-bd-1">
+              <button className="active:outline-none nav_button bg-but-d hover:bg-but-d hover:text-bd-1  w-56 h-16 rounded-full  text-bd-1">
                 Get Started
               </button>
             </Link>

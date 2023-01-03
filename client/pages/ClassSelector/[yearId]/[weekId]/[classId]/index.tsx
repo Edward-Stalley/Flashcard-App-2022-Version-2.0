@@ -291,7 +291,8 @@ function Class() {
     dark:bg-bd-1 "
     >
       <Navbar />
-      <Header pageHeader={`${classId} - `} subHeader={`- Week ${weekId} `} />
+      <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
+
       <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1  ">
         {/* <HomeButton /> */}
         <MatchingGameButton

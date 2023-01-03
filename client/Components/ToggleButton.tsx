@@ -14,7 +14,7 @@ export default function ToggleButton() {
   }
   return (
     <>
-      <div className="flex  justify-center items-center w-16 min-h-16 min-w-16 h-16 ">
+      <div className="flex  justify-center items-center h-16 ">
         <Lightbulb onClick={toggleThemeHandler} darkOn={darkOn} />
       </div>
     </>

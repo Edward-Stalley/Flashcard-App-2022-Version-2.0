@@ -286,32 +286,30 @@ function Class() {
   };
 
   return (
-    <div>
-      <Navbar />
-
-      <div
-        className="   w-fit   h-screen bg-bl-1 
+    <div
+      className="    h-screen bg-bl-1 
     dark:bg-bd-1 "
-      >
-        <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
+    >
+      <Navbar />
+      <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
 
-        <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1  ">
-          {/* <HomeButton /> */}
-          <MatchingGameButton
-            content={matchingGameActive ? "Regular Deck" : "Matching Game"}
-            onClick={handleMatchingGameClick}
-          />
+      <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1  ">
+        {/* <HomeButton /> */}
+        <MatchingGameButton
+          content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+          onClick={handleMatchingGameClick}
+        />
 
-          <div>{/* <ToggleButton /> */}</div>
-        </div>
-        {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">
+        <div>{/* <ToggleButton /> */}</div>
+      </div>
+      {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">
         <HomeButton />
      
       </div> */}
-        <div>
-          {!matchingGameActive ? (
-            <div
-              className="
+      <div>
+        {!matchingGameActive ? (
+          <div
+            className="
         dark:bg-bd-1
         bg-bl-1
         p-20
@@ -323,15 +321,14 @@ function Class() {
       lg:grid-cols-3
       xl:grid-cols-4
        "
-            >
-              {cards}
-            </div>
-          ) : (
-            <div className="">
-              <MatchingGame deck={doubledDeck} />
-            </div>
-          )}
-        </div>
+          >
+            {cards}
+          </div>
+        ) : (
+          <div className="">
+            <MatchingGame deck={doubledDeck} />
+          </div>
+        )}
       </div>
     </div>
   );

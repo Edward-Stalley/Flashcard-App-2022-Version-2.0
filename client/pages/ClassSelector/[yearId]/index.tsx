@@ -23,7 +23,7 @@ function ProductDetail() {
 
   return (
     <div
-      className="h-screen bg-bl-1 
+      className="h-screen w-fit bg-bl-1 
     dark:bg-bd-1 "
     >
       <div>

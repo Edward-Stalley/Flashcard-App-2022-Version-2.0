@@ -23,8 +23,8 @@ function ProductDetail() {
 
   return (
     <div
-      className="h-screen bg-bl-1 
-    dark:bg-bd-1 "
+      className="  h-fit w-fit   bg-bl-1 
+dark:bg-bd-1 pb-20  "
     >
       <div>
         <Navbar />

@@ -58,7 +58,7 @@ export default function About() {
                     : "このカードデッキは、各カードの表が英語、裏が日本語になります。カードをクリックすると、両方の言語が反転します。"}
                 </p>
                 <div className="flex  mobile:justify-start sm:justify-start  justify-end ">
-                  <div className=" dark:bg-bl-1 bg-bd-1 text-bl-1 rounded  w-fit mb-4 p-2 flex text-3sm font-semibold">
+                  <div className=" dark:text-bd-1 dark:bg-bl-1 bg-bd-1 text-bl-1 rounded  w-fit mb-4 p-2 flex text-3sm font-semibold">
                     {isEnglish ? "What is it good for?" : "理想な使い方"}
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export default function About() {
                     : `このデッキは、すべてのカードを2つに分割し、同じ意味の英単語と日本語をマッチさせるものです。カードをクリックすると、青くなります。2枚目のカードをクリックすると青色に変わり、一致しない場合は色がリセットされ、再挑戦する必要があります。間違ってマッチした場合、すべてのカードがリセットされ、最初からマッチさせる必要があります。`}
                 </p>
                 <div className="mobile:justify-start   flex">
-                  <div className="dark:bg-bl-1 bg-bd-1 text-bl-1 rounded w-fit mb-4 p-2 flex text-3sm font-semibold">
+                  <div className=" dark:text-bd-1 dark:bg-bl-1 bg-bd-1 text-bl-1 rounded w-fit mb-4 p-2 flex text-3sm font-semibold">
                     {isEnglish ? "What is it good for?" : "理想な使い方"}
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function About() {
                     このデッキは、すでに受けた授業の単語を復習したり、あなたの知識と記憶をテストするのに適しています。
                     `}
                 </p>
-                <div className=" dark:bg-bl-1 bg-bd-1 text-bl-1 rounded dark:text-bd-1 w-fit mt-4 mb-4 p-2 flex text-3sm font-semibold">
+                <div className=" dark:bg-bl-1 bg-bd-1 text-bl-1 dark:text-bd-1 rounded  w-fit mt-4 mb-4 p-2 flex text-3sm font-semibold">
                   {isEnglish ? "!!This mode is still a work in progress!!" : "!!このモードはまだ未完成です!!"}
                 </div>
               </div>

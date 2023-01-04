@@ -305,7 +305,7 @@ function Class() {
           />
         </div>
 
-        <div className="h-screen dark:bg-bd-1 ">
+        <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
           {!matchingGameActive ? (
             <div
               className="

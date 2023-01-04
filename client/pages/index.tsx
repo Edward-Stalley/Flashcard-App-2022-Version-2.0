@@ -7,7 +7,7 @@ import Button from "../Components/Button";
 export default function landingPage() {
   return (
     <>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1 w-fit h-full relative grid    ">
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-full relative grid    ">
         <div>
           <Navbar />
         </div>

@@ -14,6 +14,7 @@ import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 import MatchingGame from "../../../../MatchingGame";
 import { match } from "assert";
 import Navbar from "../../../../../Components/Navbar";
+import e from "express";
 
 // Function Component
 
@@ -71,6 +72,13 @@ function Class() {
           if (res.data) {
             setFlashcards(res.data);
           }
+          // NEW CODE NEED TO TEST
+          // ***************
+          else {
+            setFlashcards([]);
+            console.log("could not fecth the data");
+          }
+          // ***************
         } catch (err) {
           console.log(err);
         }
@@ -286,14 +294,11 @@ function Class() {
   };
 
   return (
-    <div
-      className="    h-screen bg-bl-1 
-    dark:bg-bd-1 "
-    >
+    <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-full relative grid    ">
       <Navbar />
       <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
 
-      <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1  ">
+      <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1   ">
         {/* <HomeButton /> */}
         <MatchingGameButton
           content={matchingGameActive ? "Regular Deck" : "Matching Game"}
@@ -310,10 +315,11 @@ function Class() {
         {!matchingGameActive ? (
           <div
             className="
-        dark:bg-bd-1
-        bg-bl-1
-        p-20
-       gap-5  flex flex-col items-center justify-center
+            bg-bl-1  gap-4  h-screen items-center p-20 flex-col flex dark:bg-bd-1 
+       
+     justify-center
+       mobile:grid
+       mobile:grid-cols-1
       sm:items-center sm:justify-center
       sm:grid
       sm:grid-cols-2

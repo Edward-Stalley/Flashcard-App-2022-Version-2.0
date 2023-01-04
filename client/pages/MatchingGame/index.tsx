@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MatchingCards from "../../Components/MatchingCards";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, use, useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import Header from "../../Components/Header";
 import HomeButton from "../../Components/HomeButton";
@@ -57,14 +57,21 @@ export default function MatchingGame(props: { deck: any }) {
 
       console.log("1st card selected");
     }
+  };
+  // if (!choiceOne && wordTwo === wordOne) {
+  //   // setChoiceOne(card.matchId);
+  //   setTurns((prevTurn) => prevTurn);
+  //   // setWordOne(card.word);
 
-    // if (!choiceOne && wordTwo === wordOne) {
-    //   // setChoiceOne(card.matchId);
-    //   setTurns((prevTurn) => prevTurn);
-    //   // setWordOne(card.word);
+  //   console.log("same card selected so ignore turn");
+  // }
 
-    //   console.log("same card selected so ignore turn");
-    // }
+  const resetGame = function () {
+    setCards((prevCards) => {
+      return prevCards.map((c: { color: boolean }) => {
+        return { ...c, color: false };
+      });
+    });
   };
 
   useEffect(() => {
@@ -129,7 +136,7 @@ export default function MatchingGame(props: { deck: any }) {
             });
           });
           setCards((prevCards) => {
-            return prevCards.map((c: { matchId: number }) => {
+            return prevCards.map((c: { matchId: number; color: boolean }) => {
               if (c.matchId !== choiceTwo) {
                 return { ...c, matched: false, color: false };
               } else {
@@ -143,6 +150,16 @@ export default function MatchingGame(props: { deck: any }) {
 
         resetTurn();
       }
+    }
+    if (cards.every((c) => c.color === true)) {
+      // alert("well done!");
+      console.log("nice");
+
+      setTimeout(() => {
+        resetGame();
+      }, 2000);
+    } else {
+      console.log("no");
     }
   }, [choiceOne, choiceTwo, wordOne, wordTwo]);
 

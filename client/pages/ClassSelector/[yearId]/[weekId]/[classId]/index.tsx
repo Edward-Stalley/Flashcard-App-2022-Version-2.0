@@ -298,7 +298,7 @@ function Class() {
       <div>
         <Navbar />
         <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
-        <div className="mt-6">
+        <div className="pt-6 bg-bl-1 dark:bg-bd-1">
           <MatchingGameButton
             content={matchingGameActive ? "Regular Deck" : "Matching Game"}
             onClick={handleMatchingGameClick}

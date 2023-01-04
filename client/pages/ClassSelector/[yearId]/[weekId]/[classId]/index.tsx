@@ -15,6 +15,7 @@ import MatchingGame from "../../../../MatchingGame";
 import { match } from "assert";
 import Navbar from "../../../../../Components/Navbar";
 import e from "express";
+import AlertBox from "../../../../../Components/AlertBox";
 
 // Function Component
 
@@ -32,6 +33,7 @@ function Class() {
   const [cards, setCards] = useState<React.ReactElement[]>();
   const [cardsForMatchingGame, setCardsForMatchingGame] = useState<React.ReactElement[]>();
   const [flashcards, setFlashcards] = useState([]);
+  const [fetched, setFetched] = useState(false);
 
   //   Fix the formatting to match the database formatting
 
@@ -87,27 +89,6 @@ function Class() {
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
-
-  // RAILWAY ******************************************
-  // useEffect(() => {
-  //   if (!router.isReady && !className) {
-  //     console.log("no");
-  //     return;
-  //   }
-  //   if (router.isReady && className) {
-  //     const fetchAllFlashcards = async () => {
-  //       try {
-  //         const res = await axios.get(`/ClassSelector/${yearId}/${weekId}/${className}`);
-  //         setFlashcards(res.data);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-
-  //     fetchAllFlashcards();
-  //   }
-  // }, [router.isReady, className, weekId, yearId, classId]);
-  // ******************************************
 
   useEffect(() => {
     if (!router.isReady || flashcards?.length === 0) return;
@@ -215,28 +196,6 @@ function Class() {
     setShuffledDeck(shuffledCards);
   };
 
-  // choice functionality
-  // const handleChoice = (e: any) => {
-  //   // console.log(e.target.dataset.matched);
-  //   const parsed = parseInt(e.target.dataset.keyMatch);
-
-  //   // e.target.style.backgroundColor = "green";
-  //   if (choiceOne) {
-  //     setChoiceTwo(parsed);
-  //     setCardTwo(e.target);
-  //     setSecondSelected(true);
-  //     setTurns(0);
-  //   }
-
-  //   if (!choiceOne) {
-  //     setChoiceOne(parsed);
-  //     setCardOne(e.target);
-  //     setTurns((prevTurn) => prevTurn + 1);
-  //     setFirstSelected(true);
-  //   }
-
-  // };
-
   useEffect(() => {
     // console.log(choiceOne, choiceTwo, turns);
     if (choiceOne && choiceTwo) {
@@ -263,24 +222,6 @@ function Class() {
   };
 
   // create JSX elements------
-
-  // const finalDeck = shuffledDeck.map((card: { matchId: any; word: string; matched: boolean; id: number | string }) => {
-  //   const { matchId, word, id } = card;
-  //   return (
-  //     <MatchingCards
-  //       key={matchId + word[0]}
-  //       matchId={matchId}
-  //       word={word}
-  //       handleChoice={handleChoice}
-  //       // firstSelected={firstSelected}
-  //       // secondSelected={secondSelected}
-  //       matched={matched}
-  //       card={card}
-  //       id={id}
-  //       color={false}
-  //     ></MatchingCards>
-  //   );
-  // });
 
   // prepare deck for game start -----
 
@@ -335,3 +276,5 @@ function Class() {
 }
 
 export default Class;
+
+/* <div className="">{!fetched ? <AlertBox message="test" /> : }</div>*/

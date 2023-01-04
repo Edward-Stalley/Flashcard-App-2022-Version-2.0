@@ -70,7 +70,7 @@ function Class() {
           });
 
           if (res.data) {
-            setFlashcards(res.data);
+            await setFlashcards(res.data);
           }
           // NEW CODE NEED TO TEST
           // ***************
@@ -295,46 +295,40 @@ function Class() {
 
   return (
     <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-full relative grid    ">
-      <Navbar />
-      <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
-
-      <div className="flex items-center justify-center bg-bl-1 dark:bg-bd-1   ">
-        {/* <HomeButton /> */}
-        <MatchingGameButton
-          content={matchingGameActive ? "Regular Deck" : "Matching Game"}
-          onClick={handleMatchingGameClick}
-        />
-
-        <div>{/* <ToggleButton /> */}</div>
-      </div>
-      {/* <div className="flex items-center justify-between bg-blue-200 dark:bg-bd-1 ">
-        <HomeButton />
-     
-      </div> */}
       <div>
-        {!matchingGameActive ? (
-          <div
-            className="
-            bg-bl-1  gap-4  h-screen items-center p-20 flex-col flex dark:bg-bd-1 
-       
-     justify-center
-       mobile:grid
-       mobile:grid-cols-1
-      sm:items-center sm:justify-center
-      sm:grid
-      sm:grid-cols-2
-      md:grid  
-      lg:grid-cols-3
-      xl:grid-cols-4
-       "
-          >
-            {cards}
-          </div>
-        ) : (
-          <div className="">
-            <MatchingGame deck={doubledDeck} />
-          </div>
-        )}
+        <Navbar />
+        <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
+        <div className="mt-6">
+          <MatchingGameButton
+            content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+            onClick={handleMatchingGameClick}
+          />
+        </div>
+
+        <div className="h-screen dark:bg-bd-1 ">
+          {!matchingGameActive ? (
+            <div
+              className="
+            justify-center
+            pt-10 pb-10
+            dark:bg-bd-1
+            bg-bl-1 gap-5  flex flex-col items-center
+          sm:items-center sm:justify-center
+          sm:grid
+          sm:grid-cols-2
+          md:grid  
+          lg:grid-cols-3
+          xl:grid-cols-4
+           "
+            >
+              {cards}
+            </div>
+          ) : (
+            <div className="">
+              <MatchingGame deck={doubledDeck} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

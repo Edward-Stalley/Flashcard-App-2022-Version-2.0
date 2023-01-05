@@ -56,22 +56,34 @@ export default function Flashcards(props: any) {
   };
 
   // Effects
-  useEffect(() => {
-    if (!router.isReady) return;
-    const fetchAllFlashcards = async () => {
-      try {
-        const res = await axios.get(props.classPath);
-        setFlashcards(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+  // useEffect(() => {
+  //   // if (!router.isReady) return;
+  //   const fetchAllFlashcards = async () => {
+  //     try {
+  //       const res = await axios.get(props.classPath);
+  //       setFlashcards(res.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
-    fetchAllFlashcards();
-  }, [router.isReady, props.classPath]);
+  //   fetchAllFlashcards();
+  // }, [router.isReady, props.classPath]);
 
   // onChange?: ChangeEventHandler<T> | undefined;
   // onClick?: MouseEventHandler<T> | undefined;
+
+  // return (
+  //   <div className="relative flex justify-center items-center">
+  //     <div
+  //       className={`card h-16 w-64  rounded-xl shadow-md flex  justify-center items-center text-bd-1  dark:bg-bd-3   d`}
+  //       onClick={handleToggle}
+  //     >
+  //       <div className="back">{props.english}</div>
+  //       <div className="front">{props.japanese}</div>
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <div key={props.id}>
@@ -102,4 +114,30 @@ export default function Flashcards(props: any) {
       </div>
     </div>
   );
+}
+
+{
+  /* <div key={props.id}>
+<div className="relative flex justify-center items-center">
+  <div
+    onClick={handleClick}
+    data-key-match={props.matchId}
+    data-matched={props.matched}
+    className={`
+    ${props.color ? " bg-mc-g  dark:bg-mc-gx " : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1"}
+    card  h-16 w-64     
+    rounded-xl shadow-md  flex justify-center items-center text-bd-1  `}
+  >
+    <div
+      onClick={handleClick}
+      className="front "
+      data-key-match={props.matchId}
+      data-matched={props.matched}
+
+    >
+      {props.word}
+    </div>
+  </div>
+</div>
+</div> */
 }

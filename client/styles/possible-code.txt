@@ -1,0 +1,125 @@
+  function handleDisconnect() {
+    // connection = mysql.createConnection(db_config); // Recreate the connection, since
+    // the old one cannot be reused.
+
+    db.connect(function (err) {
+      // The server is either down
+      if (err) {
+        // or restarting (takes a while sometimes).
+        console.log("error when connecting to db:", err);
+        setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+      } // to avoid a hot loop, and to allow our node script to
+    }); // process asynchronous requests in the meantime.
+    // If you're also serving http, display a 503 error.
+    db.on("error", function (err) {
+      console.log("db error", err);
+      if (err.code === "PROTOCOL_CONNECTION_LOST") {
+        // Connection to the MySQL server is usually
+        handleDisconnect(); // lost due to either server restart, or a
+      } else {
+        // connnection idle timeout (the wait_timeout
+        throw err; // server variable configures this)
+      }
+    });
+  }
+
+  handleDisconnect();
+}
+
+
+
+
+
+/[class index]
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    if (router.isReady && className) {
+      const fetchAllFlashcards = async () => {
+        try {
+          // NEXT API
+          // const res = await axios.get(`./api/ClassSelector/${yearId}/${weekId}/${className}`, {
+          // BACKEND (NOT USING ANYMORE)
+          const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`, {
+            // mode: "cors",
+          });
+
+          if (res.data) {
+            setFlashcards(res.data);
+          }
+          // NEW CODE NEED TO TEST
+          // ***************
+          else {
+            setFlashcards([]);
+            console.log("could not fetch the data");
+          }
+          // ***************
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      fetchAllFlashcards();
+    }
+  }, [router.isReady, className, weekId, yearId, classId]);
+
+
+
+
+  const router = useRouter();
+  const classId = router.query.classId;
+  const yearId = router.query.yearId;
+  const weekId = router.query.weekId;
+  const [className, setClassname] = useState("");
+  const [cards, setCards] = useState<React.ReactElement[]>();
+  const [cardsForMatchingGame, setCardsForMatchingGame] = useState<React.ReactElement[]>();
+  const [flashcards, setFlashcards] = useState<React.ReactElement[]>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  
+
+    useEffect(() => {
+    if (!router.isReady) return;
+
+    if (router.isReady && className) {
+      const fetchAllFlashcards = async () => {
+        setIsError(false);
+        setIsLoading(true);
+
+        try {
+          const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
+
+          setFlashcards(res.data);
+        } catch (err) {
+          setIsError(true);
+        }
+        setIsLoading(false);
+      };
+
+      fetchAllFlashcards();
+    }
+  }, [router.isReady, className, weekId, yearId, classId]);
+
+
+  useEffect(() => {
+    if (!router.isReady || flashcards?.length === 0) return;
+
+    if (router.isReady && flashcards?.length !== 0) {
+      const deck = flashcards.map((card) => {
+        const { id, english, japanese, example_sentence, week, year } = card;
+        return (
+          <div key={id + week + year + english} className="flex items-center justify-center">
+            <Flashcards
+              english={english}
+              japanese={japanese}
+              classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+              showDeleteButton={false}
+            />
+          </div>
+        );
+      });
+
+      setCards(deck);
+    }
+  }, [router.isReady, flashcards, className, yearId, weekId]);

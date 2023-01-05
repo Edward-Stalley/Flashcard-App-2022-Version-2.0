@@ -270,6 +270,7 @@ function Class() {
             </div>
           )}
         </div>
+        {cards}
       </div>
     </div>
   );

@@ -102,8 +102,6 @@ function Class() {
               english={english}
               japanese={japanese}
               classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-              // classPath={`http://localhost:8800/ClassSelector/${yearId}/${weekId}/${className}`}
-              //   idPath={`http://localhost:8800/classes/${classId}/${id}`}
               showDeleteButton={false}
             />
           </div>

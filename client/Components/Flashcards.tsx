@@ -77,18 +77,17 @@ export default function Flashcards(props: any) {
     <div key={props.id}>
       {/* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */}
 
-      <div className="relative">
+      <div className="relative flex justify-center items-center">
         <div
           className={`card ${
             flip ? "flip" : ""
-          } h-16 w-64  rounded-xl shadow-md flex  justify-center items-center text-bd-1   dark:bg-bd-3   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
+          } h-16 w-64  rounded-xl shadow-md flex  justify-center items-center text-bd-1  dark:bg-bd-3   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
           onClick={handleToggle}
         >
           <div className="front ">{props.english}</div>
           <div className="back">{props.japanese} </div>
         </div>
-        {props.showDeleteButton && (
-          // Need to import an x icon
+        {/* {props.showDeleteButton && (
           <div className="absolute top-0 right-0 flex items-center justify-center dark:text-slate-200 h-5 w-5 m-1 ">
             <button
               onClick={() => {
@@ -99,7 +98,7 @@ export default function Flashcards(props: any) {
               x
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

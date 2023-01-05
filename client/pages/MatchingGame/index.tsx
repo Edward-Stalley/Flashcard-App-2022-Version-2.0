@@ -161,7 +161,7 @@ export default function MatchingGame(props: { deck: any }) {
     } else {
       console.log("no");
     }
-  }, [choiceOne, choiceTwo, wordOne, wordTwo]);
+  }, [choiceOne, choiceTwo, wordOne, wordTwo, cards]);
 
   const resetTurn = () => {
     setTurns(0);

@@ -30,7 +30,7 @@ function Class() {
   const classId = router.query.classId;
   // States
   const [className, setClassname] = useState("");
-  const [cards, setCards] = useState<React.ReactElement[]>();
+  // const [cards, setCards] = useState<React.ReactElement[]>();
   const [cardsForMatchingGame, setCardsForMatchingGame] = useState<React.ReactElement[]>();
   const [flashcards, setFlashcards] = useState<React.ReactElement[]>() || undefined;
   const [fetched, setFetched] = useState(false);
@@ -67,27 +67,24 @@ function Class() {
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         setIsError(false);
-        setIsLoading(true);
+        // setIsLoading(true);
 
         try {
           const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
 
-          setFlashcards(res.data);
+          setFlashcards(res.data || undefined);
         } catch (err) {
           setIsError(true);
         }
-        setIsLoading(false);
+        // setIsLoading(false);
       };
 
       fetchAllFlashcards();
     }
   }, [router.isReady, className, weekId, yearId, classId]);
 
-  useEffect(() => {
-    // if (!router.isReady || flashcards?.length === 0) return;
-
-    if (flashcards instanceof Array) {
-      const deck = flashcards.map((card) => {
+  const cards = Array.isArray(flashcards)
+    ? flashcards.map((card) => {
         const { id, english, japanese, example_sentence, week, year } = card;
         return (
           <div key={id + week + year + english} className="flex items-center justify-center">
@@ -99,11 +96,30 @@ function Class() {
             />
           </div>
         );
-      });
+      })
+    : [];
 
-      setCards(deck);
-    } else return;
-  }, [router.isReady, flashcards, className, yearId, weekId]);
+  // useEffect(() => {
+  //   if (!router.isReady || flashcards?.length === 0) return;
+
+  //   if (router.isReady && flashcards instanceof Array) {
+  //     const deck = flashcards.map((card) => {
+  //       const { id, english, japanese, example_sentence, week, year } = card;
+  //       return (
+  //         <div key={id + week + year + english} className="flex items-center justify-center">
+  //           <Flashcards
+  //             english={english}
+  //             japanese={japanese}
+  //             classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
+  //             showDeleteButton={false}
+  //           />
+  //         </div>
+  //       );
+  //     });
+
+  //     setCards(deck);
+  //   } else return;
+  // }, [router.isReady, flashcards, className, yearId, weekId]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -237,16 +253,15 @@ function Class() {
           />
         </div>
         {isError && <div>Something went wrong ...</div>}
-
-        {isLoading ? (
-          <div className="h-screen flex justify-center items-center">
-            <div className="p-5">Please Wait! Cards Are Loading</div>
-          </div>
-        ) : (
-          <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
-            {!matchingGameActive ? (
-              <div
-                className="
+        {/* {isLoading ? ( */}
+        {/* <div className="h-screen flex justify-center items-center">
+          <div className="p-5">Please Wait! Cards Are Loading</div>
+        </div> */}
+        {/* ) : ( */}
+        <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
+          {!matchingGameActive ? (
+            <div
+              className="
             justify-center
             pt-10 pb-10
             dark:bg-bd-1
@@ -258,16 +273,16 @@ function Class() {
           lg:grid-cols-3
           xl:grid-cols-4
            "
-              >
-                {cards ? cards : <div>couldnt get cards</div>}
-              </div>
-            ) : (
-              <div className="">
-                <MatchingGame deck={doubledDeck} />
-              </div>
-            )}
-          </div>
-        )}
+            >
+              {cards ? cards : <div>couldnt get cards</div>}
+            </div>
+          ) : (
+            <div className="">
+              <MatchingGame deck={doubledDeck} />
+            </div>
+          )}
+        </div>
+        ){/* } */}
       </div>
     </div>
   );

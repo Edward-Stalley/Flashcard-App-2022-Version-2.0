@@ -81,10 +81,10 @@ function Class() {
 
       fetchAllFlashcards();
     }
-  }, [router.isReady, className, weekId, yearId, classId]);
+  }, [router.isReady, className, weekId, yearId, classId, setFlashcards]);
 
   const cards = Array.isArray(flashcards)
-    ? flashcards.map((card) => {
+    ? flashcards.map((card: any) => {
         const { id, english, japanese, example_sentence, week, year } = card;
         return (
           <div key={id + week + year + english} className="flex items-center justify-center">
@@ -140,7 +140,7 @@ function Class() {
 
   useEffect(() => {
     if (router.isReady && flashcards instanceof Array) {
-      const deck = flashcards.map((card) => {
+      const deck = flashcards.map((card: any) => {
         const { id, english, japanese, week, year } = card;
         return (
           <div key={className + week + "match" + id} className="flex items-center justify-center">

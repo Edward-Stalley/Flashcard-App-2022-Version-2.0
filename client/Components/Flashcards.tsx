@@ -89,16 +89,16 @@ export default function Flashcards(props: any) {
 
   return (
     <div
-      className="flex justify-center items-center card-container  overflow-hidden  bg-pink-200 p-4 h-16 min-h-16 w-64 max-w-96 "
+      className="flex justify-center items-center card-container  overflow-hidden  p-4 h-16 min-h-16 w-64 max-w-96 "
       onClick={handleToggle}
     >
-      <div
-        className={`${
-          flip && "flip"
-        } the-card  text-bd-1 rounded   shrink-0  dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
-      >
-        <div className="card-front flex justify-center shrink-0 items-center">{props.english}</div>
-        <div className="card-back flex justify-center shrink-0 items-center">{props.japanese}</div>
+      <div className={`${flip && "flip"} the-card  text-bd-1  `}>
+        <div className="card-front flex justify-center rounded-xl shadow-md  dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  items-center">
+          {props.english}
+        </div>
+        <div className="card-back flex justify-center items-center rounded-xl shadow-md   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1">
+          {props.japanese}
+        </div>
       </div>
     </div>
   );

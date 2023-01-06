@@ -67,7 +67,7 @@ function Class() {
     if (router.isReady && className) {
       const fetchAllFlashcards = async () => {
         setIsError(false);
-        // setIsLoading(true);
+        setIsLoading(true);
 
         try {
           const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
@@ -76,7 +76,7 @@ function Class() {
         } catch (err) {
           setIsError(true);
         }
-        // setIsLoading(false);
+        setIsLoading(false);
       };
 
       fetchAllFlashcards();
@@ -98,6 +98,18 @@ function Class() {
         );
       })
     : [];
+
+  // const cards:
+  //   | string
+  //   | number
+  //   | boolean
+  //   | any[]
+  //   | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+  //   | React.ReactFragment
+  //   | null
+  //   | undefined = [];
+
+  // console.log(cards);
 
   // useEffect(() => {
   //   if (!router.isReady || flashcards?.length === 0) return;
@@ -242,7 +254,7 @@ function Class() {
   };
 
   return (
-    <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-full relative grid    ">
+    <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-screen relative grid    ">
       <div>
         <Navbar />
         <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
@@ -252,37 +264,48 @@ function Class() {
             onClick={handleMatchingGameClick}
           />
         </div>
-        {isError && <div>Something went wrong ...</div>}
-        {/* {isLoading ? ( */}
-        {/* <div className="h-screen flex justify-center items-center">
-          <div className="p-5">Please Wait! Cards Are Loading</div>
-        </div> */}
-        {/* ) : ( */}
-        <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
-          {!matchingGameActive ? (
-            <div
-              className="
+        {isError && <AlertBox message={"something went wrong"} />}
+        {isLoading ? (
+          <AlertBox message={"Please Wait - Cards Loading!"} />
+        ) : (
+          <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
+            {!matchingGameActive ? (
+              <div
+                className={`
             justify-center
             pt-10 pb-10
             dark:bg-bd-1
-            bg-bl-1 gap-5  flex flex-col items-center
-          sm:items-center sm:justify-center
-          sm:grid
+            bg-bl-1 gap-5  flex items-center
+     
+          ${
+            cards.length != 0 &&
+            ` flex-col  sm:grid
+            sm:items-center sm:justify-center
           sm:grid-cols-2
           md:grid  
           lg:grid-cols-3
-          xl:grid-cols-4
-           "
-            >
-              {cards ? cards : <div>couldnt get cards</div>}
-            </div>
-          ) : (
-            <div className="">
-              <MatchingGame deck={doubledDeck} />
-            </div>
-          )}
-        </div>
-        ){/* } */}
+          xl:grid-cols-4`
+          }
+        
+           `}
+              >
+                {cards.length === 0 ? (
+                  <AlertBox
+                    message={
+                      "We are having a problem getting the cards right now. We are sorry for the inconvenience. Please try again later."
+                    }
+                  />
+                ) : (
+                  cards
+                )}
+              </div>
+            ) : (
+              <div className="">
+                <MatchingGame deck={doubledDeck} />
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

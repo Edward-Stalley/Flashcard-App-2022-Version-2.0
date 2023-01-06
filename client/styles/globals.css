@@ -106,7 +106,7 @@
 .card .front,
 .card .back {
   position: absolute;
-  padding: 1rem;
+  /* padding: 1rem; */
   backface-visibility: hidden;
 }
 

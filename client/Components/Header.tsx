@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import MyThemeContext from "../store/myThemeContext";
+import BackButton from "./BackButton";
 import ToggleButton from "./ToggleButton";
 
 export default function Header(props: {
@@ -32,15 +33,20 @@ export default function Header(props: {
   }
 
   return (
-    <div className=" font-roboto bg-bl-1  text-slate-800 mobile:gap-1 gap-3 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   ">
-      <div>{props.pageHeader}</div>
-      {props.subHeader && (
-        <div className="">
-          <div> {props.subHeader}</div>
-        </div>
-      )}
+    <div className="relative">
+      <div className="absolute top-4 left-4 z-10  p-2 rounded-full">
+        <BackButton />
+      </div>
+      <div className=" font-roboto bg-bl-1  text-slate-800 mobile:gap-1 gap-3 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   ">
+        <div>{props.pageHeader}</div>
+        {props.subHeader && (
+          <div className="">
+            <div> {props.subHeader}</div>
+          </div>
+        )}
 
-      <div className="absolute right-0  ">{/* <ToggleButton /> */}</div>
+        <div className="absolute right-0  ">{/* <ToggleButton /> */}</div>
+      </div>
     </div>
   );
 }

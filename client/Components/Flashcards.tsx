@@ -34,10 +34,16 @@ export default function Flashcards(props: any) {
 
   // Flip Functionality
   const [flip, setFlip] = useState(false);
+  const [shadow, setShadow] = useState(true);
 
   const handleToggle = function () {
     // e.target.classList.toggle("flip");
     setFlip((flip) => !flip);
+    setShadow(false);
+
+    setTimeout(() => {
+      setShadow(true);
+    }, 220);
   };
 
   // Delete Functionality * ONLY GIVE TO "MY FLASHCARDS"
@@ -89,14 +95,16 @@ export default function Flashcards(props: any) {
 
   return (
     <div
-      className="flex justify-center items-center card-container  overflow-hidden  p-4 h-16 min-h-16 w-64 max-w-96 "
+      className={` cursor-pointer flex   justify-center items-center card-container rounded-xl h-16 min-h-16 w-64 max-w-96 min-w-64 ${
+        shadow && "shadow-md"
+      }`}
       onClick={handleToggle}
     >
-      <div className={`${flip && "flip"} the-card  text-bd-1  `}>
-        <div className="card-front flex justify-center rounded-xl shadow-md  dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  items-center">
+      <div className={`${flip && "flip"} the-card  bg-transparent  `}>
+        <div className="card-front flex justify-center rounded-xl  dark:bg-zinc-700  bg-bl-2 text-bd-1 dark:text-bl-1  items-center">
           {props.english}
         </div>
-        <div className="card-back flex justify-center items-center rounded-xl shadow-md   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1">
+        <div className="card-back flex justify-center items-center rounded-xl  dark:bg-zinc-700   bg-bl-2 text-bd-1 dark:text-bl-1 ">
           {props.japanese}
         </div>
       </div>

@@ -128,7 +128,7 @@ export default function MatchingCards(props: {
     <div key={props.id}>
       {/* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */}
       {/* need to make a click register for either div - not doubling the key-match  */}
-      <div className="relative flex justify-center items-center">
+      <div className="cursor-pointer  relative flex justify-center items-center">
         <div
           onClick={handleClick}
           data-key-match={props.matchId}

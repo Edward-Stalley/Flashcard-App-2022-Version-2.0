@@ -76,6 +76,19 @@
   background-color: #ec925d;
 }
 
+.back_button {
+  transition-duration: 400ms;
+  fill: #ec925d;
+}
+
+.back_button:hover {
+  opacity: 0.75;
+
+  fill: #ec925b;
+
+  transform: scale(1.1);
+}
+
 .nav_button {
   transition-duration: 400ms;
 }
@@ -87,19 +100,35 @@
 
 /* Card Flipping Functionality */
 
+/* .shadow {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+} */
+
+.slow {
+  /* transition-duration: 500ms; */
+  transition: 500s ease-in-out;
+}
+
+.fast {
+  /* transition-duration: 200ms; */
+  transition: 200s ease-in-out;
+}
+
 .card-container {
   position: relative;
+
+  /* transition: 200s ease-in-out; */
 
   /* background-color: orange; */
 }
 .the-card {
   position: absolute;
+  transition-duration: 400ms;
+
   width: 100%;
   height: 100%;
-
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  transition: all 0.3s ease;
   /* background-color: yellow; */
 }
 
@@ -110,6 +139,8 @@
 }
 
 .card-front {
+  /* transition: 4000ms; */
+
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;

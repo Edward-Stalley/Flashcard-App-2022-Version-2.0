@@ -1,11 +1,12 @@
 import Head from "next/head";
 import MatchingCards from "../../Components/MatchingCards";
-import { ReactNode, use, useEffect, useState } from "react";
+import { ReactNode, SetStateAction, use, useEffect, useState } from "react";
 import Button from "../../Components/Button";
 import Header from "../../Components/Header";
 import HomeButton from "../../Components/HomeButton";
 import ToggleButton from "../../Components/ToggleButton";
 import MatchingGameButton from "../../Components/MatchingGameButton";
+import AlertBox from "../../Components/AlertBox";
 
 export default function MatchingGame(props: { deck: any }) {
   const [deck, setDeck] = useState(props.deck);
@@ -22,6 +23,10 @@ export default function MatchingGame(props: { deck: any }) {
   const [choiceTwo, setChoiceTwo] = useState<number>();
 
   const [gameStarted, setGameStarted] = useState(false);
+  const [gameFinished, setGameFinished] = useState(false);
+
+  const [time, setTime] = useState(0);
+  const [startTimer, setStartTimer] = useState(false);
 
   const shuffleCards = () => {
     const shuffledCards = deck
@@ -66,7 +71,23 @@ export default function MatchingGame(props: { deck: any }) {
   //   console.log("same card selected so ignore turn");
   // }
 
+  // const countdown = (time: SetStateAction<number>) => {
+  //   // setTime(time);
+  //   // if (time >= 0) {
+  //   //   setTime((time) => time - 1);
+  //   // }
+
+  //   setTimeout(() => {
+  //     setStartTimer(false);
+  //   }, 3000);
+  // };
+
+  // useEffect(() => {
+  //   setStartTimer(true);
+  // }, [time]);
+
   const resetGame = function () {
+    setGameFinished(false);
     setCards((prevCards) => {
       return prevCards.map((c: { color: boolean }) => {
         return { ...c, color: false };
@@ -151,17 +172,17 @@ export default function MatchingGame(props: { deck: any }) {
         resetTurn();
       }
     }
-    if (cards.every((c) => c.color === true)) {
+    if (gameStarted && cards.every((c) => c.color === true)) {
       // alert("well done!");
       console.log("nice");
+      setGameFinished(true);
 
       setTimeout(() => {
         resetGame();
-      }, 2000);
+      }, 3000);
     } else {
-      console.log("no");
     }
-  }, [choiceOne, choiceTwo, wordOne, wordTwo, cards]);
+  }, [choiceOne, choiceTwo, wordOne, wordTwo, time]);
 
   const resetTurn = () => {
     setTurns(0);
@@ -175,6 +196,24 @@ export default function MatchingGame(props: { deck: any }) {
     throw new Error("Function not implemented.");
   }
 
+  const finalMatchingCards = cards.map((card) => (
+    <MatchingCards
+      key={card.word + card.match}
+      matchId={card.matchId}
+      word={card.word}
+      card={card}
+      matched={false}
+      handleChoice={handleChoice}
+      color={
+        card.color === true
+        // (card.matchId === choiceOne && card.word === wordOne && wordOne !== wordTwo) ||
+        // (card.matchId === choiceTwo && card.word === wordTwo && wordOne !== wordTwo) ||
+        // card.matched
+      }
+      id={undefined} // id={undefined}
+    />
+  ));
+
   return (
     <div className=" h-screen dark:bg-bd-1 bg-bl-1    ">
       <div className="flex justify-center pt-4">
@@ -182,9 +221,12 @@ export default function MatchingGame(props: { deck: any }) {
       </div>
 
       <div
-        className="
+        className={`
+${
+  !gameFinished
+    ? `
         justify-center
-        pt-10 pb-10
+pt-10 pb-10
         dark:bg-bd-1
         bg-bl-1 gap-5  flex flex-col items-center
       sm:items-center sm:justify-center
@@ -192,26 +234,18 @@ export default function MatchingGame(props: { deck: any }) {
       sm:grid-cols-2
       md:grid  
       lg:grid-cols-3
-      xl:grid-cols-4
-       "
+      xl:grid-cols-4`
+    : `flex justify-center items-center text-3xl p-5 `
+}
+       `}
       >
-        {cards.map((card) => (
-          <MatchingCards
-            key={card.word + card.match}
-            matchId={card.matchId}
-            word={card.word}
-            card={card}
-            matched={false}
-            handleChoice={handleChoice}
-            color={
-              card.color === true
-              // (card.matchId === choiceOne && card.word === wordOne && wordOne !== wordTwo) ||
-              // (card.matchId === choiceTwo && card.word === wordTwo && wordOne !== wordTwo) ||
-              // card.matched
-            }
-            id={undefined} // id={undefined}
-          />
-        ))}
+        {gameFinished ? (
+          <div className="flex justify-center items-center">
+            <AlertBox message={`Well Done!!`} />
+          </div>
+        ) : (
+          finalMatchingCards
+        )}
       </div>
     </div>
   );

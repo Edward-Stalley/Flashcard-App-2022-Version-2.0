@@ -89,18 +89,18 @@
 
 .card {
   cursor: pointer;
-  transform-style: preserve-3d;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0px));
-  transition: 200ms;
+  /* transform-style: preserve-3d; */
+  /* transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0px)); */
+  /* transition: 200ms; */
 }
 
 .card:hover {
-  --translate-y: -5px;
+  /* --translate-y: -5px; */
   /* transform: scale(102%); */
 }
 
 .card.flip {
-  --rotate-y: 180deg;
+  /* --rotate-y: 180deg; */
 }
 
 .card .front,
@@ -112,7 +112,7 @@
 
 .card .back {
   /* background-color: aqua; */
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
 }
 
 .card .front {

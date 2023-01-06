@@ -95,7 +95,7 @@ export default function Flashcards(props: any) {
 
   return (
     <div
-      className={` cursor-pointer flex   justify-center items-center card-container rounded-xl h-16 min-h-16 w-64 max-w-96 min-w-64 ${
+      className={` flex   justify-center items-center card-container rounded-xl h-16 min-h-16 w-64 max-w-96 min-w-64 ${
         shadow && "shadow-md"
       }`}
       onClick={handleToggle}

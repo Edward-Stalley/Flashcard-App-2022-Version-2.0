@@ -86,28 +86,11 @@ export default function Flashcards(props: any) {
   // );
 
   return (
-    <div className="card-outer" key={props.id}>
-      <div
-        className={`card ${
-          flip ? "flip  h-16 w-56 " : ""
-        } h-16 w-64  relative rounded-xl shadow-md flex justify-center items-center text-bd-1    dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
-        onClick={handleToggle}
-      >
-        <div className="front flex absolute justify-center items-center ">{props.japanese}</div>
-        <div className="back flex absolute  justify-center items-center">{props.english} </div>
+    <div className="card-container h-16 w-64" onClick={handleToggle}>
+      <div className={`the-card ${flip && "flip"} text-bd-1  rounded   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}>
+        <div className="card-front flex justify-center items-center">{props.english}</div>
+        <div className="card-back flex justify-center items-center">{props.japanese}</div>
       </div>
-      {/* {props.showDeleteButton && (
-          <div className="absolute top-0 right-0 flex items-center justify-center dark:text-slate-200 h-5 w-5 m-1 ">
-            <button
-              onClick={() => {
-                handleDelete(props.idPath);
-              }}
-              className="relative"
-            >
-              x
-            </button>
-          </div>
-        )} */}
     </div>
   );
 }
@@ -144,3 +127,27 @@ export default function Flashcards(props: any) {
 {
   /* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */
 }
+
+// {/* <div className="card-outer" >
+// <div
+//   className={`card ${
+//     flip ? "flip  h-16 w-56 " : ""
+//   } h-16 w-64  relative rounded-xl shadow-md flex justify-center items-center text-bd-1    dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
+//   onClick={handleToggle}
+// >
+//   <div className="front flex absolute justify-center items-center ">{props.japanese}</div>
+//   <div className="back flex absolute  justify-center items-center">{props.english} </div>
+// </div>
+// {/* {props.showDeleteButton && (
+//     <div className="absolute top-0 right-0 flex items-center justify-center dark:text-slate-200 h-5 w-5 m-1 ">
+//       <button
+//         onClick={() => {
+//           handleDelete(props.idPath);
+//         }}
+//         className="relative"
+//       >
+//         x
+//       </button>
+//     </div>
+//   )} */}
+// </div> */}

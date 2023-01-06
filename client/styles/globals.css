@@ -87,8 +87,43 @@
 
 /* Card Flipping Functionality */
 
-.card-outer {
+.card-container {
+  position: relative;
+
+  /* background-color: orange; */
 }
+.the-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  /* background-color: yellow; */
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  /* background-color: #52525b; */
+}
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  /* background-color: blue; */
+}
+
+/* ***** */
+
+/* 
 .card {
   cursor: pointer;
   transform-style: preserve-3d;
@@ -98,7 +133,6 @@
 
 .card:hover {
   --translate-y: -5px;
-  /* transform: scale(102%); */
 }
 
 .card.flip {
@@ -111,16 +145,15 @@
   padding: 1rem;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* Safari */
-}
+/* } */
 
 .card .back {
-  /* background-color: aqua; */
   transform: rotateY(180deg);
 }
 
 .card .front {
-  /* background-color: green; */
 }
+*/
 
 /* End of Card Flipping */
 

@@ -34,7 +34,9 @@ export default function Flashcards(props: any) {
 
   // Flip Functionality
   const [flip, setFlip] = useState(false);
+
   const handleToggle = function () {
+    // e.target.classList.toggle("flip");
     setFlip((flip) => !flip);
   };
 
@@ -86,10 +88,17 @@ export default function Flashcards(props: any) {
   // );
 
   return (
-    <div className="card-container h-16 w-64" onClick={handleToggle}>
-      <div className={`the-card ${flip && "flip"} text-bd-1  rounded   dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}>
-        <div className="card-front flex justify-center items-center">{props.english}</div>
-        <div className="card-back flex justify-center items-center">{props.japanese}</div>
+    <div
+      className="flex justify-center items-center card-container  overflow-hidden  bg-pink-200 p-4 h-16 min-h-16 w-64 max-w-96 "
+      onClick={handleToggle}
+    >
+      <div
+        className={`${
+          flip && "flip"
+        } the-card  text-bd-1 rounded   shrink-0  dark:bg-zinc-700  bg-bl-2  dark:text-bl-1  `}
+      >
+        <div className="card-front flex justify-center shrink-0 items-center">{props.english}</div>
+        <div className="card-back flex justify-center shrink-0 items-center">{props.japanese}</div>
       </div>
     </div>
   );

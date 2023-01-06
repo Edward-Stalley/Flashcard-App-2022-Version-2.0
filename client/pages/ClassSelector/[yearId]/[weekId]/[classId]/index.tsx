@@ -16,7 +16,7 @@ import { match } from "assert";
 import Navbar from "../../../../../Components/Navbar";
 import e from "express";
 import AlertBox from "../../../../../Components/AlertBox";
-
+import Spinner from "../../../../../Components/Spinner";
 // Function Component
 
 function Class() {
@@ -266,7 +266,10 @@ function Class() {
         </div>
         {isError && <AlertBox message={"something went wrong"} />}
         {isLoading ? (
-          <AlertBox message={"Please Wait - Cards Loading!"} />
+          <div className="flex h-screen justify-center bg-bl-1 dark:bg-bd-1">
+            <Spinner />
+            {/* <AlertBox message={"Please Wait - Cards Loading!"} /> */}
+          </div>
         ) : (
           <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
             {!matchingGameActive ? (

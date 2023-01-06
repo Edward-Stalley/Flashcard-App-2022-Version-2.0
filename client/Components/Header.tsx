@@ -34,7 +34,7 @@ export default function Header(props: {
 
   return (
     <div className="relative">
-      <div className="absolute top-4 left-4 z-10  p-2 rounded-full">
+      <div className="absolute top-1 left-1 z-10  p-2 rounded-full">
         <BackButton />
       </div>
       <div className=" font-roboto bg-bl-1  text-slate-800 mobile:gap-1 gap-3 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   ">

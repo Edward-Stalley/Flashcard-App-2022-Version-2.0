@@ -101,13 +101,12 @@
 
 .card.flip {
   --rotate-y: 180deg;
-  width: fit-content;
 }
 
 .card .front,
 .card .back {
   position: absolute;
-  /* padding: 1rem; */
+  padding: 1rem;
   backface-visibility: hidden;
 }
 
@@ -118,7 +117,6 @@
 
 .card .front {
   /* background-color: green; */
-  /* transform: rotateY(180deg); */
 }
 
 /* End of Card Flipping */

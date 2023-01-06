@@ -118,7 +118,6 @@
   height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  /* background-color: blue; */
 }
 
 /* ***** */
@@ -153,7 +152,6 @@
 
 .card .front {
 }
-*/
 
 /* End of Card Flipping */
 

@@ -14,11 +14,11 @@ export default function About() {
   return (
     <div
       className="  h-fit w-fit   bg-bl-1 
-  dark:bg-bd-1 pb-20  "
+  dark:bg-bd-1 pb-20 grid grid-cols-1  "
     >
       <div>
         <Navbar />
-        <Header pageHeader={isEnglish ? `How To Use This App` : `アプリの使い方`} subHeader={""} />
+        <Header pageHeader={isEnglish ? `How To Use ` : `アプリの使い方`} subHeader={isEnglish ? `This App ` : ``} />
         <div className="flex items-center  justify-center dark:bg-bd-1 ">
           <Button content={isEnglish ? `Change Language` : `言語変更`} onClick={changeLanguage} />
         </div>

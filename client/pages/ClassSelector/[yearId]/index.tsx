@@ -23,7 +23,7 @@ function ProductDetail() {
 
   return (
     <>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  grid    ">
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1    ">
         <div>
           <Navbar />
         </div>

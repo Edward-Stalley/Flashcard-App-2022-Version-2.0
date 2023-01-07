@@ -256,33 +256,48 @@ function Class() {
   };
 
   return (
-    <div className="relative grid  dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1   ">
-      <Navbar />
-      <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
-      {!isLoading && cards.length !== 0 && (
-        <MatchingGameButton
-          content={matchingGameActive ? "Regular Deck" : "Matching Game"}
-          onClick={handleMatchingGameClick}
-        />
-      )}
-      {/* {isError && <ErrorComponent message={"something went wrong!"} />} */}
-
-      {isLoading ? (
-        <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
-          <Spinner />
-          <AlertBox message={"Please Wait - Cards Loading!"} />
+    <div>
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid grid-cols-1  ">
+        <Navbar />
+        <div>
+          <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
+          {/* <Header pageHeader={`${classId}`} subHeader={``} /> */}
         </div>
-      ) : (
-        <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
-          {!matchingGameActive ? (
-            <div
-              className={`
-            
-     grid justify-content items-center
-          p-10
-            dark:bg-bd-1
-            bg-bl-1 gap-5  
-     
+
+        {/* Loading Screen */}
+
+        {isLoading && (
+          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
+            <Spinner />
+            <AlertBox message={"Please Wait - Cards Loading!"} />
+          </div>
+        )}
+
+        {/* Could Not Load Cards */}
+        {!isLoading && cards.length === 0 && (
+          <div className=" justify-center bg-bl-1 dark:bg-bd-1">
+            <ErrorComponent message={"Sorry We Couldn't Find The Cards."} />
+          </div>
+        )}
+
+        {/* Cards Loaded - Choose Between Matching & Regular Decks*/}
+
+        {!isLoading && cards.length !== 0 && (
+          <div>
+            <div className="dark:bg-bd-1 ">
+              <MatchingGameButton
+                content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+                onClick={handleMatchingGameClick}
+              />
+            </div>
+            <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
+              {!matchingGameActive ? (
+                <div
+                  className={`
+              grid justify-content items-center
+              p-10 pt-10
+                dark:bg-bd-1
+                bg-bl-1 gap-5      
           ${
             cards.length != 0 &&
             ` flex-col  sm:grid
@@ -294,22 +309,18 @@ function Class() {
           }
         
            `}
-            >
-              {cards.length === 0 ? (
-                <div className=" ">
-                  <ErrorComponent message={"Sorry We Couldn't Find The Cards!"} />
+                >
+                  {cards}
                 </div>
               ) : (
-                cards
+                <div className="">
+                  <MatchingGame deck={doubledDeck} />
+                </div>
               )}
             </div>
-          ) : (
-            <div className="">
-              <MatchingGame deck={doubledDeck} />
-            </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -317,3 +328,12 @@ function Class() {
 export default Class;
 
 /* <div className="">{!fetched ? <AlertBox message="test" /> : }</div>*/
+
+// {cards.length === 0 ? (
+//   <div className="  ">
+//     <ErrorComponent message={"Sorry We Couldn't Find The Cards!"} />
+//   </div>
+// ) : (
+//   <div className="  ">{cards}</div>
+// )}
+// </div>

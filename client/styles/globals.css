@@ -5,14 +5,15 @@
 /* Custom Variables for COLORS */
 
 * {
-  /* margin: 0; */
-  /* height: fit-content; */
-  /* width: 100%; */
-}
-body {
   /* margin: 0;
   height: 100%;
   width: 100%; */
+  /* background-color: green; */
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 :root {
@@ -76,6 +77,11 @@ body {
 
 /* :Components*/
 
+.svg {
+  min-width: 16px;
+  min-height: 16px;
+}
+
 .navbar {
   background-color: rgb(254 252 23);
 }
@@ -134,7 +140,7 @@ body {
 }
 .the-card {
   position: absolute;
-  transition-duration: 400ms;
+  transition-duration: 300ms;
 
   width: 100%;
   height: 100%;

@@ -34,21 +34,15 @@ export default function Header(props: {
 
   return (
     <div className="relative">
-      <div className="absolute top-1 left-1 z-10  p-2 rounded-full">
+      <div className="absolute top-1 left-1 z-10  p-2 rounded-full dark:bg-bd-1 dark:text-bl-1 font-bold">
         <BackButton />
       </div>
-      <div className=" font-roboto bg-bl-1  text-slate-800 mobile:gap-1 gap-3 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   ">
+      <div className=" font-roboto bg-bl-1  text-slate-800 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col py-20  flex relative items-center mobile:text-4xl   ">
         <div>{props.pageHeader}</div>
-        {props.subHeader && (
-          <div className="">
-            <div> {props.subHeader}</div>
-          </div>
-        )}
-
-        <div className="absolute right-0  ">{/* <ToggleButton /> */}</div>
+        <div className="">{props.subHeader && <div> {props.subHeader}</div>}</div>
       </div>
     </div>
   );
 }
 
-// dark:border-bl-1 border-bd-2 border-b-2
+// font-roboto bg-bl-1  text-slate-800 mobile:gap-1 gap-3 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col h-40 flex relative items-center mobile:text-4xl   "

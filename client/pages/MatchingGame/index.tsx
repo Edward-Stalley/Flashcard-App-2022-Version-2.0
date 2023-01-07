@@ -7,6 +7,7 @@ import HomeButton from "../../Components/HomeButton";
 import ToggleButton from "../../Components/ToggleButton";
 import MatchingGameButton from "../../Components/MatchingGameButton";
 import AlertBox from "../../Components/AlertBox";
+import WellDone from "../../Components/WellDone";
 
 export default function MatchingGame(props: { deck: any }) {
   const [deck, setDeck] = useState(props.deck);
@@ -24,6 +25,7 @@ export default function MatchingGame(props: { deck: any }) {
 
   const [gameStarted, setGameStarted] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
+  const [wellDone, setWellDone] = useState(false);
 
   const [time, setTime] = useState(0);
   const [startTimer, setStartTimer] = useState(false);
@@ -40,10 +42,11 @@ export default function MatchingGame(props: { deck: any }) {
   };
 
   const startGame = () => {
+    resetGame();
     setTurns(0);
-
     setGameStarted(true);
     shuffleCards();
+    setWellDone(false);
   };
 
   const handleChoice = (card: any) => {
@@ -178,11 +181,11 @@ export default function MatchingGame(props: { deck: any }) {
       // alert("well done!");
       console.log("nice");
       setGameFinished(true);
+      setWellDone(true);
 
-      setTimeout(() => {
-        resetGame();
-      }, 3000);
-    } else {
+      // setTimeout(() => {
+      //   resetGame();
+      // }, 3000);
     }
   }, [choiceOne, choiceTwo, wordOne, wordTwo, time]);
 
@@ -219,14 +222,14 @@ export default function MatchingGame(props: { deck: any }) {
   return (
     <div className=" h-screen dark:bg-bd-1 bg-bl-1    ">
       <div className="flex justify-center pt-4">
-        <Button content={gameStarted ? "Shuffle" : "Start Game"} onClick={startGame} />
+        <Button content={!wellDone ? (gameStarted ? "Shuffle" : "Start Game") : "Play Again"} onClick={startGame} />
       </div>
 
-      <div
-        className={`
-${
-  !gameFinished
-    ? `
+      {/* Game On */}
+
+      {!gameFinished && gameStarted && (
+        <div
+          className="
         justify-center
 pt-10 pb-10
         dark:bg-bd-1
@@ -236,19 +239,55 @@ pt-10 pb-10
       sm:grid-cols-2
       md:grid  
       lg:grid-cols-3
-      xl:grid-cols-4`
-    : `flex justify-center items-center text-3xl p-5 `
-}
-       `}
-      >
-        {gameFinished ? (
-          <div className="flex justify-center items-center">
+      xl:grid-cols-4"
+        >
+          {finalMatchingCards}
+        </div>
+      )}
+
+      {/* Well Done Screen */}
+
+      {gameFinished && wellDone && (
+        <div className="flex justify-center items-center text-3xl p-5">
+          <div className="flex-cols justify-center items-center">
+            <WellDone />
             <AlertBox message={`Well Done!!`} />
           </div>
-        ) : (
-          finalMatchingCards
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Play Again*/}
     </div>
   );
+}
+
+{
+  /* <div
+className={`
+${
+!gameFinished
+? `
+justify-center
+pt-10 pb-10
+dark:bg-bd-1
+bg-bl-1 gap-5  flex flex-col items-center
+sm:items-center sm:justify-center
+sm:grid
+sm:grid-cols-2
+md:grid  
+lg:grid-cols-3
+xl:grid-cols-4`
+: `flex justify-center items-center text-3xl p-5 `
+}
+`}
+>
+{gameFinished && wellDone ? (
+  <div className="flex-cols justify-center items-center">
+    <WellDone />
+    <AlertBox message={`Well Done!!`} />
+  </div>
+) : (
+  finalMatchingCards
+)}
+</div> */
 }

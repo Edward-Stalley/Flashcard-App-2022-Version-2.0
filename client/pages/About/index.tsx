@@ -14,7 +14,7 @@ export default function About() {
   return (
     <div
       className="  h-fit w-fit   bg-bl-1 
-  dark:bg-bd-1 pb-20 grid grid-cols-1  "
+  dark:bg-bd-1 pb-20 grid   "
     >
       <div>
         <Navbar />

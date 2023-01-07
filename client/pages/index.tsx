@@ -8,7 +8,7 @@ export default function landingPage() {
   return (
     <>
       <div className="bg-green-200">
-        <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-full relative grid grid-cols   ">
+        <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-screen relative grid   ">
           <div>
             <Navbar />
           </div>

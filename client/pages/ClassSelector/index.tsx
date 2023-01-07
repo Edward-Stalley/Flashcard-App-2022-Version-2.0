@@ -15,7 +15,7 @@ export default function Product() {
     <div>
       <div>
         <Header pageHeader="Select The Year" subHeader={""} />
-        <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1  grid-cols-1  ">
+        <div className="flex items-center  justify-between bg-blue-200 dark:bg-bd-1   ">
           {/* <HomeButton /> */}
           {/* <ToggleButton /> */}
         </div>

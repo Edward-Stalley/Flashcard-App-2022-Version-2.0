@@ -17,6 +17,8 @@ import Navbar from "../../../../../Components/Navbar";
 import e from "express";
 import AlertBox from "../../../../../Components/AlertBox";
 import Spinner from "../../../../../Components/Spinner";
+import ErrorImage from "../../../../../Components/ErrorImage";
+import ErrorComponent from "../../../../../Components/ErrorComponent";
 // Function Component
 
 function Class() {
@@ -99,15 +101,15 @@ function Class() {
       })
     : [];
 
-  // const cards:
-  //   | string
-  //   | number
-  //   | boolean
-  //   | any[]
-  //   | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  //   | React.ReactFragment
-  //   | null
-  //   | undefined = [];
+  const cardsTest:
+    | string
+    | number
+    | boolean
+    | any[]
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactFragment
+    | null
+    | undefined = [];
 
   // console.log(cards);
 
@@ -254,36 +256,37 @@ function Class() {
   };
 
   return (
-    <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-screen relative grid    ">
-      <div>
-        <Navbar />
-        <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
-        <div className="pt-6 bg-bl-1 dark:bg-bd-1">
-          <MatchingGameButton
-            content={matchingGameActive ? "Regular Deck" : "Matching Game"}
-            onClick={handleMatchingGameClick}
-          />
+    <div className="relative grid  dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1   ">
+      <Navbar />
+      <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
+      {!isLoading && cards.length !== 0 && (
+        <MatchingGameButton
+          content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+          onClick={handleMatchingGameClick}
+        />
+      )}
+      {/* {isError && <ErrorComponent message={"something went wrong!"} />} */}
+
+      {isLoading ? (
+        <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
+          <Spinner />
+          <AlertBox message={"Please Wait - Cards Loading!"} />
         </div>
-        {isError && <AlertBox message={"something went wrong"} />}
-        {isLoading ? (
-          <div className="flex h-screen justify-center bg-bl-1 dark:bg-bd-1">
-            <Spinner />
-            {/* <AlertBox message={"Please Wait - Cards Loading!"} /> */}
-          </div>
-        ) : (
-          <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
-            {!matchingGameActive ? (
-              <div
-                className={`
-            justify-center
-            pt-10 pb-10
+      ) : (
+        <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
+          {!matchingGameActive ? (
+            <div
+              className={`
+            
+     grid justify-content items-center
+          p-10
             dark:bg-bd-1
-            bg-bl-1 gap-5  flex items-center
+            bg-bl-1 gap-5  
      
           ${
             cards.length != 0 &&
             ` flex-col  sm:grid
-            sm:items-center sm:justify-center
+          sm:items-center sm:justify-center
           sm:grid-cols-2
           md:grid  
           lg:grid-cols-3
@@ -291,25 +294,22 @@ function Class() {
           }
         
            `}
-              >
-                {cards.length === 0 ? (
-                  <AlertBox
-                    message={
-                      "We are having a problem getting the cards right now. We are sorry for the inconvenience. Please try again later."
-                    }
-                  />
-                ) : (
-                  cards
-                )}
-              </div>
-            ) : (
-              <div className="">
-                <MatchingGame deck={doubledDeck} />
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+            >
+              {cards.length === 0 ? (
+                <div className=" ">
+                  <ErrorComponent message={"Sorry We Couldn't Find The Cards!"} />
+                </div>
+              ) : (
+                cards
+              )}
+            </div>
+          ) : (
+            <div className="">
+              <MatchingGame deck={doubledDeck} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

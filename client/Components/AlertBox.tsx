@@ -15,7 +15,7 @@ export default function AlertBox(props: {
     <div>
       <div className=" flex justify-center items-center ">
         <div>
-          <div className=" m-10 flex justify-center text-1xl items-center  rounded w-96 mobile:w-fit p-2  bg-bd-1 text-bl-1 dark:bg-bl-1 dark:text-bd-1 ">
+          <div className=" flex justify-center text-1xl items-center  rounded w-96 mobile:w-fit p-2   text-bd-2 dark:text-bl-1 ">
             {props.message}
           </div>
         </div>

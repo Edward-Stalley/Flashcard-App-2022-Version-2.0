@@ -35,11 +35,13 @@ export default function MatchingGame(props: { deck: any }) {
         ...card,
       }));
 
+    // setTurns(0);
     setCards(shuffledCards);
-    setTurns(0);
   };
 
   const startGame = () => {
+    setTurns(0);
+
     setGameStarted(true);
     shuffleCards();
   };
@@ -165,8 +167,8 @@ export default function MatchingGame(props: { deck: any }) {
               }
             });
           });
+          // resetTurn();
           console.log("no match");
-          resetTurn();
         }
 
         resetTurn();

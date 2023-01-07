@@ -4,6 +4,17 @@
 
 /* Custom Variables for COLORS */
 
+* {
+  /* margin: 0; */
+  /* height: fit-content; */
+  /* width: 100%; */
+}
+body {
+  /* margin: 0;
+  height: 100%;
+  width: 100%; */
+}
+
 :root {
   /***** dark mode *****/
 

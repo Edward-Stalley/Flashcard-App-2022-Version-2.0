@@ -257,7 +257,7 @@ function Class() {
 
   return (
     <div>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid grid-cols-1 ">
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid">
         <Navbar />
         <div>
           <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
@@ -275,7 +275,7 @@ function Class() {
 
         {/* Could Not Load Cards */}
         {!isLoading && cards.length === 0 && (
-          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
+          <div className=" h-screen w-full justify-center bg-bl-1 dark:bg-bd-1">
             <ErrorComponent message={"Sorry We Couldn't Find The Cards."} />
           </div>
         )}

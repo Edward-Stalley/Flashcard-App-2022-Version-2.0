@@ -135,8 +135,8 @@ export default function MatchingCards(props: {
           data-matched={props.matched}
           className={`
           ${props.color ? " bg-mc-g  dark:bg-mc-gx " : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1"}
-          card  h-16 w-64     
-          rounded-xl shadow-md  flex justify-center items-center text-bd-1  `}
+          card  button-74 h-16 w-64     
+          rounded-xl  flex justify-center items-center text-bd-1  `}
         >
           <div
             onClick={handleClick}

@@ -18,7 +18,7 @@ export default function About() {
     >
       <div>
         <Navbar />
-        <Header pageHeader={isEnglish ? `How To Use ` : `アプリの使い方`} subHeader={isEnglish ? `This App ` : ``} />
+        <Header pageHeader={isEnglish ? `How To Use ` : `アプリの使い方`} subHeader={isEnglish ? ` ` : ``} />
         <div className="flex items-center  justify-center dark:bg-bd-1 ">
           <Button content={isEnglish ? `Change Language` : `言語変更`} onClick={changeLanguage} />
         </div>

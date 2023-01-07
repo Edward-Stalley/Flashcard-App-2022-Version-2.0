@@ -106,20 +106,7 @@ body {
   transform: scale(1.1);
 }
 
-.nav_button {
-  transition-duration: 400ms;
-}
-
-.nav_button:hover {
-  transform: scale(1.04);
-  /* transition: ease-in-out; */
-}
-
 /* Card Flipping Functionality */
-
-/* .shadow {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-} */
 
 .slow {
   /* transition-duration: 500ms; */
@@ -151,7 +138,6 @@ body {
 
 .flip {
   -webkit-transform: rotateY(180deg);
-
   transform: rotateY(180deg);
 }
 
@@ -290,3 +276,60 @@ body {
 }
 
 /* *************** */
+
+/* new button */
+.push-function {
+}
+/* CSS */
+.button-74 {
+  /* background-color: #fbeee0; */
+  /* border: 2px solid #422800; */
+  /* border-radius: 30px; */
+  /* box-shadow: #422800 4px 4px 0 0; */
+  /* color: #422800; */
+  cursor: pointer;
+  display: inline-block;
+  /* font-weight: 600; */
+  /* font-size: 18px; */
+  /* padding: 0 18px; */
+  /* line-height: 50px; */
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.button-74:hover {
+  /* background-color: #fff; */
+}
+
+.button-74:active {
+  /* box-shadow: #422800 2px 2px 0 0; */
+  box-shadow: 0 0px 0px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.nav_button {
+  transition-duration: 400ms;
+  box-shadow: 0 5px 5px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.nav_button:hover {
+  transform: scale(1.02);
+  /* transition: ease-in-out; */
+}
+
+.nav_button:active {
+  /* box-shadow: #422800 2px 2px 0 0; */
+  box-shadow: 0 0px 0px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translate(2px, 2px);
+}

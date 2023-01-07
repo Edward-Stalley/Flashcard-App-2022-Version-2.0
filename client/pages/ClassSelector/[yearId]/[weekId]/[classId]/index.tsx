@@ -287,12 +287,12 @@ function Class() {
 
       {!isLoading && cards.length !== 0 && (
         <div>
-          {/* <div className="justify-center items-center flex dark:bg-bd-1 bg-l-1 ">
+          <div className="justify-center items-center flex dark:bg-bd-1 bg-l-1 ">
             <MatchingGameButton
               content={matchingGameActive ? "Regular Deck" : "Matching Game"}
               onClick={handleMatchingGameClick}
             />
-          </div> */}
+          </div>
 
           <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
             {!matchingGameActive ? (

@@ -274,8 +274,8 @@ function Class() {
         )}
 
         {/* Could Not Load Cards */}
-        {!isLoading && isError && (
-          <div className=" justify-center bg-bl-1 dark:bg-bd-1">
+        {!isLoading && cards.length === 0 && (
+          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
             <ErrorComponent message={"Sorry We Couldn't Find The Cards."} />
           </div>
         )}

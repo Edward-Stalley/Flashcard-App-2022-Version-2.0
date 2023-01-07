@@ -16,7 +16,7 @@ export default function ErrorComponent(props: {
   return (
     <div className="flex-row justify-center items-center relative   ">
       <ErrorImage />
-      <div className=" text-2xl  ">
+      <div className=" mobile:text-sm text-2xl  ">
         <AlertBox message={props.message} />
       </div>
     </div>

@@ -74,7 +74,7 @@ function Class() {
         try {
           const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
 
-          setFlashcards(res.data || undefined);
+          setFlashcards(res.data || []);
         } catch (err) {
           setIsError(true);
         }
@@ -257,7 +257,7 @@ function Class() {
 
   return (
     <div>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1 grid-auto-rows  w-fit relative grid  ">
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid grid-cols-1 ">
         <Navbar />
         <div>
           <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />

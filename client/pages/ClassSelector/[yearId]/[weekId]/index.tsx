@@ -29,7 +29,7 @@ function ProductDetail() {
         <Navbar />
         <Header pageHeader="Select Class" subHeader={""} />
         <div className="flex items-center  justify-between dark:bg-bd-1 "></div>
-        <div className="bg-bl-1  gap-4  h-screen items-center p-5 flex-col flex dark:bg-bd-1  ">{classList}</div>
+        <div className=" flex  bg-bl-1 gap-4  h-screen items-center p-5 flex-col dark:bg-bd-1  ">{classList}</div>
       </div>
     </div>
   );

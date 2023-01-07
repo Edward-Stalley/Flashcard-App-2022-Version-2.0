@@ -6,7 +6,7 @@ export default function MatchingGameButton(props: {
   content: string;
 }) {
   return (
-    <div className=" w-full flex items-center justify-center   ">
+    <div className=" flex items-center justify-center bg-bl-1 dark:bg-bd-1   ">
       <button
         onClick={props.onClick}
         className=" flex justify-center nav_button rounded-full bg-but-d p-5  w-56 h-16  "

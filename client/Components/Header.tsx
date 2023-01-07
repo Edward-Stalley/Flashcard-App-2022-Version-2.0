@@ -33,13 +33,13 @@ export default function Header(props: {
   }
 
   return (
-    <div className="relative">
+    <div className="relative dark:bg-bd-1 bg-bl-1 b-1">
       <div className="absolute top-1 left-1 z-10  p-2 rounded-full dark:bg-bd-1 dark:text-bl-1 font-bold">
         <BackButton />
       </div>
       <div className=" font-roboto bg-bl-1  text-slate-800 dark:bg-bd-1 dark:text-bl-1 font-bold text-5xl justify-center  mobile:flex-col py-20  flex relative items-center mobile:text-4xl   ">
-        <div>{props.pageHeader}</div>
-        <div className="">{props.subHeader && <div> {props.subHeader}</div>}</div>
+        <div className="dark:bg-bd-1 bg-bl-1">{props.pageHeader}</div>
+        {props.subHeader && <div className="dark:bg-bd-1 bg-bl-1 mb-1 ">{props.subHeader}</div>}
       </div>
     </div>
   );

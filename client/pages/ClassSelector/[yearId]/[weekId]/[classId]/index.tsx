@@ -260,44 +260,44 @@ function Class() {
   };
 
   return (
-    <div>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid">
-        <Navbar />
-        <div>
-          <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId} `} />
-          {/* <Header pageHeader={`${classId}`} subHeader={``} /> */}
+    <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid">
+      <Navbar />
+      <div>
+        {/* <Header pageHeader={`${classId}:Week ${weekId}`} subHeader={``} /> */}
+        <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId}`} />
+      </div>
+
+      {/* Loading Screen */}
+
+      {isLoading && (
+        <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1  ">
+          <Spinner />
+          <AlertBox message={"Please Wait - Cards Loading!"} />
         </div>
+      )}
 
-        {/* Loading Screen */}
+      {/* Could Not Load Cards */}
+      {!isLoading && cards.length === 0 && (
+        <div className=" h-screen w-full justify-center bg-bl-1 dark:bg-bd-1">
+          <ErrorComponent message={"Sorry We Couldn't Find The Cards."} />
+        </div>
+      )}
 
-        {isLoading && (
-          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1  ">
-            <Spinner />
-            <AlertBox message={"Please Wait - Cards Loading!"} />
-          </div>
-        )}
+      {/* Cards Loaded - Choose Between Matching & Regular Decks*/}
 
-        {/* Could Not Load Cards */}
-        {!isLoading && cards.length === 0 && (
-          <div className=" h-screen w-full justify-center bg-bl-1 dark:bg-bd-1">
-            <ErrorComponent message={"Sorry We Couldn't Find The Cards."} />
-          </div>
-        )}
+      {!isLoading && cards.length !== 0 && (
+        <div>
+          {/* <div className="justify-center items-center flex dark:bg-bd-1 bg-l-1 ">
+            <MatchingGameButton
+              content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+              onClick={handleMatchingGameClick}
+            />
+          </div> */}
 
-        {/* Cards Loaded - Choose Between Matching & Regular Decks*/}
-
-        {!isLoading && cards.length !== 0 && (
-          <div>
-            <div className="dark:bg-bd-1 ">
-              <MatchingGameButton
-                content={matchingGameActive ? "Regular Deck" : "Matching Game"}
-                onClick={handleMatchingGameClick}
-              />
-            </div>
-            <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
-              {!matchingGameActive ? (
-                <div
-                  className={`
+          <div className="h-screen dark:bg-bd-1 bg-bl-1 ">
+            {!matchingGameActive ? (
+              <div
+                className={`
               grid justify-content items-center
               p-10 pt-10
                 dark:bg-bd-1
@@ -313,18 +313,17 @@ function Class() {
           }
         
            `}
-                >
-                  {cards}
-                </div>
-              ) : (
-                <div className="">
-                  <MatchingGame deck={doubledDeck} />
-                </div>
-              )}
-            </div>
+              >
+                {cards}
+              </div>
+            ) : (
+              <div className="">
+                <MatchingGame deck={doubledDeck} />
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

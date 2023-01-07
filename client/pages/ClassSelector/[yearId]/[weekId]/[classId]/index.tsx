@@ -63,6 +63,8 @@ function Class() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+  const testArray = [{ week: 37, year: 2023, english: "test", japanese: "test", id: 0 }];
+
   useEffect(() => {
     if (!router.isReady) return;
 
@@ -73,6 +75,8 @@ function Class() {
 
         try {
           const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
+
+          // const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
 
           setFlashcards(res.data || []);
         } catch (err) {
@@ -85,6 +89,7 @@ function Class() {
     }
   }, [router.isReady, className, weekId, yearId, classId, setFlashcards]);
 
+  // console.log(flashcards)
   const cards = Array.isArray(flashcards)
     ? flashcards.map((card: any) => {
         const { id, english, japanese, example_sentence, week, year } = card;
@@ -93,6 +98,7 @@ function Class() {
             <Flashcards
               english={english}
               japanese={japanese}
+              // think i need to edit this path to "/"
               classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
               showDeleteButton={false}
             />
@@ -110,8 +116,6 @@ function Class() {
     | React.ReactFragment
     | null
     | undefined = [];
-
-  // console.log(cards);
 
   // useEffect(() => {
   //   if (!router.isReady || flashcards?.length === 0) return;
@@ -267,7 +271,7 @@ function Class() {
         {/* Loading Screen */}
 
         {isLoading && (
-          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1">
+          <div className=" h-screen justify-center bg-bl-1 dark:bg-bd-1  ">
             <Spinner />
             <AlertBox message={"Please Wait - Cards Loading!"} />
           </div>

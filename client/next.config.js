@@ -7,11 +7,12 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
-// async rewrites() {
+
+// export async function rewrites() {
 //   return [
 //     {
-//       source: "/api/:path*",
-//       destination: "http://sql6.freemysqlhosting.net",
+//       source: "sql6.freemysqlhosting.net",
+//       destination: "http://localhost:8800/:path*",
 //     },
 //   ];
-// },
+// }

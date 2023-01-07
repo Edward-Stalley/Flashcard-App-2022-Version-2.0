@@ -4,11 +4,20 @@ import mysql from "mysql";
 
 // Hosted Online
 
+// const db = mysql.createPool({
+//   host: "sql6.freemysqlhosting.net",
+//   user: "sql6587358",
+//   password: "beh4prkep6",
+//   database: "sql6587358",
+// });
+
+// db4 hosting
+
 const db = mysql.createPool({
-  host: "sql6.freemysqlhosting.net",
-  user: "sql6587358",
-  password: "beh4prkep6",
-  database: "sql6587358",
+  host: "db4free.net",
+  user: "thelazyboon",
+  password: "spirited",
+  database: "flashcards",
 });
 
 // db.connect(function (err) {

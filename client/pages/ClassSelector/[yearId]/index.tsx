@@ -23,14 +23,10 @@ function ProductDetail() {
 
   return (
     <>
-      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  grid   ">
-        <div>
-          <Navbar />
-        </div>
-        <div>
-          <Header pageHeader="Select Week" subHeader={""} />
-        </div>
-        <div className="bg-bl-1  gap-4  h-screen items-center p-5 flex-col flex dark:bg-bd-1   ">{weekList}</div>
+      <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1 grid  ">
+        <Navbar />
+        <Header pageHeader="Select Week" subHeader={""} />
+        <div className=" h-screen p-5 gap-4 flex justify-center col-span-full bg-bd-1 ">{weekList}</div>
       </div>
     </>
   );
@@ -38,6 +34,7 @@ function ProductDetail() {
 
 export default ProductDetail;
 
+// bg-bl-1  gap-4  h-screen items-center p-5 flex-col flex dark:bg-bd-1
 {
   /* <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid    ">
   <div>

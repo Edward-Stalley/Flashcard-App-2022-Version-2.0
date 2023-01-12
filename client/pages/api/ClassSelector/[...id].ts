@@ -4,33 +4,28 @@ import mysql from "mysql";
 
 // Hosted Online
 
-// const db = mysql.createPool({
-//   host: "sql6.freemysqlhosting.net",
-//   user: "sql6587358",
-//   password: "beh4prkep6",
-//   database: "sql6587358",
-// });
+export async function getServerSideProps() {
+  const host = process.env.DB_HOST;
+  const user = process.env.DB_USER;
+  const password = process.env.DB_PASSWORD;
+  const database = process.env.DB_DATABASE;
 
-// db4 hosting
+  return {
+    props: { host, user, password, database },
+  };
+}
 
 const db = mysql.createPool({
-  host: "db4free.net",
-  user: "thelazyboon",
-  password: "spirited",
-  database: "flashcards",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
-
-// db.connect(function (err) {
-//   if (err) throw err;
-// });
-
-// Mylocal
-
-// const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "password",
-//   database: "flashcards_2.0",
+// const db = mysql.createPool({
+//   host: "db4free.net",
+//   user: "thelazyboon",
+//   password: "spirited",
+//   database: "flashcards",
 // });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {

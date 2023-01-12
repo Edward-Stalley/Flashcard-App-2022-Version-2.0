@@ -4,6 +4,8 @@ import ManOnBooks from "../Components/ManOnBooks";
 import Link from "next/link";
 import Navbar from "../Components/Navbar";
 import Button from "../Components/Button";
+import mysql from "mysql";
+
 export default function landingPage() {
   return (
     <>
@@ -41,3 +43,12 @@ export default function landingPage() {
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   const db = mysql.createPool({
+//     host: process.env.DB_HOST,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE,
+//   });
+// }

@@ -5,16 +5,22 @@ import Link from "next/link";
 import Navbar from "../Components/Navbar";
 import Button from "../Components/Button";
 import mysql from "mysql";
-
+import Head from "next/head";
 export default function landingPage() {
   return (
     <>
+      <Head>
+        <title>Flashcard App For English Buffet Students in Kyoto, Japan</title>
+        <meta
+          name="description"
+          content="Review your class vocabulary using this online App for English Buffet students."
+          key="desc"
+        />
+      </Head>
       <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  h-screen relative  flex-col    ">
         <div>
           <Navbar />
         </div>
-        {/* <div className="   dark:bg-bd-1  bg-bl-1 flex justify-end bg-blue-200  "> */}
-        {/* </div> */}
         <div className=" mt-5 grid mobile:grid-cols-1 sm:grid-cols-1  xl:grid-cols-2 md:grid-cols-2 p-16 px-32 items-center justify-center dark:bg-bd-1 bg-bl-1 w-fit mobile:p-10 mobile:pt-16  ">
           <div className="flex flex-col gap-8 mobile:gap-8 ">
             <h1 className="flex font-roboto w-fit   mobile:text-4xl  sm:text-5xl md:text-6xl xl:text-7xl font-bold  ">
@@ -32,7 +38,6 @@ export default function landingPage() {
               </Link>
             </div>
           </div>
-          {/* <div className="flex justify-end items-center"> */}
           <div>
             <div className="">
               <ManOnBooks />
@@ -43,12 +48,3 @@ export default function landingPage() {
     </>
   );
 }
-
-// export async function getStaticProps() {
-//   const db = mysql.createPool({
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_DATABASE,
-//   });
-// }

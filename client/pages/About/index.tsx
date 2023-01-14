@@ -39,7 +39,7 @@ export default function About() {
           <div className="mb-20 flex justify-center">
             <h1 className="text-5xl  font-bold dark:text-bl-1 text-bd-1">
               {" "}
-              {isEnglish ? "This App has Two Modes" : "このアプリは二つのモドがある"}
+              {isEnglish ? "This App has Two Modes" : "このアプリは二つのモードがある"}
             </h1>
           </div>
 

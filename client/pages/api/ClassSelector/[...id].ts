@@ -4,29 +4,29 @@ import mysql from "mysql";
 
 // Hosted Online
 
-export async function getServerSideProps() {
-  const host = process.env.DB_HOST;
-  const user = process.env.DB_USER;
-  const password = process.env.DB_PASSWORD;
-  const database = process.env.DB_DATABASE;
+// export async function getServerSideProps() {
+//   const host = process.env.DB_HOST;
+//   const user = process.env.DB_USER;
+//   const password = process.env.DB_PASSWORD;
+//   const database = process.env.DB_DATABASE;
 
-  return {
-    props: { host, user, password, database },
-  };
-}
+//   return {
+//     props: { host, user, password, database },
+//   };
+// }
 
-const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
 // const db = mysql.createPool({
-//   host: "db4free.net",
-//   user: "thelazyboon",
-//   password: "spirited",
-//   database: "flashcards",
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   database: process.env.DB_DATABASE,
 // });
+const db = mysql.createPool({
+  host: "db4free.net",
+  user: "thelazyboon",
+  password: "spirited",
+  database: "flashcards",
+});
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const id: string | string[] = req.query.id ? req.query.id : "";

@@ -1,6 +1,10 @@
+// Imports
+
 import axios from "axios";
 import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { match } from "assert";
+import e from "express";
 
 // Components
 import Header from "../../../../../Components/Header";
@@ -12,9 +16,7 @@ import MatchingCards from "../../../../../Components/MatchingCards";
 import MatchingGameComponent from "../../../../../Components/MatchingGameComponent";
 import MatchingGameButton from "../../../../../Components/MatchingGameButton";
 import MatchingGame from "../../../../MatchingGame";
-import { match } from "assert";
 import Navbar from "../../../../../Components/Navbar";
-import e from "express";
 import AlertBox from "../../../../../Components/AlertBox";
 import Spinner from "../../../../../Components/Spinner";
 import ErrorImage from "../../../../../Components/ErrorImage";
@@ -24,7 +26,6 @@ import ErrorComponent from "../../../../../Components/ErrorComponent";
 function Class() {
   // router parameters
   const router = useRouter();
-  // const ready = router.isReady
   const { params = [] } = router.query;
   const yearId = router.query.yearId;
   const weekId = router.query.weekId;
@@ -32,12 +33,9 @@ function Class() {
   const classId = router.query.classId;
   // States
   const [className, setClassname] = useState("");
-  // const [cards, setCards] = useState<React.ReactElement[]>();
   const [cardsForMatchingGame, setCardsForMatchingGame] = useState<React.ReactElement[]>();
   const [flashcards, setFlashcards] = useState<React.ReactElement[]>() || undefined;
   const [fetched, setFetched] = useState(false);
-
-  //   Fix the formatting to match the database formatting
 
   useEffect(() => {
     if (classId) {
@@ -45,7 +43,6 @@ function Class() {
       console.log(dbName);
 
       if (typeof dbName === "string") {
-        // const
         const nameArr = dbName.split(" ");
         const wordOne = nameArr[0];
         const wordTwo = nameArr[1];
@@ -53,7 +50,6 @@ function Class() {
           wordTwo[0].toLowerCase() + wordTwo.slice(1)
         }`;
         setClassname(finalName);
-        // console.log(className);
       }
     }
   }, [router.isReady, classId]);
@@ -62,8 +58,6 @@ function Class() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
-  const testArray = [{ week: 37, year: 2023, english: "test", japanese: "test", id: 0 }];
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -75,8 +69,6 @@ function Class() {
 
         try {
           const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
-
-          // const res = await axios.get(`/api/ClassSelector/${yearId}/${weekId}/${className}`);
 
           setFlashcards(res.data || []);
         } catch (err) {
@@ -116,28 +108,6 @@ function Class() {
     | React.ReactFragment
     | null
     | undefined = [];
-
-  // useEffect(() => {
-  //   if (!router.isReady || flashcards?.length === 0) return;
-
-  //   if (router.isReady && flashcards instanceof Array) {
-  //     const deck = flashcards.map((card) => {
-  //       const { id, english, japanese, example_sentence, week, year } = card;
-  //       return (
-  //         <div key={id + week + year + english} className="flex items-center justify-center">
-  //           <Flashcards
-  //             english={english}
-  //             japanese={japanese}
-  //             classPath={`https://eb-flashcards.vercel.app/ClassSelector/${yearId}/${weekId}/${className}`}
-  //             showDeleteButton={false}
-  //           />
-  //         </div>
-  //       );
-  //     });
-
-  //     setCards(deck);
-  //   } else return;
-  // }, [router.isReady, flashcards, className, yearId, weekId]);
 
   // -----------------Matching Card Game Functionality --------------------
   // --------------------------------------------------------------------------
@@ -242,14 +212,9 @@ function Class() {
     setTurns(0);
     setChoiceOne(NaN);
     setChoiceTwo(NaN);
-    // setCardOne()
-    // setCardTwo()
   };
 
-  // create JSX elements------
-
   // prepare deck for game start -----
-
   const handleMatchingGameClick = () => {
     // take flahscards and double split them into two - doubling size
     doubleTheDeck(cardsForMatchingGame);
@@ -263,7 +228,6 @@ function Class() {
     <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid">
       <Navbar />
       <div>
-        {/* <Header pageHeader={`${classId}:Week ${weekId}`} subHeader={``} /> */}
         <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId}`} />
       </div>
 

@@ -17,8 +17,6 @@ function ProductDetail() {
     return <WeekComponent key={"week" + { yearId } + (i + 1)} year={yearId} week={i + 37} />;
   });
 
-  // console.log(weekList);
-  // console.log(params);
   console.log(yearId);
 
   return (
@@ -35,42 +33,3 @@ function ProductDetail() {
 }
 
 export default ProductDetail;
-
-// bg-bl-1  gap-4  h-screen items-center p-5 flex-col flex dark:bg-bd-1
-{
-  /* <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid    ">
-  <div>
-    <Navbar />
-    <Header pageHeader="Select Week" subHeader={""} />
- 
-  </div>
-</div>; */
-}
-
-{
-  /* <div className="h-screen bg-bl-1  ">
-<div>
-  <Navbar />
-</div>
-<div>
-  <div className="flex items-center  justify-between dark:bg-bd-1 "></div>
-  <div
-    className="
-    h-screen
-    bg-bl-1 
-  dark:bg-bd-1
-  p-20
-gap-5 flex flex-col items-center justify-center 
-sm:items-center sm:justify-center
-sm:grid
-sm:grid-cols-2
-md:grid 
-md:grid-cols-3 
-lg:grid-cols-4
- "
-  >
-    {weekList}
-  </div>
-</div>
-</div> */
-}

@@ -9,12 +9,8 @@ import Navbar from "../../../../Components/Navbar";
 function ProductDetail() {
   const router = useRouter();
   const { params = [] } = router.query;
-  // const productId = router.query.productId;
   const yearId = router.query.yearId;
   const weekId = router.query.weekId;
-
-  // const reviewId = router.query.reviewId;
-  // console.log(yearId, weekId);
 
   const classArray = ["Listening Kiso", "Listening Shokyu"];
   const classList = classArray.map((week, i) => {

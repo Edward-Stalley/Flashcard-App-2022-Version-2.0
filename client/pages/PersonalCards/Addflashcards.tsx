@@ -1,3 +1,10 @@
+// THIS IS SECTION IS A WORK IN PROGRESS
+// I Plan to implement the following
+
+// #1 personal account
+// #2 ability to save cards from class decks
+// #3 ability to delete cards from your personal deck
+
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";

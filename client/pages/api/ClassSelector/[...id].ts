@@ -4,6 +4,9 @@ import mysql from "mysql";
 
 // Hosted Online
 
+// TO DO
+// I Need to understand how to access these vaues in this api page.
+
 // const db = mysql.createPool({
 //   host: process.env.DB_HOST,
 //   user: process.env.DB_USER,
@@ -25,7 +28,6 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const weekId = id[1];
   const classId = id[2];
 
-  // const parsedJson = JSON.parse(req.query);
   const q = `SELECT * FROM ${classId} WHERE year = ${yearId} AND week = ${weekId}`;
   db.query(q, (err, data) => {
     if (err) return res.json(err);

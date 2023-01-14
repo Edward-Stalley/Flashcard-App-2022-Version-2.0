@@ -68,28 +68,6 @@ export default function MatchingGame(props: { deck: any }) {
       console.log("1st card selected");
     }
   };
-  // if (!choiceOne && wordTwo === wordOne) {
-  //   // setChoiceOne(card.matchId);
-  //   setTurns((prevTurn) => prevTurn);
-  //   // setWordOne(card.word);
-
-  //   console.log("same card selected so ignore turn");
-  // }
-
-  // const countdown = (time: SetStateAction<number>) => {
-  //   // setTime(time);
-  //   // if (time >= 0) {
-  //   //   setTime((time) => time - 1);
-  //   // }
-
-  //   setTimeout(() => {
-  //     setStartTimer(false);
-  //   }, 3000);
-  // };
-
-  // useEffect(() => {
-  //   setStartTimer(true);
-  // }, [time]);
 
   const resetGame = function () {
     setGameFinished(false);
@@ -101,7 +79,6 @@ export default function MatchingGame(props: { deck: any }) {
   };
 
   useEffect(() => {
-    // this is where I need to figure out logic to highlight 1st selected
     if (choiceOne) {
       setCards((prevCards) => {
         return prevCards.map((c: { word: string }) => {
@@ -170,7 +147,6 @@ export default function MatchingGame(props: { deck: any }) {
               }
             });
           });
-          // resetTurn();
           console.log("no match");
         }
 
@@ -178,14 +154,9 @@ export default function MatchingGame(props: { deck: any }) {
       }
     }
     if (gameStarted && cards.every((c) => c.color === true)) {
-      // alert("well done!");
       console.log("nice");
       setGameFinished(true);
       setWellDone(true);
-
-      // setTimeout(() => {
-      //   resetGame();
-      // }, 3000);
     }
   }, [choiceOne, choiceTwo, wordOne, wordTwo, time]);
 
@@ -209,13 +180,8 @@ export default function MatchingGame(props: { deck: any }) {
       card={card}
       matched={false}
       handleChoice={handleChoice}
-      color={
-        card.color === true
-        // (card.matchId === choiceOne && card.word === wordOne && wordOne !== wordTwo) ||
-        // (card.matchId === choiceTwo && card.word === wordTwo && wordOne !== wordTwo) ||
-        // card.matched
-      }
-      id={undefined} // id={undefined}
+      color={card.color === true}
+      id={undefined}
     />
   ));
 
@@ -259,35 +225,4 @@ pt-10 pb-10
       {/* Play Again*/}
     </div>
   );
-}
-
-{
-  /* <div
-className={`
-${
-!gameFinished
-? `
-justify-center
-pt-10 pb-10
-dark:bg-bd-1
-bg-bl-1 gap-5  flex flex-col items-center
-sm:items-center sm:justify-center
-sm:grid
-sm:grid-cols-2
-md:grid  
-lg:grid-cols-3
-xl:grid-cols-4`
-: `flex justify-center items-center text-3xl p-5 `
-}
-`}
->
-{gameFinished && wellDone ? (
-  <div className="flex-cols justify-center items-center">
-    <WellDone />
-    <AlertBox message={`Well Done!!`} />
-  </div>
-) : (
-  finalMatchingCards
-)}
-</div> */
 }

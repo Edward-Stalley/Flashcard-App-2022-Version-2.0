@@ -8,6 +8,7 @@ import ToggleButton from "../../Components/ToggleButton";
 import MatchingGameButton from "../../Components/MatchingGameButton";
 import AlertBox from "../../Components/AlertBox";
 import WellDone from "../../Components/WellDone";
+require("dotenv").config();
 
 export default function MatchingGame(props: { deck: any }) {
   const [deck, setDeck] = useState(props.deck);

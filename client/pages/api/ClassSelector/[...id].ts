@@ -7,19 +7,19 @@ import mysql from "mysql";
 // TO DO
 // I Need to understand how to access these vaues in this api page.
 
-// const db = mysql.createPool({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_DATABASE,
-// });
-
 const db = mysql.createPool({
-  host: "db4free.net",
-  user: "thelazyboon",
-  password: "spirited",
-  database: "flashcards",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
+
+// const db = mysql.createPool({
+//   host: "db4free.net",
+//   user: "thelazyboon",
+//   password: "spirited",
+//   database: "flashcards",
+// });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const id: string | string[] = req.query.id ? req.query.id : "";

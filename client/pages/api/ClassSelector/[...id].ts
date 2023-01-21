@@ -2,23 +2,22 @@ import { NextApiRequest, NextApiResponse } from "next";
 // import { useRouter } from "next/router";
 import mysql from "mysql";
 
-// Hosted Online
-
-// TO DO
-// I Need to understand how to access these vaues in this api page.
+// This does not work when deployed however it works locally...
 
 const db = mysql.createPool({
-  host: process.env.NEXT_PUBLIC_DB_HOST,
-  user: process.env.NEXT_PUBLIC_DB_USER,
-  password: process.env.NEXT_PUBLIC_DB_PASSWORD,
-  database: process.env.NEXT_PUBLIC_DB_DATABASE,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
+// Hardcoded Information - THIS WORKS - I have removed the data as I have asked the question on reddit
+
 // const db = mysql.createPool({
-//   host: "db4free.net",
-//   user: "thelazyboon",
-//   password: "spirited",
-//   database: "flashcards",
+//   host: "****",
+//   user: "****",
+//   password: "****",
+//   database: "****",
 // });
 
 export default function getClass(req: NextApiRequest, res: NextApiResponse) {

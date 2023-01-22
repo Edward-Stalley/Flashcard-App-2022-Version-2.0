@@ -20,11 +20,18 @@ const db = mysql.createPool({
 //   database: "****",
 // });
 
-export default function getClass(req: NextApiRequest, res: NextApiResponse) {
+export default function getClass(req: NextApiRequest, res: NextApiResponse, props: any) {
   const id: string | string[] = req.query.id ? req.query.id : "";
   const yearId = id[0];
   const weekId = id[1];
   const classId = id[2];
+
+  // const db = mysql.createPool({
+  //   host: props.host,
+  //   user: props.user,
+  //   password: props.password,
+  //   database: props.database,
+  // });
 
   console.log(process.env.NEXT_PUBLIC_DB_PASSWORD);
 
@@ -34,22 +41,14 @@ export default function getClass(req: NextApiRequest, res: NextApiResponse) {
     res.json(data);
   });
 }
-
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       HOST: process.env.DB_HOST,
-//       PASSWORD: process.env.PASSWORD,
-//       DATABASE: process.env.DB_DATABASE,
-//       USER: process.env.DB_USER,
-//     },
-//   };
-// }
-
-// const host = process.env.DB_HOST;
-// const user = process.env.DB_HOST;
-// const password = process.env.DB_PASSWORD;
-// const database = process.env.DB_DATABASE;
-
-// console.log(`this is the user ${user} and password:${password}`);
-// }
+export async function getStaticProps() {
+  // Connect to Database using DB properties
+  return {
+    props: {
+      host: process.env.DB_HOST,
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+    },
+  };
+}

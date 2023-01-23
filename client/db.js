@@ -1,6 +1,7 @@
 // import mysql from "mysql";
 // need to install this dependency
 import mysql from "serverless-mysql";
+// const mysql = require("serverless-mysql")();
 
 const db = mysql({
   config: {

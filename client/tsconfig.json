@@ -23,7 +23,8 @@
     "Components/Flashcards.tsx",
     "pages/PersonalCards/Addflashcards.tsx",
     "pages/Route/[YearId]",
-    "Components/Lightbulb.tsx"
+    "Components/Lightbulb.tsx",
+    "db.js"
   ],
   "exclude": ["node_modules"]
   // "paths": {

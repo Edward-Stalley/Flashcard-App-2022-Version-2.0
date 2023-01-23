@@ -5,13 +5,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  env: {
-    // need to fill this in correctly...
-    DB_HOST: "db4free.net",
-    DB_USER: "thelazyboon",
-    DB_PASSWORD: "spirited",
-    DB_DATABASE: "flashcards",
-  },
+  // env: {
+  //   DB_HOST: "db4free.net",
+  //   DB_USER: "thelazyboon",
+  //   DB_PASSWORD: "spirited",
+  //   DB_DATABASE: "flashcards",
+  // },
 };
 
 module.exports = nextConfig;

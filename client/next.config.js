@@ -4,13 +4,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-
-  // env: {
-  //   DB_HOST: "db4free.net",
-  //   DB_USER: "thelazyboon",
-  //   DB_PASSWORD: "spirited",
-  //   DB_DATABASE: "flashcards",
-  // },
 };
 
 module.exports = nextConfig;

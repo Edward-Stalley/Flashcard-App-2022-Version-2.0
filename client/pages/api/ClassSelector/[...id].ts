@@ -4,12 +4,17 @@ import mysql from "mysql";
 
 // This does not work when deployed however it works locally...
 
-const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-});
+let db: mysql.Pool;
+
+export function getDB(props: any) {
+  db = mysql.createPool({
+    host: props.host,
+    user: props.user,
+    password: props.password,
+    database: props.database,
+  });
+  return db;
+}
 
 // Hardcoded Information - THIS WORKS - I have removed the data as I have asked the question on reddit
 
@@ -20,18 +25,11 @@ const db = mysql.createPool({
 //   database: "****",
 // });
 
-export default function getClass(req: NextApiRequest, res: NextApiResponse, props: any) {
+export default function getClass(req: NextApiRequest, res: NextApiResponse) {
   const id: string | string[] = req.query.id ? req.query.id : "";
   const yearId = id[0];
   const weekId = id[1];
   const classId = id[2];
-
-  // const db = mysql.createPool({
-  //   host: props.host,
-  //   user: props.user,
-  //   password: props.password,
-  //   database: props.database,
-  // });
 
   console.log(process.env.NEXT_PUBLIC_DB_PASSWORD);
 

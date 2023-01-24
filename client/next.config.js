@@ -1,14 +1,20 @@
 /** @type {import('next').NextConfig} */
+require("dotenv").config();
 
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
   env: {
-    DB_HOST: "db4free.net",
-    DB_USER: "thelazyboon",
-    DB_PASSWORD: "spirited",
-    DB_DATABASE: "flashcards",
+    DB_HOST: process.env.DB_HOST,
+    DB_PASSWORD: process.env.DB_PASSWORD,
+    DB_USER: process.env.DB_USER,
+    DB_DATABASE: process.env.DB_DATABASE,
+
+    // DB_HOST: "db4free.net",
+    // DB_USER: "thelazyboon",
+    // DB_PASSWORD: "spirited",
+    // DB_DATABASE: "flashcards",
   },
 
   // env: {

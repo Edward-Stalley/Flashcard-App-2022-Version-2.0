@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Year(props: any) {
+  // Correctly Format the Year
   const firstYearHalf = props.year.slice(0, -4);
   const secondYearHalf = parseFloat(props.year.slice(0, -4)) + 1;
 

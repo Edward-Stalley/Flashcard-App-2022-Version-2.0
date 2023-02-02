@@ -12,7 +12,7 @@ export default function Navbar() {
       <Link className="navlink font-roboto dark:hover:text-hov-d  hover:text-hov-l text-md " href="/About">
         About
       </Link>
-      <Link className="navlink font-roboto dark:hover:text-hov-d  hover:text-hov-l text-md " href="/ClassSelector/2023">
+      <Link className="navlink font-roboto dark:hover:text-hov-d  hover:text-hov-l text-md " href="/ClassSelector">
         Flashcards
       </Link>
       <Link

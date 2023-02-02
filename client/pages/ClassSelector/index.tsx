@@ -8,7 +8,7 @@ export default function Product() {
   const yearArray = ["2022", "2023"];
 
   const yearList = yearArray.map((week, i) => {
-    return <YearComponent key={"year" + yearArray[i]} year={yearArray[i]} />;
+    return <YearComponent key={"year" + yearArray[i]} year={yearArray[i] + (parseFloat(yearArray[i]) + 1)} />;
   });
 
   return (

@@ -28,7 +28,7 @@ export default function landingPage() {
             </h1>
             <h4 className="xl:text-3xl">A Quick & Easy Way to Review + Pre-learn Words From Your Classes!</h4>
             <div className="flex gap-4 sm:flex-col mobile:flex-col">
-              <Link href={"/ClassSelector/2023"}>
+              <Link href={"/ClassSelector"}>
                 <button className=" focus:border-none nav_button bg-but-d hover:bg-but-d hover:text-bd-1  w-56 h-16 rounded-full  text-bd-1">
                   Get Started
                 </button>

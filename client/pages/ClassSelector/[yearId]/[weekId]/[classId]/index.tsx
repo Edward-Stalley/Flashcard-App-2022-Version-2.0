@@ -255,7 +255,7 @@ function Class() {
         <div>
           <div className="justify-center items-center flex dark:bg-bd-1 bg-l-1 ">
             <MatchingGameButton
-              content={matchingGameActive ? "Regular Deck" : "Matching Game"}
+              content={matchingGameActive ? "Go To Regular Deck" : "Go To Matching Game"}
               onClick={handleMatchingGameClick}
             />
           </div>

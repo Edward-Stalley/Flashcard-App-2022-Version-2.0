@@ -227,6 +227,7 @@ function Class() {
   return (
     <div className="dark:bg-gray-800 bg-bl-1 text-bd-1 dark:text-bl-1  relative grid">
       <Navbar />
+
       <div>
         <Header pageHeader={`${classId}:`} subHeader={`Week ${weekId}`} />
       </div>
@@ -240,6 +241,16 @@ function Class() {
         </div>
       )}
 
+      {/* Current Selected Mode */}
+
+      {!isLoading && cards.length !== 0 && (
+        <div className=" font-roboto bg-bl-1 dark:bg-bd-1 dark:text-bd-1 font-bold text-5xl justify-center  mobile:flex-col  flex relative items-center mobile:text-4xl   ">
+          <div className="  mb-10 p-3 rounded-xl dark:bg-bl-1 dark:text-bd-1  bg-bd-1 text-bl-1 flex justify-center items-center">
+            {matchingGameActive ? "Matching Game" : "Regular Deck"}
+          </div>
+        </div>
+      )}
+
       {/* Could Not Load Cards */}
       {!isLoading && cards.length === 0 && (
         <div className="flex justify-center ">
@@ -250,12 +261,11 @@ function Class() {
       )}
 
       {/* Cards Loaded - Choose Between Matching & Regular Decks*/}
-
       {!isLoading && cards.length !== 0 && (
         <div>
           <div className="justify-center items-center flex dark:bg-bd-1 bg-l-1 ">
             <MatchingGameButton
-              content={matchingGameActive ? "Go To Regular Deck" : "Go To Matching Game"}
+              content={matchingGameActive ? "Change Modes" : "Change Modes"}
               onClick={handleMatchingGameClick}
             />
           </div>
@@ -265,7 +275,7 @@ function Class() {
               <div
                 className={`
               grid justify-content items-center
-              p-10 pt-10
+               pt-10
                 dark:bg-bd-1
                 bg-bl-1 gap-5      
           ${
@@ -275,7 +285,9 @@ function Class() {
           sm:grid-cols-2
           md:grid  
           lg:grid-cols-3
-          xl:grid-cols-4`
+          xl:grid-cols-4
+          pb-10
+          `
           }
         
            `}

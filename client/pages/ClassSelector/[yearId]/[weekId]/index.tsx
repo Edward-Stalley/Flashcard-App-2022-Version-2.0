@@ -5,17 +5,43 @@ import ToggleButton from "../../../../Components/ToggleButton";
 import Header from "../../../../Components/Header";
 import ClassComponent from "../../../../Components/ClassComponent";
 import Navbar from "../../../../Components/Navbar";
+import { useState } from "react";
+
+// Stop auto formatting this file to make class commenting easier
+// prettier-ignore
 
 function ProductDetail() {
   const router = useRouter();
   const { params = [] } = router.query;
+
   const yearId = router.query.yearId;
   const weekId = router.query.weekId;
 
-  const classArray = ["Listening Kiso", "Listening Shokyu"];
+  const classArray = ["Listening Kiso", "Listening Shokyu", "Business 上級"];
+  const currentWeek = "41";
   const classList = classArray.map((week, i) => {
     return (
-      <ClassComponent key={"class" + yearId + weekId + (i + 1)} year={yearId} week={weekId} class={classArray[i]} />
+      <ClassComponent
+        // Set Class To Ready
+        // commented out  means class is not ready (red)
+
+        ready={
+          (weekId === currentWeek && classArray[i] === "Listening Kiso")
+          
+          // || (weekId === currentWeek && classArray[i] === "Listening Shokyu")
+           
+          // || (weekId === currentWeek && classArray[i] === "Business 上級")
+
+          
+            ? true
+            : false
+        }
+        //
+        key={"class" + yearId + weekId + (i + 1)}
+        year={yearId}
+        week={weekId}
+        class={classArray[i]}
+      />
     );
   });
 

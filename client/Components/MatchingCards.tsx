@@ -168,6 +168,8 @@ export default function MatchingCards(props: {
 
 // #5 when card is selected change color and hold to see if next card is a match
 
+
+
 // #6 if a match, stay green else flash red and reset
 
 // FOR MOBILE

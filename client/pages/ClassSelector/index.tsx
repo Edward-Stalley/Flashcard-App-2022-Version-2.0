@@ -6,7 +6,10 @@ import Header from "../../Components/Header";
 import Navbar from "../../Components/Navbar";
 
 export default function Product() {
-  const yearArray = ["2022", "2023"];
+  const yearArray = ["2022"];
+
+  // Use the Array below once new year starts
+  // const yearArray = ["2022", "2023"];
 
   const yearList = yearArray.map((week, i) => {
     return <YearComponent key={"year" + yearArray[i]} year={yearArray[i] + (parseFloat(yearArray[i]) + 1)} />;

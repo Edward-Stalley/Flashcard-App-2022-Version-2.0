@@ -246,7 +246,7 @@ function Class() {
       {!isLoading && cards.length !== 0 && (
         <div className=" font-roboto bg-bl-1 dark:bg-bd-1 dark:text-bd-1 font-bold text-5xl justify-center  mobile:flex-col  flex relative items-center mobile:text-4xl   ">
           <div className="  mb-10 p-3 rounded-xl dark:bg-bl-1 dark:text-bd-1  bg-bd-1 text-bl-1 flex justify-center items-center">
-            {matchingGameActive ? "Matching Game" : "Regular Deck"}
+            {matchingGameActive ? "Matching Deck" : "Regular Deck"}
           </div>
         </div>
       )}

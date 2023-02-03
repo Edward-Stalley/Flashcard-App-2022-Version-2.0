@@ -36,11 +36,36 @@ export default function About() {
               授業で重要視される単語を、バスや電車でのちょっとした時間に
               バスや電車、自宅でのちょっとした時間に、授業で重要視される単語を手軽に確認できます。`}
           </p>
-          <div className="mb-20 flex justify-center">
+
+          <div className="mb-10  flex justify-center">
             <h1 className="text-5xl  font-bold dark:text-bl-1 text-bd-1">
               {" "}
               {isEnglish ? "This App has Two Modes" : "このアプリは二つのモードがある"}
             </h1>
+          </div>
+          <div className=" mb-10 flex justify-center">
+            {isEnglish ? (
+              <h3>
+                If a class or week is <span className="rounded-full bg-red-400 p-2">red</span> it is <u>not</u> ready
+                yet.
+              </h3>
+            ) : (
+              <h3>
+                クラスや週が <span className="rounded-full bg-red-400 p-2">赤色</span>{" "}
+                の場合は、まだ準備ができていません。
+              </h3>
+            )}
+          </div>
+          <div className=" mb-10 flex justify-center">
+            {isEnglish ? (
+              <h3>
+                If a class or week <span className="rounded-full bg-but-d p-2">orange</span> it <u>is</u> ready.
+              </h3>
+            ) : (
+              <h3>
+                クラスや週が <span className="rounded-full bg-but-d p-2">オレンジ色</span> 語彙が追加されています。
+              </h3>
+            )}
           </div>
 
           {/* <div className="bg-bd-1 dark:bg-bl-1 text-bl-1  rounded dark:text-bd-1 w-fit p-2 mb-20 flex justify-center text-3sm font-semibold">

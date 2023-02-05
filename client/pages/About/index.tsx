@@ -43,7 +43,8 @@ export default function About() {
               {isEnglish ? "This App has Two Modes" : "このアプリは二つのモードがある"}
             </h1>
           </div>
-          <div className=" mb-10 flex  mobile:justify-start justify-center">
+          {/* Class Color Explanation */}
+          {/* <div className=" mb-10 flex  mobile:justify-start justify-center">
             {isEnglish ? (
               <h3>
                 If a class or week is <span className="rounded-full bg-red-400 p-2">red</span> it is NOT ready yet.
@@ -65,7 +66,7 @@ export default function About() {
                 クラスや週が <span className="rounded-full bg-but-d p-2">オレンジ色</span> 語彙が追加されています。
               </h3>
             )}
-          </div>
+          </div> */}
 
           {/* <div className="bg-bd-1 dark:bg-bl-1 text-bl-1  rounded dark:text-bd-1 w-fit p-2 mb-20 flex justify-center text-3sm font-semibold">
           </div> */}
@@ -104,12 +105,40 @@ export default function About() {
               <div className="flex flex-col justify-end">
                 <p className="pb-4">
                   {isEnglish
-                    ? `This deck splits all the cards in 2. Then, you have to match the English words 
-                to the Japanese words with the same meaning. When you click on a card it will turn blue. 
-                When you click on a 2nd card it will turn blue if 
-                they match OR if they do not match the color will reset and you will need to try again! If you match a card incorrectly all cards reset and you need to match them all again from the start.`
-                    : `このデッキは、すべてのカードを2つに分割し、同じ意味の英単語と日本語をマッチさせるものです。カードをクリックすると、青くなります。2枚目のカードをクリックすると青色に変わり、一致しない場合は色がリセットされ、再挑戦する必要があります。間違ってマッチした場合、すべてのカードがリセットされ、最初からマッチさせる必要があります。`}
+                    ? `This deck splits all the cards into English and Japanese. Then, you have to match the English words 
+                to the Japanese words with the same meaning. If they do not match the color will reset and you will need to try again!`
+                    : `このデッキは、すべてのカードを英語と日本語に分割します。そして、同じ意味の英単語と日本語をマッチさせます。一致しない場合は、色がリセットされ、再挑戦する必要があります。`}
                 </p>
+                <div className=" mb-20 mobile:justify-start flex justify-center">
+                  <div className="flex flex-col gap-3">
+                    <div>
+                      {isEnglish ? (
+                        <h3>
+                          A selected card will turn{" "}
+                          <span className="rounded-full dark:text-bd-1 bg-mc-b p-1"> blue</span>.
+                        </h3>
+                      ) : (
+                        <h3>
+                          選択したカードは <span className="rounded-full dark:text-bd-1 bg-mc-b p-1">青</span>
+                          .くなります。
+                        </h3>
+                      )}
+                    </div>
+                    <div>
+                      {isEnglish ? (
+                        <h3>
+                          If both cards match they will turn{" "}
+                          <span className="rounded-full dark:text-bd-1  bg-mc-g p-1">green</span>.
+                        </h3>
+                      ) : (
+                        <h3>
+                          ２枚とも一致すると緑色 <span className="rounded-full bg-mc-g p-2">緑色</span>になります。
+                        </h3>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
                 <div className="mobile:justify-start   flex">
                   <div className=" dark:text-bd-1 dark:bg-bl-1 bg-bd-1 text-bl-1 rounded w-fit mb-4 p-2 flex text-3sm font-semibold">
                     {isEnglish ? "What is it good for?" : "理想な使い方"}

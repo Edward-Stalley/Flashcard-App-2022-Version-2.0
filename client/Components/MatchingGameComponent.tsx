@@ -163,6 +163,8 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
         card={undefined}
         id={undefined}
         color={false}
+        active={false}
+        selectedColor={false}
       ></MatchingCards>
     );
   });

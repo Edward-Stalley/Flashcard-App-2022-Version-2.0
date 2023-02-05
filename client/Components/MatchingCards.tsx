@@ -118,26 +118,18 @@ export default function MatchingCards(props: {
   return (
     <div key={props.id}>
       {/* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */}
-      {/* need to make a click register for either div - not doubling the key-match  */}
       <div className=" relative flex justify-center items-center">
         <div
           onClick={handleClick}
           data-key-match={props.matchId}
           data-matched={props.matched}
-          className={`
-          ${
-            props.color
-              ? "dark:bg-mc-g dark:text-bd-1 pointer-events-none bg-mc-g text-bd-1 "
-              : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1 "
-          }
-          ${
-            props.selectedColor
-              ? "  bg-mc-b dark:bg-mc-b dark:text-bd-1 text-bd-1"
-              : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1"
-          }
+          className={` bg-bl-1 dark:bg-zinc-700  dark:text-bl-1 text-bd-1 
 
-          card  button-74 h-16 w-64     
-          rounded-xl  flex justify-center items-center text-bd-1  `}
+          ${props.color && "dark:bg-mc-g dark:text-bd-1 pointer-events-none bg-mc-g text-bd-1 "}
+          ${props.selectedColor && " bg-mc-b dark:bg-mc-b dark:text-bd-1 text-bd-1"}
+
+         card  button-74 h-16 w-64     
+          rounded-xl  flex justify-center items-center   `}
         >
           <div onClick={handleClick} className="front " data-key-match={props.matchId} data-matched={props.matched}>
             {props.word}
@@ -166,6 +158,3 @@ export default function MatchingCards(props: {
 
 // size could be a problem on mobile so may need to rethink the matching component
 // perhaps 4 options appear with 1 always being correct and the other 3 incorrect
-
-// blue color for selected card
-// " bg-mc-g  dark:bg-mc-gx "

@@ -109,25 +109,25 @@ export default function About() {
                 to the Japanese words with the same meaning. If they do not match the color will reset and you will need to try again!`
                     : `このデッキは、すべてのカードを英語と日本語に分割します。そして、同じ意味の英単語と日本語をマッチさせます。一致しない場合は、色がリセットされ、再挑戦する必要があります。`}
                 </p>
-                <div className=" mb-20 mobile:justify-start flex justify-center">
-                  <div className="flex flex-col gap-3">
+                <div className=" mb-20 mobile:justify-start flex ">
+                  <div className="  flex flex-col gap-3 ">
                     <div>
                       {isEnglish ? (
                         <h3>
-                          A selected card will turn{" "}
-                          <span className="rounded-full dark:text-bd-1 bg-mc-b p-1"> blue</span>.
+                          ・ A selected card will turn{" "}
+                          <span className=" rounded-full dark:text-bd-1 bg-mc-b p-1"> blue</span>.
                         </h3>
                       ) : (
                         <h3>
                           選択したカードは <span className="rounded-full dark:text-bd-1 bg-mc-b p-1">青</span>
-                          .くなります。
+                          くなります。
                         </h3>
                       )}
                     </div>
                     <div>
                       {isEnglish ? (
                         <h3>
-                          If both cards match they will turn{" "}
+                          ・If both cards match they will turn{" "}
                           <span className="rounded-full dark:text-bd-1  bg-mc-g p-1">green</span>.
                         </h3>
                       ) : (

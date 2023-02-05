@@ -124,6 +124,7 @@ export default function ClassFlashcards() {
           }}
           card={undefined}
           id={undefined}
+          selectedColor={false}
         />
         <MatchingCards
           word={japanese}
@@ -135,6 +136,7 @@ export default function ClassFlashcards() {
           }}
           card={undefined}
           id={undefined}
+          selectedColor={false}
         />
       </div>
     );
@@ -232,6 +234,7 @@ export default function ClassFlashcards() {
         card={card}
         id={id}
         color={false}
+        selectedColor={false}
       ></MatchingCards>
     );
   });

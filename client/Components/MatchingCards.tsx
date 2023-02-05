@@ -10,7 +10,6 @@ import React from "react";
 export default function MatchingCards(props: {
   handleChoice: (arg0: any) => void;
   card: any;
-  active: boolean;
   id: React.Key | null | undefined | string | number;
   matchId: any;
   matched: boolean;

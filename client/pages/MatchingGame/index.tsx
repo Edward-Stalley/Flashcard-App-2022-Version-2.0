@@ -208,7 +208,6 @@ export default function MatchingGame(props: { deck: any }) {
 
   const finalMatchingCards = cards.map((card) => (
     <MatchingCards
-      active={true}
       key={card.word + card.match}
       matchId={card.matchId}
       word={card.word}

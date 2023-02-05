@@ -142,7 +142,6 @@ function Class() {
               }}
               card={undefined}
               id={undefined}
-              active={false}
               selectedColor={false}
             />
             <MatchingCards
@@ -155,7 +154,6 @@ function Class() {
               }}
               card={undefined}
               id={undefined}
-              active={false}
               selectedColor={false}
             />
           </div>

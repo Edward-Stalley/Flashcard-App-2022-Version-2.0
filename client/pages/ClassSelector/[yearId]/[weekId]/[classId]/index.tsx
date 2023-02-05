@@ -137,24 +137,26 @@ function Class() {
               matchId={id}
               matched={matched}
               color={false}
-              holdColor={false}
               handleChoice={function (arg0: any): void {
                 throw new Error("Function not implemented.");
               }}
               card={undefined}
               id={undefined}
+              active={false}
+              selectedColor={false}
             />
             <MatchingCards
               word={japanese}
               matchId={id}
               matched={matched}
               color={false}
-              holdColor={false}
               handleChoice={function (arg0: any): void {
                 throw new Error("Function not implemented.");
               }}
               card={undefined}
               id={undefined}
+              active={false}
+              selectedColor={false}
             />
           </div>
         );

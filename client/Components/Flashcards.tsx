@@ -101,10 +101,10 @@ export default function Flashcards(props: any) {
       onClick={handleToggle}
     >
       <div className={`${flip && "flip"} the-card  bg-transparent  `}>
-        <div className="card-front flex justify-center rounded-xl  dark:bg-zinc-700  bg-bl-2 text-bd-1 dark:text-bl-1  items-center">
+        <div className="card-front flex justify-center rounded-xl  dark:bg-zinc-700  bg-orange-50 text-bd-1 dark:text-bl-1  items-center">
           {props.english}
         </div>
-        <div className="card-back flex justify-center items-center rounded-xl  dark:bg-zinc-700   bg-bl-2 text-bd-1 dark:text-bl-1 ">
+        <div className="card-back flex justify-center items-center rounded-xl  dark:bg-zinc-700   bg-orange-50 t text-bd-1 dark:text-bl-1 ">
           {props.japanese}
         </div>
       </div>

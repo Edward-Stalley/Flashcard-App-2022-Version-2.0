@@ -214,8 +214,8 @@ export default function MatchingGame(props: { deck: any }) {
       card={card}
       matched={false}
       handleChoice={handleChoice}
-      color={card.color === true}
-      selectedColor={card.selectedColor === true}
+      color={card.color}
+      selectedColor={card.selectedColor}
       id={undefined}
     />
   ));

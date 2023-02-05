@@ -118,18 +118,26 @@ export default function MatchingCards(props: {
   return (
     <div key={props.id}>
       {/* {dialog.isLoading && <DialogBox onDialog={areYouSureDelete} />} */}
-      <div className=" relative flex justify-center items-center">
+      <div className=" relative flex justify-center items-center ">
         <div
           onClick={handleClick}
           data-key-match={props.matchId}
           data-matched={props.matched}
-          className={` bg-bl-1 dark:bg-zinc-700  dark:text-bl-1 text-bd-1 
+          className={`  
+          card  button-74 h-16 w-64 rounded-xl  flex justify-center items-center 
+          ${
+            props.selectedColor
+              ? "bg-sky-300 dark:bg-sky-300 dark:text-bd-1 text-bd-1"
+              : "bg-orange-50 dark:bg-zinc-700  dark:text-bl-1 text-bd-1 "
+          }
+          ${
+            props.color
+              ? "bg-emerald-300 dark:bg-emerald-300 pointer-events-none text-bd-1 dark:text-bd-1"
+              : "bg-orange-50 dark:bg-zinc-700  dark:text-bl-1 text-bd-1"
+          }
 
-          ${props.color && "dark:bg-mc-g dark:text-bd-1 pointer-events-none bg-mc-g text-bd-1 "}
-          ${props.selectedColor && " bg-mc-b dark:bg-mc-b dark:text-bd-1 text-bd-1"}
-
-         card  button-74 h-16 w-64     
-          rounded-xl  flex justify-center items-center   `}
+      
+          `}
         >
           <div onClick={handleClick} className="front " data-key-match={props.matchId} data-matched={props.matched}>
             {props.word}
@@ -139,6 +147,8 @@ export default function MatchingCards(props: {
     </div>
   );
 }
+
+// dark:bg-zinc-700  dark:text-bl-1 text-bd-1
 
 // GENERAL IDEA and FUNCTIONALITY
 
@@ -158,3 +168,14 @@ export default function MatchingCards(props: {
 
 // size could be a problem on mobile so may need to rethink the matching component
 // perhaps 4 options appear with 1 always being correct and the other 3 incorrect
+
+// ${
+//   props.color
+//     ? "dark:bg-mc-g dark:text-bd-1 pointer-events-none bg-mc-g text-bd-1"
+//     : " dark:bg-zinc-700  dark:text-bl-1 text-bd-1 bg-bl-2  "
+// }
+// ${
+//   props.selectedColor
+//     ? " bg-mc-b dark:bg-mc-b dark:text-bd-1 text-bd-1"
+//     : "dark:bg-zinc-700  dark:text-bl-1   text-bd-1"
+// }

@@ -127,10 +127,14 @@ export default function MatchingCards(props: {
           className={`
           ${
             props.color
-              ? " dark:bg-mc-g pointer-events-none  bg-mc-g dark:text-bd-1"
+              ? "dark:bg-mc-g dark:text-bd-1 pointer-events-none bg-mc-g text-bd-1 "
+              : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1 "
+          }
+          ${
+            props.selectedColor
+              ? "  bg-mc-b dark:bg-mc-b dark:text-bd-1 text-bd-1"
               : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1"
           }
-          ${props.selectedColor ? "  bg-mc-b dark:bg-mc-b dark:text-bd-1" : "dark:bg-zinc-700  bg-bl-2  dark:text-bl-1"}
 
           card  button-74 h-16 w-64     
           rounded-xl  flex justify-center items-center text-bd-1  `}

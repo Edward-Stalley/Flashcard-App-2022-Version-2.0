@@ -14,18 +14,18 @@ function ProductDetail() {
 
   // first array needs to go to 8 (started near the end of the year)
   // second array will go to 48 (regular year length_)
-  const array = yearId === "20222023" ? Array(2).fill("") : Array(0).fill("");
+  const array = yearId === "20222023" ? Array(1).fill("") : Array(0).fill("");
 
   const weekList = array.map((week, i) => {
     const weekNumber = i + 41;
     return (
       <WeekComponent
         // change "ready" when the vocab has been added for the week. If no vocab week should be red. If there is vocab it will be orange  and ready to use.
-        ready={yearId === "20222023" && weekNumber <= 41 && true}
+        ready={yearId === "20222023" && weekNumber <= 42 && true}
         key={"week" + { yearId } + (i + 1)}
         year={yearId}
         // started the site towards the end of the school year so only including the last 8 weeks for this school year
-        week={yearId === "20222023" ? i + 41 : i + 1}
+        week={yearId === "20222023" ? i + 42 : i + 1}
       />
     );
   });

@@ -137,6 +137,7 @@ function Class() {
               matchId={id}
               matched={matched}
               color={false}
+              holdColor={false}
               handleChoice={function (arg0: any): void {
                 throw new Error("Function not implemented.");
               }}
@@ -148,6 +149,7 @@ function Class() {
               matchId={id}
               matched={matched}
               color={false}
+              holdColor={false}
               handleChoice={function (arg0: any): void {
                 throw new Error("Function not implemented.");
               }}
@@ -192,19 +194,15 @@ function Class() {
   };
 
   useEffect(() => {
-    // console.log(choiceOne, choiceTwo, turns);
     if (choiceOne && choiceTwo) {
       if (choiceOne === choiceTwo) {
         console.log("match");
         resetTurns();
       } else {
         console.log("no match / reset cards");
-        // setFirstSelected(false);
-        // setSecondSelected(false);
 
         resetTurns();
       }
-      // console.log(choiceOne, choiceTwo);
     }
   }, [choiceOne, choiceTwo]);
 
@@ -242,7 +240,6 @@ function Class() {
       )}
 
       {/* Current Selected Mode */}
-
       {!isLoading && cards.length !== 0 && (
         <div className=" font-roboto bg-bl-1 dark:bg-bd-1 dark:text-bd-1 font-bold text-5xl justify-center  mobile:flex-col  flex relative items-center mobile:text-4xl   ">
           <div className="  mb-10 p-3 rounded-xl dark:bg-bl-1 dark:text-bd-1  bg-bd-1 text-bl-1 flex justify-center items-center">

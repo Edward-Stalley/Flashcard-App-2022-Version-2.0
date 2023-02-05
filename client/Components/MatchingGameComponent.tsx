@@ -39,6 +39,8 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
             }}
             card={undefined}
             id={undefined}
+            active={false}
+            selectedColor={false}
           />
           <MatchingCards
             word={japanese}
@@ -50,6 +52,8 @@ export default function MatchingGameNew(props: { flashcards: any[] }) {
             }}
             card={undefined}
             id={undefined}
+            active={false}
+            selectedColor={false}
           />
         </div>
       );

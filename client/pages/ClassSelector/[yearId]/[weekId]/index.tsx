@@ -17,8 +17,10 @@ function ProductDetail() {
   const yearId = router.query.yearId;
   const weekId = router.query.weekId;
 
-  const classArray = ["Listening Kiso", "Listening Shokyu", "Business 上級"];
-  const currentWeek = "41";
+  // Add other classes to this array
+
+  const classArray = ["Listening Kiso", "Listening Shokyu","Talk Kiso","Talk Shokyu"];
+  const currentWeek = "42";
   const classList = classArray.map((week, i) => {
     return (
       <ClassComponent
@@ -26,11 +28,11 @@ function ProductDetail() {
         // commented out  means class is not ready (red)
 
         ready={
-          (weekId === currentWeek && classArray[i] === "Listening Kiso")
+          (weekId === currentWeek || 41 && classArray[i] === "Listening Kiso")
           
-          // || (weekId === currentWeek && classArray[i] === "Listening Shokyu")
+          || (weekId === currentWeek && classArray[i] === "Listening Shokyu")
            
-          // || (weekId === currentWeek && classArray[i] === "Business 上級")
+          // || (weekId === currentWeek  && classArray[i] === "Business 上級")
 
           
             ? true

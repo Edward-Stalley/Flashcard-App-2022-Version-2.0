@@ -1,11 +1,7 @@
-import Head from "next/head";
 import MatchingCards from "../../Components/MatchingCards";
 import { ReactNode, SetStateAction, use, useEffect, useState } from "react";
 import Button from "../../Components/Button";
-import Header from "../../Components/Header";
-import HomeButton from "../../Components/HomeButton";
-import ToggleButton from "../../Components/ToggleButton";
-import MatchingGameButton from "../../Components/MatchingGameButton";
+
 import AlertBox from "../../Components/AlertBox";
 import WellDone from "../../Components/WellDone";
 
@@ -28,7 +24,7 @@ export default function MatchingGame(props: { deck: any }) {
   const [wellDone, setWellDone] = useState(false);
 
   const [time, setTime] = useState(0);
-  const [startTimer, setStartTimer] = useState(false);
+  // const [startTimer, setStartTimer] = useState(false);
 
   const shuffleCards = () => {
     const shuffledCards = deck
@@ -39,6 +35,22 @@ export default function MatchingGame(props: { deck: any }) {
 
     // setTurns(0);
     setCards(shuffledCards);
+    setTurns(0);
+  };
+
+  // TO DO
+  // put the japanese cards on the left for desktop matching game
+  // Will make the selection process a little easier
+  const SortByLanguage = () => {
+    const sortedByLanguage = deck
+      .sort(() => Math.random() - 0.5)
+      .map((card: any) => ({
+        ...card,
+      }));
+
+    // setTurns(0);
+    setCards(sortedByLanguage);
+    setTurns(0);
   };
 
   const startGame = () => {
@@ -49,22 +61,19 @@ export default function MatchingGame(props: { deck: any }) {
     setWellDone(false);
   };
 
+  // This is the click function for the matching cards
   const handleChoice = (card: any) => {
-    // console.log(card.matchId, card);
-
     if (choiceOne && wordOne != wordTwo) {
       setChoiceTwo(card.matchId);
       setTurns(0);
       setWordTwo(card.word);
       console.log("2nd card selected");
     }
-    if (choiceOne === choiceTwo) {
-    }
+
     if (!choiceOne) {
       setChoiceOne(card.matchId);
       setTurns((prevTurn) => prevTurn + 1);
       setWordOne(card.word);
-
       console.log("1st card selected");
     }
   };
@@ -81,9 +90,33 @@ export default function MatchingGame(props: { deck: any }) {
   useEffect(() => {
     if (choiceOne) {
       setCards((prevCards) => {
+        return prevCards.map((c: { word: string; matchId: number }) => {
+          if (c.matchId === choiceOne && c.word === wordOne) {
+            return { ...c, selectedColor: true };
+          } else {
+            return c;
+          }
+        });
+      });
+    }
+
+    if (choiceOne && wordOne != wordTwo) {
+      setCards((prevCards) => {
+        return prevCards.map((c: { word: string; matchId: number }) => {
+          if (c.matchId === choiceOne && c.word === wordTwo) {
+            return { ...c, selectedColor: true };
+          } else {
+            return c;
+          }
+        });
+      });
+    }
+
+    if (choiceOne) {
+      setCards((prevCards) => {
         return prevCards.map((c: { word: string }) => {
           if (c.word === wordOne) {
-            return { ...c, color: true };
+            return { ...c, color: false };
           } else {
             return c;
           }
@@ -94,7 +127,7 @@ export default function MatchingGame(props: { deck: any }) {
         setCards((prevCards) => {
           return prevCards.map((c: { word: string }) => {
             if (c.word === wordTwo) {
-              return { ...c, color: false };
+              return { ...c, color: false, selectedColor: false };
             } else {
               return c;
             }
@@ -107,8 +140,9 @@ export default function MatchingGame(props: { deck: any }) {
           console.log("match");
           setCards((prevCards) => {
             return prevCards.map((c: { matchId: number }) => {
-              if (c.matchId === choiceOne) {
-                return { ...c, matched: true, color: true };
+              if (c.matchId === choiceOne && c.matchId === choiceTwo) {
+                // change card color on correct
+                return { ...c, matched: true, color: true, selectedColor: false };
               } else {
                 return c;
               }
@@ -122,7 +156,7 @@ export default function MatchingGame(props: { deck: any }) {
               if (c.matchId === choiceOne) {
                 console.log("same card");
                 resetTurn();
-                return { ...c, matched: false, color: false };
+                return { ...c, matched: false, color: false, selectedColor: false };
               } else {
                 return c;
               }
@@ -132,7 +166,7 @@ export default function MatchingGame(props: { deck: any }) {
           setCards((prevCards) => {
             return prevCards.map((c: { matchId: number }) => {
               if (c.matchId !== choiceOne) {
-                return { ...c, matched: false, color: false };
+                return { ...c, matched: false, selectedColor: false };
               } else {
                 return c;
               }
@@ -141,7 +175,7 @@ export default function MatchingGame(props: { deck: any }) {
           setCards((prevCards) => {
             return prevCards.map((c: { matchId: number; color: boolean }) => {
               if (c.matchId !== choiceTwo) {
-                return { ...c, matched: false, color: false };
+                return { ...c, matched: false, selectedColor: false };
               } else {
                 return c;
               }
@@ -174,6 +208,7 @@ export default function MatchingGame(props: { deck: any }) {
 
   const finalMatchingCards = cards.map((card) => (
     <MatchingCards
+      active={true}
       key={card.word + card.match}
       matchId={card.matchId}
       word={card.word}
@@ -181,6 +216,7 @@ export default function MatchingGame(props: { deck: any }) {
       matched={false}
       handleChoice={handleChoice}
       color={card.color === true}
+      selectedColor={card.selectedColor === true}
       id={undefined}
     />
   ));

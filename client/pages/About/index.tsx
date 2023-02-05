@@ -132,7 +132,8 @@ export default function About() {
                         </h3>
                       ) : (
                         <h3>
-                          ２枚とも一致すると緑色 <span className="rounded-full bg-mc-g p-2">緑色</span>になります。
+                          ２枚とも一致すると緑色 <span className=" dark:text-bd-1  rounded-full bg-mc-g p-2">緑色</span>
+                          になります。
                         </h3>
                       )}
                     </div>

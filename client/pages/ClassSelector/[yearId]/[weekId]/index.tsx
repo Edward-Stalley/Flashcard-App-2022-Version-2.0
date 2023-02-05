@@ -19,7 +19,7 @@ function ProductDetail() {
 
   // Add other classes to this array
 
-  const classArray = ["Listening Kiso", "Listening Shokyu","Talk Kiso","Talk Shokyu"];
+  const classArray = ["Listening Kiso", "Talk Kiso", "Listening Shokyu","Talk Shokyu"];
   const currentWeek = "42";
   const classList = classArray.map((week, i) => {
     return (
